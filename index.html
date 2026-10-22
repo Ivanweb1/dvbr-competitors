@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Конкуренты Восточного Брокера</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#fff; --ink:#14171c; --muted:#5d6672; --line:#e3e6ea;
+  --accent:#1f3a5f; --accent-soft:#e8eef6;
+  --yes:#1d7a46; --yes-bg:#e5f4ea; --no:#b3261e; --no-bg:#fbe9e7; --q:#8a6100; --q-bg:#fdf3dc;
+  --us:#fff8e6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1216; --surface:#171b21; --ink:#e8ebef; --muted:#9aa3ae; --line:#2a3039;
+    --accent:#8fb4e6; --accent-soft:#1c2a3d;
+    --yes:#6fd29a; --yes-bg:#173525; --no:#f19a92; --no-bg:#3a1c1a; --q:#f0c46a; --q-bg:#3a2f15;
+    --us:#2a2614; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1216; --surface:#171b21; --ink:#e8ebef; --muted:#9aa3ae; --line:#2a3039;
+  --accent:#8fb4e6; --accent-soft:#1c2a3d;
+  --yes:#6fd29a; --yes-bg:#173525; --no:#f19a92; --no-bg:#3a1c1a; --q:#f0c46a; --q-bg:#3a2f15;
+  --us:#2a2614; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+h1,h2{text-wrap:balance}
+h1{font-size:clamp(26px,4vw,38px);line-height:1.15;margin:8px 0 12px;letter-spacing:-.02em}
+h2{font-size:22px;margin:56px 0 8px;letter-spacing:-.01em}
+h3{font-size:16px;margin:0 0 6px}
+.lead{color:var(--muted);max-width:760px;margin:0}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 12px;font-size:13px;color:var(--muted)}
+.chip{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.y{color:var(--yes);background:var(--yes-bg)} .n{color:var(--no);background:var(--no-bg)} .q{color:var(--q);background:var(--q-bg)}
+.tablebox{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{position:sticky;top:0;background:var(--surface);font-size:13px;color:var(--muted);font-weight:600}
+thead th b{display:block;color:var(--ink);font-size:15px}
+tbody th{font-weight:600;width:190px;color:var(--ink);background:var(--surface);position:sticky;left:0;z-index:1}
+tr.group td{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px}
+td.us,th.us{background:var(--us)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+td small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card p,.card li{color:var(--muted);font-size:14px;margin:0}
+.card ul{margin:6px 0 0;padding-left:18px}
+.card li+li{margin-top:4px}
+.card .tag{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.big{border-left:4px solid var(--accent)}
+.pos{background:var(--accent);color:#fff;border-radius:16px;padding:24px;margin-top:16px}
+:root[data-theme="dark"] .pos{color:#0f1216}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pos{color:#0f1216}}
+.pos h3{font-size:20px;margin-bottom:10px}
+.pos ul{margin:0;padding-left:18px}
+.pos li+li{margin-top:6px}
+ol.steps{padding-left:20px;margin:12px 0 0}
+ol.steps li{margin-bottom:8px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:16px}
+@media (max-width:640px){
+  table{min-width:760px;font-size:13px}
+  th,td{padding:10px}
+  tbody th{width:112px;min-width:112px}
+}
+footer{margin-top:56px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Восточный Брокер · dvbr.ru · 22.10.2026</div>
+  <h1>Конкуренты и как выделиться</h1>
+  <p class="lead">Сравнение с сильнейшими брокерами по растаможке авто из Китая в Приморье. Что есть у нас, чего не хватает и за счёт чего компанию можно отстроить на новом сайте.</p>
+  <p class="note">Данные о конкурентах — с их сайтов и карточек на Яндекс Услугах и в 2ГИС: это их собственные заявления, не проверенные. По Восточному Брокеру — текущий сайт и бриф; <span class="chip q">?</span> — уточним на созвоне.</p>
+</header>
+
+<h2>Сравнительная таблица</h2>
+<div class="legend">
+  <span><span class="chip y">есть</span> заявлено</span>
+  <span><span class="chip n">нет</span> не заявлено / отсутствует</span>
+  <span><span class="chip q">?</span> уточним на созвоне</span>
+</div>
+<div class="tablebox">
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th class="us"><b>Восточный Брокер</b>dvbr.ru · Уссурийск</th>
+  <th><b>Дальневосточный Автотерминал</b>avterminal.ru · Уссурийск, Владивосток, Москва</th>
+  <th><b>White Broker</b>whitebrokerdv.ru · Владивосток, Уссурийск</th>
+  <th><b>VL-Broker</b>vlb-broker.ru · Владивосток</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group"><td colspan="5">Профиль</td></tr>
+<tr><th>Специализация</th>
+  <td class="us">Только авто из Китая: легковые, пикапы, до 3,5 т</td>
+  <td>Универсал: авто, спецтехника, контейнеры, продукты, грузоперевозки</td>
+  <td>Авто из Китая, Японии, Кореи + мото, спецтехника, грузы</td>
+  <td>Упор на Японию; Китай, мото, спецтехника, грузы</td></tr>
+<tr><th>Для кого сайт</th>
+  <td class="us">Частники <small>сейчас; новый сайт — B2B</small></td>
+  <td>Частники и бизнес, отдельный тариф для бизнеса</td>
+  <td>Импортёры и дилеры, отдельно частники</td>
+  <td>«Брокер для бизнеса»</td></tr>
+<tr><th>Реестр ФТС / в отрасли</th>
+  <td class="us">№ 2080 · с 2006 <small>на «О компании» — «10 лет», уточнить</small></td>
+  <td>№ 2090 · с 2010</td>
+  <td><span class="chip q">не указан</span></td>
+  <td>№ 1574 · «более 10 лет»</td></tr>
+<tr><th>Объём</th>
+  <td class="us"><span class="chip q">?</span></td>
+  <td>13 000 авто в 2025 · 84 сотрудника</td>
+  <td>12 000 авто в 2025 · 1 000+ в месяц · 20+ сотрудников</td>
+  <td><span class="chip q">не указан</span></td></tr>
+
+<tr class="group"><td colspan="5">Цена и сроки</td></tr>
+<tr><th>Цена для бизнеса</th>
+  <td class="us"><b>55 000 ₽ за авто, всё включено</b> <small>на Яндекс Услугах «от 65 000 ₽» — расхождение</small></td>
+  <td>«Индивидуально» <small>частникам от 80 000 ₽, только документы от 35 000 ₽</small></td>
+  <td>от 50 000 ₽ <small>промо для новых клиентов</small></td>
+  <td>85 000 ₽ <small>+ СВХ отдельно + 5 000 ₽ вывоз в лабораторию (из поисковой выдачи)</small></td></tr>
+<tr><th>Срок оформления</th>
+  <td class="us">4–6 дней</td>
+  <td>5–7 дней</td>
+  <td>3–4 рабочих дня</td>
+  <td><span class="chip q">не указан</span></td></tr>
+
+<tr class="group"><td colspan="5">Инфраструктура</td></tr>
+<tr><th>Своя СВХ</th>
+  <td class="us"><span class="chip y">есть</span></td>
+  <td><span class="chip y">есть</span> 2 комплекса, 15 000 м², 700+ авто</td>
+  <td><span class="chip n">нет</span> оплачивают чужую</td>
+  <td><span class="chip n">нет</span></td></tr>
+<tr><th>Своя лаборатория</th>
+  <td class="us"><span class="chip y">есть</span> аккредитованная</td>
+  <td><span class="chip y">есть</span></td>
+  <td><span class="chip n">нет</span> вывоз во внешнюю</td>
+  <td><span class="chip n">нет</span> вывоз во внешнюю</td></tr>
+<tr><th>ЭРА-ГЛОНАСС</th>
+  <td class="us"><span class="chip y">есть</span> свой установочный центр</td>
+  <td><span class="chip y">есть</span></td>
+  <td>при необходимости</td>
+  <td><span class="chip y">есть</span> доп. услуга</td></tr>
+<tr><th>Всё на одной площадке</th>
+  <td class="us"><span class="chip y">да</span> Новоникольское ш., 19</td>
+  <td>Офис и СВХ по разным адресам</td>
+  <td><span class="chip n">нет</span></td>
+  <td><span class="chip n">нет</span></td></tr>
+
+<tr class="group"><td colspan="5">Сервис для бизнеса</td></tr>
+<tr><th>Персональный менеджер</th>
+  <td class="us"><span class="chip q">?</span></td>
+  <td><span class="chip y">есть</span></td>
+  <td>Команда, отдельный руководитель по юрлицам</td>
+  <td><span class="chip y">есть</span> клиентский сервис</td></tr>
+<tr><th>Отсрочка / постоплата</th>
+  <td class="us"><span class="chip q">?</span></td>
+  <td>«Гибкая ценовая политика»</td>
+  <td><span class="chip y">есть</span></td>
+  <td>«Премиальные условия»</td></tr>
+<tr><th>Статус и уведомления</th>
+  <td class="us"><span class="chip q">?</span></td>
+  <td><span class="chip y">есть</span> личный кабинет, авто-уведомления, СМС</td>
+  <td><span class="chip y">есть</span> сами сообщают по этапам</td>
+  <td><span class="chip y">есть</span> личный кабинет</td></tr>
+<tr><th>Фото при приёмке</th>
+  <td class="us"><span class="chip q">?</span></td>
+  <td><span class="chip y">есть</span> фото- и видеоотчёт</td>
+  <td><span class="chip y">есть</span> фотоопись</td>
+  <td><span class="chip n">нет</span></td></tr>
+<tr><th>Доставка по РФ</th>
+  <td class="us">Только автовозы <small>по РФ — ?</small></td>
+  <td><span class="chip y">есть</span> страховка, отслеживание</td>
+  <td><span class="chip y">есть</span> автовоз до Владивостока, ТК</td>
+  <td><span class="chip y">есть</span> до ТК</td></tr>
+<tr><th>Калькулятор платежей</th>
+  <td class="us"><span class="chip n">нет</span></td>
+  <td><span class="chip y">есть</span> + Telegram-бот</td>
+  <td><span class="chip y">есть</span></td>
+  <td><span class="chip y">есть</span></td></tr>
+
+<tr class="group"><td colspan="5">Доверие на сайте</td></tr>
+<tr><th>Команда с именами</th>
+  <td class="us"><span class="chip n">нет</span></td>
+  <td><span class="chip y">есть</span> с прямыми телефонами</td>
+  <td><span class="chip y">есть</span></td>
+  <td><span class="chip y">есть</span></td></tr>
+<tr><th>Кейсы</th>
+  <td class="us"><span class="chip n">нет</span></td>
+  <td><span class="chip n">нет</span></td>
+  <td><span class="chip y">есть</span></td>
+  <td><span class="chip n">нет</span></td></tr>
+<tr><th>Отзывы</th>
+  <td class="us">2ГИС <small>названия компаний скрыть</small></td>
+  <td>Яндекс 4,8 · 2ГИС 5,0</td>
+  <td>2ГИС 4,9, отзывы владельцев импортёров</td>
+  <td><span class="chip n">на сайте нет</span></td></tr>
+<tr><th>Видео / фото площадки</th>
+  <td class="us"><span class="chip n">нет</span> <small>фото есть у клиента</small></td>
+  <td><span class="chip y">есть</span> видео об офисе</td>
+  <td><span class="chip n">нет</span></td>
+  <td>Видео на ВК, Дзен, Rutube</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Что видно по рынку</h2>
+<div class="grid">
+  <div class="card"><div class="tag">Все обещают одно</div><p>«Под ключ», «3–4 дня», «без скрытых платежей». Фраза «без доплат» сама по себе не отличает — её пишет и White Broker.</p></div>
+  <div class="card"><div class="tag">Своя площадка — не уникальна</div><p>У Дальневосточного Автотерминала тоже своя СВХ и лаборатория, и в большем масштабе. Инфраструктура — аргумент, но не главный оффер.</p></div>
+  <div class="card"><div class="tag">Цену для бизнеса прячут</div><p>У лидеров для бизнеса «индивидуально», «от» или промо. Открытой фиксированной цены за машину для юрлиц нет ни у кого.</p></div>
+  <div class="card"><div class="tag">Лидеры — универсалы</div><p>Китай, Япония, Корея, спецтехника, контейнеры, грузы. Узкого специалиста «авто из Китая для бизнеса» на рынке нет.</p></div>
+  <div class="card"><div class="tag">Сервис — уже минимум</div><p>Личный кабинет или уведомления о статусе, фото при приёмке, команда с именами, калькулятор есть у всех сильных. Без этого проигрываем даже с лучшей ценой.</p></div>
+  <div class="card"><div class="tag">Пропускная способность — боль</div><p>Уссурийская таможня: 50 000+ авто за 10 месяцев 2025, скопления автовозов у СВХ из-за нехватки площадки.</p></div>
+</div>
+
+<h2>Наше позиционирование</h2>
+<div class="pos">
+  <h3>Специалист по растаможке авто из Китая для бизнеса — с открытой ценой</h3>
+  <ul>
+    <li><b>55 000 ₽ за машину, всё включено</b> — цена на сайте, а не «индивидуально».</li>
+    <li><b>Только авто из Китая</b> и только для тех, кто возит регулярно.</li>
+    <li><b>СВХ, лаборатория и ЭРА-ГЛОНАСС на одной площадке</b> — как доказательство, почему цена и срок фиксированные.</li>
+  </ul>
+</div>
+<p class="note">Черновики главного сообщения: «55 000 ₽ за машину — для бизнеса, всё включено. Цена на сайте, а не "индивидуально"» · «Растаможка авто из Китая для дилеров: одна цена, одна площадка, 4–6 дней» · «Только авто из Китая. Только для тех, кто возит регулярно».</p>
+
+<h2>Как выделиться</h2>
+<p class="lead">Предложения разделены по тому, сколько усилий они требуют от компании. Первый блок делается на сайте; второй и третий — новые услуги, которых пока нет: решение за вами.</p>
+
+<div class="cols">
+  <div class="card big">
+    <div class="tag">1 · Только силами сайта</div>
+    <h3>Показать то, что уже есть</h3>
+    <ul>
+      <li><b>Открытая цена для бизнеса</b> и сравнение «у других / у нас»: что у конкурентов «от», «индивидуально» или отдельной строкой — и что у нас внутри 55 000 ₽.</li>
+      <li><b>Проверяемые документы</b>: номер в реестре ФТС со ссылкой, аттестат аккредитации лаборатории со ссылкой на Росаккредитацию.</li>
+      <li><b>Схема площадки</b>: СВХ, лаборатория, ЭРА-ГЛОНАСС на одном адресе + видео-обход на минуту.</li>
+      <li><b>Таймлайн «день за днём»</b>: что происходит с машиной в дни 1–6.</li>
+      <li><b>Команда с именами</b> и прямым контактом менеджера по юрлицам.</li>
+      <li><b>Отзывы из 2ГИС</b> без названий компаний.</li>
+    </ul>
+  </div>
+  <div class="card big">
+    <div class="tag">2 · Сервис, почти без затрат</div>
+    <h3>Догнать лидеров по сервису</h3>
+    <ul>
+      <li><b>Статусы в Telegram/WhatsApp</b> на каждом этапе — дешёвая замена личному кабинету.</li>
+      <li><b>Фото машины при приёмке</b> на СВХ — сразу клиенту.</li>
+      <li><b>Бесплатная проверка до покупки</b>: дилер присылает модель и документы ещё в Китае — говорим про риски утильсбора свыше 160 л.с., 30-минутной мощности, ошибки в инвойсе.</li>
+      <li><b>Калькулятор платежей</b> на сайте.</li>
+      <li><b>Бесплатные дни хранения</b> на СВХ — назвать прямо, если входят в цену.</li>
+    </ul>
+  </div>
+  <div class="card big">
+    <div class="tag">3 · Сильные ходы</div>
+    <h3>То, что сложно скопировать</h3>
+    <ul>
+      <li><b>Срок в договоре</b> с компенсацией перестоя по нашей вине. Можно позволить себе благодаря своей лаборатории.</li>
+      <li><b>Одна цена для 1 и 20 машин</b> + приоритет в лаборатории для партий.</li>
+      <li><b>Отсрочка или постоплата</b> для постоянных клиентов — есть у White Broker.</li>
+      <li><b>Доставка по РФ</b> автовозом со страховкой — закрыть всю цепочку одним брокером.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>С чего начать</h2>
+<ol class="steps">
+  <li><b>Открытая цена 55 000 ₽ для бизнеса, документы, схема площадки, таймлайн, команда</b> — делаем на новом сайте в любом случае.</li>
+  <li><b>Статусы в мессенджере и фото при приёмке</b> — дёшево, закрывает разрыв с лидерами по сервису.</li>
+  <li><b>Гарантия срока в договоре</b> — главный козырь, обсудить на созвоне.</li>
+</ol>
+
+<h2>Вопросы на созвон</h2>
+<div class="cols">
+  <div class="card"><div class="tag">Цена</div><ul>
+    <li>55 000 ₽ одинаково для 1 и 20 машин? Скидка за объём?</li>
+    <li>Готовы держать цену открыто на сайте?</li>
+    <li>Почему на Яндекс Услугах «от 65 000 ₽»?</li>
+    <li>Сколько дней хранения на СВХ входит в цену?</li>
+  </ul></div>
+  <div class="card"><div class="tag">Площадка и сроки</div><ul>
+    <li>Реальный средний срок от СВХ до ЭПТС.</li>
+    <li>Вместимость СВХ, сколько машин в день проходит лаборатория.</li>
+    <li>Бывают ли очереди в пиковый сезон?</li>
+    <li>ООО «Транспортно-лабораторный комплекс» — это ваша компания?</li>
+  </ul></div>
+  <div class="card"><div class="tag">Сервис</div><ul>
+    <li>Персональный менеджер для юрлиц?</li>
+    <li>Сообщаете ли статус по этапам, фото при приёмке?</li>
+    <li>Отсрочка, постоплата, договор, НДС, ЭДО?</li>
+    <li>Доставка по РФ?</li>
+  </ul></div>
+  <div class="card"><div class="tag">Цифры и доверие</div><ul>
+    <li>Сколько машин в месяц, сколько постоянных компаний?</li>
+    <li>С 2006 года или «10 лет»?</li>
+    <li>Кейсы: крупные партии, электромобили, гибриды.</li>
+    <li>Кого из команды можно показать на сайте?</li>
+  </ul></div>
+</div>
+
+<footer>
+  Источники: <a href="https://avterminal.ru/" rel="noopener">avterminal.ru</a>, <a href="https://whitebrokerdv.ru/" rel="noopener">whitebrokerdv.ru</a>, <a href="https://vlb-broker.ru/" rel="noopener">vlb-broker.ru</a>, <a href="https://dvbr.ru/" rel="noopener">dvbr.ru</a>, Яндекс Услуги и 2ГИС (Уссурийск), alta.ru (реестр СВХ), tks.ru (итоги Уссурийской таможни).
+</footer>
+
+</div>
+</body>
+</html>
