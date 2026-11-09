@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Мудборд Восточный Брокер</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;900&display=swap">
+<style>
+  /* Доска в духе Figma: серая секция, по ряду кадров на стиль, под рядом — шрифт, палитра и образец заголовка */
+  :root {
+    --canvas: #f5f5f6;
+    --board: #d4d4d6;
+    --frame: #ffffff;
+    --ink: #1c1b21;
+    --muted: #55545e;
+    --line: rgba(28, 27, 33, .14);
+    --chip: #e4e4e6;
+    --font: "Jost", "Segoe UI", Arial, sans-serif;
+    --row-h: clamp(130px, 13vw, 200px);
+    /* Фирменные цвета от дизайнера логотипа */
+    --b-black: #000000;
+    --b-violet: #6b62d5;
+    --b-crimson: #ff4f5f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --canvas: #1a1a1d; --board: #2b2b30; --frame: #3a3a40; --ink: #ececef; --muted: #a6a5af; --line: rgba(236,236,239,.16); --chip: #34343a; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --canvas: #1a1a1d; --board: #2b2b30; --frame: #3a3a40; --ink: #ececef; --muted: #a6a5af; --line: rgba(236,236,239,.16); --chip: #34343a; color-scheme: dark; }
+
+  body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 14px; line-height: 1.45; }
+  .wrap { padding-block: 24px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+  .head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 10px; }
+  .chip { display: inline-block; font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 6px; background: var(--chip); border: 1px solid var(--line); }
+  .logo { display: block; width: 220px; aspect-ratio: 4 / 1; overflow: hidden; background: #000; border-radius: 6px; }
+  .logo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+
+  .board { background: var(--board); padding: clamp(14px, 1.6vw, 24px); display: grid; gap: clamp(28px, 3vw, 44px); }
+
+  .row { display: grid; gap: 12px; }
+  .frames { display: flex; flex-wrap: wrap; gap: clamp(8px, 1vw, 14px); align-items: flex-start; }
+  .frames > a { display: block; height: var(--row-h); max-width: 100%; box-shadow: 0 1px 2px rgba(0,0,0,.14); background: var(--frame); }
+  .frames > a:focus-visible { outline: 3px solid var(--b-crimson); outline-offset: 2px; }
+  .frames img { display: block; height: 100%; width: auto; max-width: 100%; object-fit: cover; object-position: top; }
+
+  .sticky { min-height: var(--row-h); width: clamp(130px, 11vw, 170px); box-sizing: border-box; padding: 10px 11px; background: #f1f0fb; color: #2d2a4a; border-left: 3px solid var(--b-violet);
+    font-size: 12px; line-height: 1.35; box-shadow: 0 1px 3px rgba(0,0,0,.16); }
+  .sticky b { display: block; font-size: 12.5px; margin-bottom: 4px; color: #000; }
+  .sticky .src { display: block; margin-top: 6px; color: #d9283a; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+  .sticky .src:focus-visible { outline: 2px solid var(--b-crimson); outline-offset: 2px; }
+
+  .caption { display: grid; gap: 6px; }
+  .caption h2 { font-size: 15px; font-weight: 500; margin: 0; }
+  .caption .font { font-size: 13px; color: var(--muted); }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--line); }
+
+  .sample { display: inline-block; justify-self: start; padding: 12px 16px; font-size: 16px; line-height: 1.2; margin-top: 4px; }
+  .sample .note { display: block; font-size: 12px; margin-top: 6px; text-transform: none; letter-spacing: 0; }
+  .s1 { background: #ffffff; color: #000; font-weight: 500; }
+  .s1 b { font-weight: 700; color: var(--b-violet); }
+  .s1 .note { color: #55545e; font-weight: 400; }
+  .s2 { background: #000; color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: .01em; }
+  .s2 b { color: var(--b-crimson); font-weight: 900; }
+  .s2 .note { color: #b9b5f0; font-weight: 400; }
+
+  @media (max-width: 520px) { :root { --row-h: 120px; } .logo { width: 180px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="chip">Мудборд</span>
+    <span class="logo"><img src="img/logo.png" alt="Логотип «Восточный Брокер»"></span>
+  </div>
+  <div class="board">
+
+    <section class="row" aria-labelledby="r1">
+      <div class="frames">
+        <a href="img/a1.jpg" target="_blank" rel="noopener"><img src="img/a1.jpg" alt="Строгий B2B: первый экран с крупным фото и навигацией"></a>
+        <div class="sticky"><b>Первый экран</b>Одно крупное фото, короткий заголовок и одна кнопка. У нас — автовоз или площадка СВХ, оффер для дилеров и перекупщиков.<a class="src" href="https://dribbble.com/shots/25708252-Logistics-Company-Web-Design-Landing-Page" target="_blank" rel="noopener">AXION — Dribbble ↗</a></div>
+        <a href="img/a2.jpg" target="_blank" rel="noopener"><img src="img/a2.jpg" alt="Строгий B2B: набор экранов в одной сетке"></a>
+        <a href="img/a3.jpg" target="_blank" rel="noopener"><img src="img/a3.jpg" alt="Строгий B2B: блок цифр компании"></a>
+        <div class="sticky"><b>Цифры компании</b>Крупные цифры без украшений, подпись мелко: 500 машин в месяц, 120–140 постоянных партнёров.</div>
+        <a href="img/a4.jpg" target="_blank" rel="noopener"><img src="img/a4.jpg" alt="Строгий B2B: фото и текстовый блок"></a>
+        <a href="img/a5.jpg" target="_blank" rel="noopener"><img src="img/a5.jpg" alt="Строгий B2B: список статей"></a>
+        <a href="img/a6.jpg" target="_blank" rel="noopener"><img src="img/a6.jpg" alt="Строгий B2B: заголовок и фото"></a>
+        <a href="img/a7.jpg" target="_blank" rel="noopener"><img src="img/a7.jpg" alt="Строгий B2B: преимущества карточками"></a>
+        <div class="sticky"><b>Преимущества</b>Белые карточки с линейными иконками и много воздуха: своя СВХ и лаборатория, цена без доплат, перевозка только автовозами.<a class="src" href="https://dribbble.com/shots/26694797-Sendify-Cargo-Logistic-Landing-Page" target="_blank" rel="noopener">Sendify — Dribbble ↗</a></div>
+        <a href="img/a8.jpg" target="_blank" rel="noopener"><img src="img/a8.jpg" alt="Строгий B2B: услуги с фото"></a>
+        <a href="img/a12.jpg" target="_blank" rel="noopener"><img src="img/a12.jpg" alt="Строгий B2B: первый экран, проекты и команда"></a>
+        <div class="sticky"><b>Услуги карточками</b>Фото, название и короткие теги. Подходит для разделов «Легковые», «Пикапы», «Авто до 3,5 т».<a class="src" href="https://dribbble.com/shots/25279166-Construction-Agency" target="_blank" rel="noopener">CONS — Dribbble ↗</a></div>
+        <a href="img/a13.jpg" target="_blank" rel="noopener"><img src="img/a13.jpg" alt="Строгий B2B: первый экран с поиском и блок цифр"></a>
+        <div class="sticky"><b>Этапы и цифры</b>Этапы растаможки в одну строку: от захода на СВХ до выпуска. Главная цифра выделена тёмной карточкой.<a class="src" href="https://dribbble.com/shots/26886438-HiveLoop-Hiring-Platform-Landing-Page" target="_blank" rel="noopener">HiveLoop — Dribbble ↗</a></div>
+      </div>
+      <div class="caption">
+        <h2 id="r1">1. Более строгий — спокойный минималистичный B2B, больше воздуха</h2>
+        <span class="font">Шрифт — Jost Regular / Bold</span>
+        <div class="dots" aria-label="Фирменная палитра"><span class="dot" style="background:#FFFFFF"></span><span class="dot" style="background:#000000"></span><span class="dot" style="background:#6b62d5"></span><span class="dot" style="background:#ff4f5f"></span></div>
+        <span class="sample s1">Растаможка авто из Китая <b>за 55 000 ₽</b><span class="note">Своя СВХ и лаборатория, цена без доплат</span></span>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="r2">
+      <div class="frames">
+        <a href="img/b1.jpg" target="_blank" rel="noopener"><img src="img/b1.jpg" alt="Выразительный: главная с крупными заголовками капсом"></a>
+        <div class="sticky"><b>Заголовки капсом</b>Крупный жирный капс и плотная сетка блоков. У нас — Jost Black, как в логотипе.<a class="src" href="https://dribbble.com/shots/26446849-Movexa-Logistics-and-Cargo-Transportation-Website" target="_blank" rel="noopener">MOVEXA — Dribbble ↗</a></div>
+        <a href="img/b2.jpg" target="_blank" rel="noopener"><img src="img/b2.jpg" alt="Выразительный: баннер на цветном фоне"></a>
+        <a href="img/b3.jpg" target="_blank" rel="noopener"><img src="img/b3.jpg" alt="Выразительный: услуги карточками"></a>
+        <a href="img/b4.jpg" target="_blank" rel="noopener"><img src="img/b4.jpg" alt="Выразительный: цифры и фото в карточках"></a>
+        <div class="sticky"><b>Карточки разной высоты</b>Фото, цифры и кнопки собраны в одну композицию, а не отдельными строками.</div>
+        <a href="img/b5.jpg" target="_blank" rel="noopener"><img src="img/b5.jpg" alt="Выразительный: тёмный блок с карточками"></a>
+        <a href="img/b6.jpg" target="_blank" rel="noopener"><img src="img/b6.jpg" alt="Выразительный: первый экран с фото-коллажем"></a>
+        <div class="sticky"><b>Тёмный блок и коллаж</b>Чёрная секция с карточками разного размера и первый экран с фото-коллажем: СВХ, лаборатория, автовозы.<a class="src" href="https://dribbble.com/shots/25603740-Logistic-Company-Website" target="_blank" rel="noopener">Swift Logix — Dribbble ↗</a></div>
+        <a href="img/b7.jpg" target="_blank" rel="noopener"><img src="img/b7.jpg" alt="Выразительный: крупный гротеск капсом и фото"></a>
+        <a href="img/b8.jpg" target="_blank" rel="noopener"><img src="img/b8.jpg" alt="Выразительный: форма расчёта, видео и блок о компании"></a>
+        <div class="sticky"><b>Форма заявки</b>Короткая форма прямо в блоке: сколько машин, какие, телефон. Наше предложение, в брифе такой формы нет.<a class="src" href="https://dribbble.com/shots/21656715-UNILUS-Constructor-Landingpage-Animation" target="_blank" rel="noopener">UNILUS — Dribbble ↗</a></div>
+        <a href="img/b9.jpg" target="_blank" rel="noopener"><img src="img/b9.jpg" alt="Выразительный светлый: двухцветный заголовок капсом и фото во всю ширину"></a>
+        <a href="img/b10.jpg" target="_blank" rel="noopener"><img src="img/b10.jpg" alt="Выразительный светлый: о компании и крупные цифры"></a>
+        <a href="img/b11.jpg" target="_blank" rel="noopener"><img src="img/b11.jpg" alt="Выразительный светлый: миссия и галерея"></a>
+        <div class="sticky"><b>Двухцветные заголовки</b>Первая строка чёрная, вторая фиолетовая или малиновая. Цифры в том же приёме: «500 машин в месяц».<a class="src" href="https://dribbble.com/shots/26641290-Iteloogs-Logistic-Corporate-Website" target="_blank" rel="noopener">Iteloogs — Dribbble ↗</a></div>
+      </div>
+      <div class="caption">
+        <h2 id="r2">2. Более современный — выразительное позиционирование блоков, карточек</h2>
+        <span class="font">Шрифт — Jost Black капсом</span>
+        <div class="dots" aria-label="Фирменная палитра"><span class="dot" style="background:#FFFFFF"></span><span class="dot" style="background:#000000"></span><span class="dot" style="background:#6b62d5"></span><span class="dot" style="background:#ff4f5f"></span></div>
+        <span class="sample s2">Растаможка авто из Китая <b>за 55 000 ₽</b><span class="note">Своя СВХ и лаборатория, цена без доплат</span></span>
+      </div>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
