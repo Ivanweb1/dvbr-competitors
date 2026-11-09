@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Шрифты Восточный Брокер</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;900&family=Unbounded:wght@500;800;900&family=Onest:wght@400;500;800;900&family=Inter+Tight:wght@400;500;800;900&family=Oswald:wght@500;700&family=Manrope:wght@400;500;800&display=swap">
+<style>
+  :root {
+    --canvas: #f5f5f6;
+    --board: #d4d4d6;
+    --ink: #1c1b21;
+    --muted: #55545e;
+    --line: rgba(28, 27, 33, .14);
+    --chip: #e4e4e6;
+    --black: #000000;
+    --violet: #6b62d5;
+    --crimson: #ff4f5f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --canvas: #1a1a1d; --board: #2b2b30; --ink: #ececef; --muted: #a6a5af; --line: rgba(236,236,239,.16); --chip: #34343a; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --canvas: #1a1a1d; --board: #2b2b30; --ink: #ececef; --muted: #a6a5af; --line: rgba(236,236,239,.16); --chip: #34343a; color-scheme: dark; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--canvas); color: var(--ink); font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; line-height: 1.45; }
+  .wrap { padding: 24px max(16px, env(safe-area-inset-right, 0px)) 56px max(16px, env(safe-area-inset-left, 0px)); max-width: 1320px; margin: 0 auto; }
+  .head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 10px; }
+  .chip { display: inline-block; font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 6px; background: var(--chip); border: 1px solid var(--line); }
+  .logo { display: block; width: 220px; aspect-ratio: 4 / 1; overflow: hidden; background: #000; border-radius: 6px; }
+  .logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .intro { color: var(--muted); max-width: 760px; margin: 0 0 16px; }
+
+  .board { background: var(--board); padding: clamp(14px, 1.6vw, 24px); display: grid; gap: clamp(20px, 2.4vw, 32px); }
+
+  .opt { display: grid; gap: 10px; }
+  .opt-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .opt-head h2 { margin: 0; font-size: 16px; font-weight: 700; }
+  .opt-head .pair { color: var(--muted); font-size: 13px; }
+  .opt-head .rec { font-size: 12px; font-weight: 700; color: #fff; background: var(--violet); padding: 2px 8px; border-radius: 4px; }
+  .why { margin: 0; color: var(--muted); font-size: 13px; max-width: 860px; }
+
+  .frames { display: grid; grid-template-columns: 1.35fr 1fr; gap: 12px; }
+  @media (max-width: 860px) { .frames { grid-template-columns: 1fr; } }
+
+  /* Тёмный первый экран — как во втором направлении мудборда */
+  .hero { background: #000; color: #fff; padding: clamp(20px, 3vw, 36px); display: grid; gap: 16px; align-content: start; min-height: 300px; }
+  .hero .kicker { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #b9b5f0; }
+  .hero h3 { margin: 0; text-transform: uppercase; line-height: 1.02; font-size: clamp(26px, 3.6vw, 46px); }
+  .hero h3 em { font-style: normal; color: var(--crimson); }
+  .hero p { margin: 0; color: #d6d6dc; font-size: 15px; line-height: 1.5; max-width: 520px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 4px; }
+  .btn.p { background: var(--crimson); color: #fff; }
+  .btn.s { border: 1px solid rgba(255,255,255,.35); color: #fff; }
+
+  /* Светлая карточка: двухцветный заголовок + цифры + абзац */
+  .light { background: #fff; color: #000; padding: clamp(20px, 3vw, 32px); display: grid; gap: 16px; align-content: start; }
+  .light h4 { margin: 0; text-transform: uppercase; line-height: 1.05; font-size: clamp(22px, 2.4vw, 30px); }
+  .light h4 span { display: block; color: var(--violet); }
+  .nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; border-top: 1px solid rgba(0,0,0,.12); padding-top: 14px; }
+  .nums b { display: block; font-size: clamp(24px, 2.6vw, 34px); line-height: 1; }
+  .nums small { display: block; color: #55545e; font-size: 12px; margin-top: 6px; line-height: 1.3; }
+  .light p { margin: 0; color: #2c2b33; font-size: 15px; line-height: 1.55; }
+
+  /* Пары шрифтов: H — заголовки, T — текст */
+  .f-jost .H { font-family: "Jost", sans-serif; font-weight: 900; }
+  .f-jost .T { font-family: "Jost", sans-serif; font-weight: 400; }
+  .f-unb .H { font-family: "Unbounded", sans-serif; font-weight: 800; letter-spacing: -.01em; }
+  .f-unb .T { font-family: "Onest", sans-serif; font-weight: 400; }
+  .f-unb .hero h3 { font-size: clamp(22px, 3vw, 38px); }
+  .f-onest .H { font-family: "Onest", sans-serif; font-weight: 900; letter-spacing: -.01em; }
+  .f-onest .T { font-family: "Onest", sans-serif; font-weight: 400; }
+  .f-inter .H { font-family: "Inter Tight", sans-serif; font-weight: 900; letter-spacing: -.02em; }
+  .f-inter .T { font-family: "Inter Tight", sans-serif; font-weight: 400; }
+  .f-osw .H { font-family: "Oswald", sans-serif; font-weight: 700; letter-spacing: .005em; }
+  .f-osw .T { font-family: "Manrope", sans-serif; font-weight: 400; }
+  .f-osw .hero h3 { font-size: clamp(32px, 4.4vw, 58px); }
+  .f-osw .light h4 { font-size: clamp(26px, 3vw, 38px); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="chip">Шрифты · направление 2</span>
+    <span class="logo"><img src="img/logo.png" alt="Логотип «Восточный Брокер»"></span>
+  </div>
+  <p class="intro">Один и тот же экран второго направления, набранный разными шрифтами. Цвета фирменные. Логотип остаётся как есть, шрифт сайта может от него отличаться. Все шрифты бесплатные, с Google Fonts, с полной кириллицей.</p>
+
+  <div class="board">
+
+    <section class="opt f-unb">
+      <div class="opt-head"><h2>1. Unbounded + Onest</h2><span class="pair">заголовки Unbounded ExtraBold, текст Onest</span><span class="rec">Рекомендую</span></div>
+      <p class="why">Широкий геометричный гротеск: заголовки выглядят массивно и уверенно, как сам логотип. Делали под кириллицу, буквы Ж, Ы, Й не разваливаются. Onest в тексте — спокойный и хорошо читается.</p>
+      <div class="frames">
+        <div class="hero"><span class="kicker T">Таможенный брокер · Уссурийск</span><h3 class="H">Растаможим авто из Китая <em>за 55 000 ₽</em></h3><p class="T">От китайской границы до готового ЭПТС. Свой СВХ и лаборатория, проходные авто — за 3–5 рабочих дней.</p><div class="btns T"><span class="btn p">Обсудить поставку</span><span class="btn s">Рассчитать платежи</span></div></div>
+        <div class="light"><h4 class="H">Своя площадка <span>в Уссурийске</span></h4><div class="nums"><div><b class="H">500+</b><small class="T">авто в месяц</small></div><div><b class="H">100+</b><small class="T">постоянных партнёров</small></div><div><b class="H">3–5</b><small class="T">рабочих дней</small></div></div><p class="T">Брокер, склад временного хранения и испытательная лаборатория работают на одной площадке — Новоникольское шоссе, 19.</p></div>
+      </div>
+    </section>
+
+    <section class="opt f-inter">
+      <div class="opt-head"><h2>2. Inter Tight</h2><span class="pair">заголовки Black, текст Regular</span></div>
+      <p class="why">Плотный современный гротеск, как в логистических референсах мудборда (Movexa, Iteloogs). Строже и «дороже» первого варианта, крупные заголовки занимают меньше места.</p>
+      <div class="frames">
+        <div class="hero"><span class="kicker T">Таможенный брокер · Уссурийск</span><h3 class="H">Растаможим авто из Китая <em>за 55 000 ₽</em></h3><p class="T">От китайской границы до готового ЭПТС. Свой СВХ и лаборатория, проходные авто — за 3–5 рабочих дней.</p><div class="btns T"><span class="btn p">Обсудить поставку</span><span class="btn s">Рассчитать платежи</span></div></div>
+        <div class="light"><h4 class="H">Своя площадка <span>в Уссурийске</span></h4><div class="nums"><div><b class="H">500+</b><small class="T">авто в месяц</small></div><div><b class="H">100+</b><small class="T">постоянных партнёров</small></div><div><b class="H">3–5</b><small class="T">рабочих дней</small></div></div><p class="T">Брокер, склад временного хранения и испытательная лаборатория работают на одной площадке — Новоникольское шоссе, 19.</p></div>
+      </div>
+    </section>
+
+    <section class="opt f-osw">
+      <div class="opt-head"><h2>3. Oswald + Manrope</h2><span class="pair">заголовки Oswald Bold, текст Manrope</span></div>
+      <p class="why">Узкий «индустриальный» шрифт — ощущение склада, грузов, маркировки. Самые крупные и громкие заголовки из всех вариантов. Риск — может выглядеть грубовато.</p>
+      <div class="frames">
+        <div class="hero"><span class="kicker T">Таможенный брокер · Уссурийск</span><h3 class="H">Растаможим авто из Китая <em>за 55 000 ₽</em></h3><p class="T">От китайской границы до готового ЭПТС. Свой СВХ и лаборатория, проходные авто — за 3–5 рабочих дней.</p><div class="btns T"><span class="btn p">Обсудить поставку</span><span class="btn s">Рассчитать платежи</span></div></div>
+        <div class="light"><h4 class="H">Своя площадка <span>в Уссурийске</span></h4><div class="nums"><div><b class="H">500+</b><small class="T">авто в месяц</small></div><div><b class="H">100+</b><small class="T">постоянных партнёров</small></div><div><b class="H">3–5</b><small class="T">рабочих дней</small></div></div><p class="T">Брокер, склад временного хранения и испытательная лаборатория работают на одной площадке — Новоникольское шоссе, 19.</p></div>
+      </div>
+    </section>
+
+    <section class="opt f-onest">
+      <div class="opt-head"><h2>4. Onest</h2><span class="pair">заголовки Black, текст Regular</span></div>
+      <p class="why">Самый спокойный вариант: по форме близок к Jost, но без его «круглой» ретро-геометрии. Подойдёт, если хочется уйти от Jost, но не далеко.</p>
+      <div class="frames">
+        <div class="hero"><span class="kicker T">Таможенный брокер · Уссурийск</span><h3 class="H">Растаможим авто из Китая <em>за 55 000 ₽</em></h3><p class="T">От китайской границы до готового ЭПТС. Свой СВХ и лаборатория, проходные авто — за 3–5 рабочих дней.</p><div class="btns T"><span class="btn p">Обсудить поставку</span><span class="btn s">Рассчитать платежи</span></div></div>
+        <div class="light"><h4 class="H">Своя площадка <span>в Уссурийске</span></h4><div class="nums"><div><b class="H">500+</b><small class="T">авто в месяц</small></div><div><b class="H">100+</b><small class="T">постоянных партнёров</small></div><div><b class="H">3–5</b><small class="T">рабочих дней</small></div></div><p class="T">Брокер, склад временного хранения и испытательная лаборатория работают на одной площадке — Новоникольское шоссе, 19.</p></div>
+      </div>
+    </section>
+
+    <section class="opt f-jost">
+      <div class="opt-head"><h2>Для сравнения: Jost</h2><span class="pair">фирменный шрифт, заголовки Black, текст Regular</span></div>
+      <div class="frames">
+        <div class="hero"><span class="kicker T">Таможенный брокер · Уссурийск</span><h3 class="H">Растаможим авто из Китая <em>за 55 000 ₽</em></h3><p class="T">От китайской границы до готового ЭПТС. Свой СВХ и лаборатория, проходные авто — за 3–5 рабочих дней.</p><div class="btns T"><span class="btn p">Обсудить поставку</span><span class="btn s">Рассчитать платежи</span></div></div>
+        <div class="light"><h4 class="H">Своя площадка <span>в Уссурийске</span></h4><div class="nums"><div><b class="H">500+</b><small class="T">авто в месяц</small></div><div><b class="H">100+</b><small class="T">постоянных партнёров</small></div><div><b class="H">3–5</b><small class="T">рабочих дней</small></div></div><p class="T">Брокер, склад временного хранения и испытательная лаборатория работают на одной площадке — Новоникольское шоссе, 19.</p></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
