@@ -201,8 +201,7 @@ input[type="file"] { padding: 13px; }
 
 .b-hero { padding: var(--gut) var(--gut) clamp(40px, 5vw, 72px); background: var(--paper); }
 .hero-stage { position: relative; isolation: isolate; min-height: clamp(560px, calc(100svh - 150px), 800px); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 150px var(--pad) var(--pad); border-radius: var(--radius-lg); overflow: hidden; color: #fff; background: #0b0b0f; }
-.hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 55%; }
-@media (prefers-reduced-motion: reduce) { video.hero-photo { display: none; } .hero-stage { background: #0b0b0f url("../img/hero-poster.jpg") center/cover; } }
+.hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
 .hero-stage h1 { margin: 0; font-size: clamp(2.3rem, 5.2vw, 5.8rem); font-weight: 900; line-height: .98; letter-spacing: -.025em; text-shadow: 0 2px 28px rgba(0,0,0,.35); }
 .hero-stage h1 .hl { padding: 0 .14em .02em; border-radius: .14em; color: #fff; background: var(--purple); text-shadow: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .hero-stage h1 .h1-sub { display: block; margin-top: .9em; color: #fff; font-family: var(--body); font-size: clamp(1.05rem, 1.45vw, 1.4rem); font-weight: 500; line-height: 1.3; letter-spacing: 0; text-transform: none; }
