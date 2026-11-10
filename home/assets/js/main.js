@@ -104,3 +104,29 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   window.addEventListener('load', fit);
   document.fonts?.ready.then(fit);
 })();
+
+// Лента «Что входит»: стрелки, шкала с номерами, активный пункт по прокрутке
+(() => {
+  const track = document.querySelector('[data-inc-track]');
+  if (!track) return;
+  const cards = [...track.children];
+  const dots = [...document.querySelectorAll('[data-inc-dot]')];
+  const prev = document.querySelector('[data-inc-prev]');
+  const next = document.querySelector('[data-inc-next]');
+  const step = () => (cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth);
+  const current = () => Math.round(track.scrollLeft / step());
+  const go = (i) => track.scrollTo({ left: Math.max(0, Math.min(i, cards.length - 1)) * step(), behavior: 'smooth' });
+  const sync = () => {
+    const i = current();
+    const max = track.scrollWidth - track.clientWidth - 2;
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+    if (prev) prev.disabled = track.scrollLeft <= 2;
+    if (next) next.disabled = track.scrollLeft >= max;
+  };
+  prev?.addEventListener('click', () => go(current() - 1));
+  next?.addEventListener('click', () => go(current() + 1));
+  dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.incDot)));
+  track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+})();
