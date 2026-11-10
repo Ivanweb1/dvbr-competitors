@@ -150,17 +150,20 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }));
 })();
 
-// Отзывы: стрелки листают карточки по одной
+// Отзывы: лента по две карточки, стрелки листают парами, счётчик страниц
 (() => {
-  const items = [...document.querySelectorAll('[data-review]')];
+  const track = document.querySelector('[data-rv-track]');
   const count = document.querySelector('[data-rv-count]');
-  if (!items.length) return;
-  let i = 0;
-  const show = (n) => {
-    i = (n + items.length) % items.length;
-    items.forEach((el, k) => el.classList.toggle('is-active', k === i));
-    if (count) count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
-  };
-  document.querySelector('[data-rv-prev]')?.addEventListener('click', () => show(i - 1));
-  document.querySelector('[data-rv-next]')?.addEventListener('click', () => show(i + 1));
+  if (!track) return;
+  const cards = [...track.children];
+  const perPage = () => Math.max(1, Math.round(track.clientWidth / (cards[0].getBoundingClientRect().width + 16)));
+  const pages = () => Math.ceil(cards.length / perPage());
+  const page = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = (n) => { const p = (n + pages()) % pages(); track.scrollTo({ left: p * (track.clientWidth + 16), behavior: 'smooth' }); };
+  const sync = () => { if (count) count.textContent = Math.min(page() + 1, pages()) + ' / ' + pages(); };
+  document.querySelector('[data-rv-prev]')?.addEventListener('click', () => go(page() - 1));
+  document.querySelector('[data-rv-next]')?.addEventListener('click', () => go(page() + 1));
+  track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
 })();
