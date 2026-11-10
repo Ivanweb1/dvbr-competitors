@@ -408,7 +408,7 @@ a.as-item:hover strong { color: var(--purple); }
 
 /* Первый экран: светлые фото (v3) — мягкое затемнение только сверху (шапка, заголовок) и снизу (полоска) */
 .hero-stage::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(10,10,14,.62) 0%, rgba(10,10,14,.38) 26%, rgba(10,10,14,0) 46%, rgba(10,10,14,0) 62%, rgba(10,10,14,.55) 100%); }
+  background: linear-gradient(180deg, rgba(10,10,14,.62) 0%, rgba(10,10,14,.38) 26%, rgba(10,10,14,0) 46%, rgba(10,10,14,0) 62%, rgba(10,10,14,.55) 100%), rgba(0,0,0,.2); }
 @media (min-width: 1360px) { .as-item span { max-width: none; white-space: nowrap; } }
 .ab-icon--txt { font-family: var(--title); font-size: 1.35rem; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
 .ab-icon--sm { font-size: .82rem; letter-spacing: .02em; }
