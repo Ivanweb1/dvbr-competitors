@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=68">
+  <link rel="stylesheet" href="assets/css/main.css?v=70">
   <script src="assets/js/main.js?v=6" defer></script>
 </head>
 <body>
@@ -234,6 +234,41 @@
             <p class="pc-cta-text">Менеджер свяжется с вами и ответит на вопросы по вашей поставке</p>
             <a class="btn btn--white" href="#request">Обсудить поставку</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 9. Калькулятор — результат слева (тёмная карточка), форма справа. Формулы — после согласования с клиентом -->
+    <section class="b-calc" id="calculator">
+      <div class="about-wrap">
+        <div class="about-head reveal">
+          <p class="about-eyebrow">Калькулятор</p>
+          <h2>Калькулятор растаможки <span>авто из&nbsp;Китая</span></h2>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-result-card reveal">
+            <p class="calc-label">Примерные платежи</p>
+            <dl class="calc-rows">
+              <div><dt>Пошлина</dt><dd data-calc="duty">—</dd></div>
+              <div><dt>Утильсбор</dt><dd data-calc="util">—</dd></div>
+              <div><dt>Работа брокера</dt><dd>55&nbsp;000&nbsp;₽</dd></div>
+            </dl>
+            <div class="calc-total"><span>Итого</span><strong data-calc="total">—</strong></div>
+            <p class="calc-result" id="calc-result" role="status" aria-live="polite"></p>
+            <p class="calc-fine">Расчёт примерный. Точную сумму пошлины и утильсбора назовём при подаче документов.</p>
+            <a class="btn btn--white" href="#request">Обсудить поставку</a>
+          </div>
+          <form class="calc-form reveal" action="#" id="calculator-form">
+            <div class="cf-field cf-wide">
+              <span class="cf-name">Стоимость авто</span>
+              <div class="cf-price"><input id="car-price" name="price" type="number" min="0" placeholder="0" aria-label="Стоимость авто"><div class="seg seg--small"><label class="seg-opt"><input type="radio" name="currency" value="CNY" checked><span>CNY</span></label><label class="seg-opt"><input type="radio" name="currency" value="RUB"><span>RUB</span></label><label class="seg-opt"><input type="radio" name="currency" value="USD"><span>USD</span></label></div></div>
+            </div>
+            <div class="cf-field cf-wide"><span class="cf-name">Возраст</span><div class="seg"><label class="seg-opt"><input type="radio" name="age" value="До 3 лет"><span>До 3 лет</span></label><label class="seg-opt"><input type="radio" name="age" value="3–5 лет" checked><span>3–5 лет</span></label><label class="seg-opt"><input type="radio" name="age" value="Старше 5 лет"><span>Старше 5 лет</span></label></div></div>
+            <div class="cf-field cf-wide"><span class="cf-name">Тип двигателя</span><div class="seg"><label class="seg-opt"><input type="radio" name="engine" value="Бензин" checked><span>Бензин</span></label><label class="seg-opt"><input type="radio" name="engine" value="Дизель"><span>Дизель</span></label><label class="seg-opt"><input type="radio" name="engine" value="Гибрид"><span>Гибрид</span></label><label class="seg-opt"><input type="radio" name="engine" value="Электро"><span>Электро</span></label></div></div>
+            <label class="cf-field"><span class="cf-name">Объём двигателя, см³</span><input name="volume" type="number" min="0" placeholder="Например, 1998"></label>
+            <label class="cf-field"><span class="cf-name">Мощность, л. с.</span><input name="power" type="number" min="0" placeholder="Например, 150"></label>
+            <button class="btn cf-wide" type="submit">Рассчитать</button>
+          </form>
         </div>
       </div>
     </section>
