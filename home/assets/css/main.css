@@ -666,3 +666,13 @@ a.as-item:hover strong { color: var(--purple); }
 .inc-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .inc-arrow:hover { transform: translateY(-2px); }
 .inc-arrow--accent { color: #fff; background: var(--purple); }
+
+/* Отзывы: кнопки 2ГИС и Яндекс Карты с рейтингом */
+.rv-maps { display: grid; gap: 8px; margin-top: 6px; }
+.rv-map { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: var(--card); transition: background-color .2s, transform .2s; }
+.rv-map:hover { background: #e9e8ee; transform: translateY(-2px); }
+.rv-map-name { font-weight: 700; }
+.rv-map-rate { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+.rv-map-rate svg { width: 15px; height: 15px; fill: var(--purple); }
+.rv-map-count { color: #6d6b73; font-size: .85rem; }
+.rv-item blockquote { font-size: clamp(1.15rem, 1.6vw, 1.55rem); }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=72">
+  <link rel="stylesheet" href="assets/css/main.css?v=73">
   <link rel="stylesheet" href="assets/calc/dvbr-calculator.css?v=1">
   <link rel="stylesheet" href="assets/calc/calc-skin.css?v=7">
   <script src="assets/js/main.js?v=7" defer></script>
@@ -502,7 +502,7 @@
     <script src="assets/calc/dvbr-calculator.js?v=1" defer></script>
     <script src="assets/calc/calc-select.js?v=1" defer></script>
 
-    <!-- Блок 10. Проверьте нас в реестрах + отзывы — сетка 3 колонки. Ссылки реестров и тексты отзывов — заглушки до согласования -->
+    <!-- Блок 10. Проверьте нас в реестрах + отзывы — сетка 3 колонки. Ссылки реестров — заглушки; отзывы — выдержки с 2ГИС (10.11), ссылки на 2ГИС и Яндекс Карты -->
     <section class="b-trust2" id="trust">
       <div class="about-wrap">
         <div class="about-head reveal">
@@ -523,26 +523,34 @@
           <div class="rv-side reveal">
             <p class="about-eyebrow">Отзывы партнёров</p>
             <h3>Что говорят те, кто уже возит с&nbsp;нами</h3>
-            <p class="rv-src">Реальные отзывы с&nbsp;2ГИС, названия компаний скрыты</p>
+            <p class="rv-src">Выдержки из&nbsp;отзывов на&nbsp;картах, названия компаний скрыты</p>
+            <div class="rv-maps">
+              <a class="rv-map" href="https://2gis.ru/ussuriysk/firm/70000001104615619/tab/reviews" target="_blank" rel="noopener"><span class="rv-map-name">2ГИС</span><span class="rv-map-rate"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4.1 4.4.5-3.3 3 .9 4.4L8 11.3 4.1 13.5l.9-4.4-3.3-3 4.4-.5z"/></svg>5,0</span><span class="rv-map-count">47 оценок</span></a>
+              <a class="rv-map" href="https://yandex.ru/maps/org/vostochny_broker/118152258402/reviews/" target="_blank" rel="noopener"><span class="rv-map-name">Яндекс Карты</span><span class="rv-map-rate"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4.1 4.4.5-3.3 3 .9 4.4L8 11.3 4.1 13.5l.9-4.4-3.3-3 4.4-.5z"/></svg>5,0</span><span class="rv-map-count">36 оценок</span></a>
+            </div>
             <div class="rv-arrows">
               <button type="button" class="inc-arrow" data-rv-prev aria-label="Предыдущий отзыв"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
               <button type="button" class="inc-arrow inc-arrow--accent" data-rv-next aria-label="Следующий отзыв"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-              <span class="rv-count" data-rv-count>01 / 03</span>
+              <span class="rv-count" data-rv-count>01 / 04</span>
             </div>
           </div>
           <div class="rv-card reveal">
             <svg class="rv-q" viewBox="0 0 40 32" aria-hidden="true"><path d="M0 32V19.2C0 8.6 5.6 2.2 16.8 0l2 4.4C12.6 6 9.6 9.4 9.2 14.4H17V32H0zm23 0V19.2C23 8.6 28.6 2.2 39.8 0l2 4.4c-6.2 1.6-9.2 5-9.6 10H40V32H23z"/></svg>
             <figure class="rv-item is-active" data-review>
-              <blockquote>Текст отзыва добавим после согласования.</blockquote>
-              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+              <blockquote>«Восточный Брокер» стал для нас надёжным партнёром в&nbsp;Уссурийске. Ребята закрывают весь комплекс задач «под&nbsp;ключ»: от&nbsp;приёмки машин на&nbsp;собственном СВХ до&nbsp;лаборатории и&nbsp;выпуска ЭПТС.</blockquote>
+              <figcaption><b>Компания-импортёр</b><span>регулярный импорт автомобилей · 2ГИС</span></figcaption>
             </figure>
             <figure class="rv-item" data-review>
-              <blockquote>Текст отзыва добавим после согласования.</blockquote>
-              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+              <blockquote>Работаем с&nbsp;компанией длительное время. Всё устраивает, от&nbsp;работы брокеров до&nbsp;организации перегона и&nbsp;погрузки. Плюсы: свой СВХ, официальная оплата услуг, поддержка 24/7.</blockquote>
+              <figcaption><b>Компания из&nbsp;Челябинска</b><span>постоянный партнёр · 2ГИС</span></figcaption>
             </figure>
             <figure class="rv-item" data-review>
-              <blockquote>Текст отзыва добавим после согласования.</blockquote>
-              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+              <blockquote>Работаем с&nbsp;Восточным Брокером уже полгода, всё нравится: очень грамотное, быстрое и&nbsp;практически самое недорогое таможенное оформление.</blockquote>
+              <figcaption><b>Партнёр</b><span>работает с&nbsp;нами полгода · 2ГИС</span></figcaption>
+            </figure>
+            <figure class="rv-item" data-review>
+              <blockquote>До&nbsp;этого работали с&nbsp;очень многими компаниями. Могу сказать одно: ребята знают своё дело от&nbsp;«а» до&nbsp;«я». Сервис, время, подход.</blockquote>
+              <figcaption><b>Партнёр</b><span>постоянный клиент · 2ГИС</span></figcaption>
             </figure>
           </div>
         </div>
