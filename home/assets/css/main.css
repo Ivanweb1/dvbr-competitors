@@ -399,26 +399,12 @@ a.as-item:hover strong { color: var(--purple); }
 @media (max-width: 640px) { :root { --side: 12px; } }
 @media (max-width: 1000px) { .about-head h2 { grid-column: 1 / -1; } }
 
-/* Карточка «Посредникам»: стопка статусов как в мессенджере */
-.ab-notes { position: relative; display: grid; gap: 10px; padding: 6px 0 24px; }
-.ab-note { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; width: min(100%, 340px); padding: 12px 14px; border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(16,16,20,.06); font-size: .92rem; transition: transform .35s ease; }
-.ab-note:nth-child(2) { margin-left: 22px; }
-.ab-note:nth-child(3) { margin-left: 44px; }
-.ab-note i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(107,98,213,.12); color: var(--purple); }
-.ab-note i svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.ab-note b { font-weight: 600; }
-.ab-note time { color: #8d8b93; font-size: .78rem; }
-.ab-note--accent { color: #fff; background: var(--purple); box-shadow: 0 14px 30px rgba(107,98,213,.35); }
-.ab-note--accent i { color: #fff; background: rgba(255,255,255,.2); }
-.ab-note--accent time { color: rgba(255,255,255,.75); }
-.ab-card--text:hover .ab-note:nth-child(1) { transform: translateX(6px); }
-.ab-card--text:hover .ab-note:nth-child(2) { transform: translateX(-6px); }
-.ab-card--text:hover .ab-note:nth-child(3) { transform: translateX(-12px); }
-@media (max-width: 640px) {
-  .ab-note:nth-child(2) { margin-left: 14px; }
-  .ab-note:nth-child(3) { margin-left: 28px; }
-  .ab-note { width: calc(100% - 28px); }
-}
+/* Карточка «Посредникам»: крупный факт про бесплатную проверку (в стиле ряда цифр) */
+.ab-free { display: grid; gap: 8px; }
+.ab-free-label { color: #6d6b73; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ab-free-label::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; background: var(--purple); }
+.ab-free strong { font-family: var(--title); font-size: clamp(2.4rem, 3.7vw, 4.2rem); font-weight: 700; line-height: .95; letter-spacing: -.03em; }
+.ab-free-sub { color: var(--grey-text); font-size: 1.05rem; font-weight: 500; }
 
 /* Первый экран: светлые фото (v3) — мягкое затемнение только сверху (шапка, заголовок) и снизу (полоска) */
 .hero-stage::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none;
