@@ -344,10 +344,10 @@ input[type="file"] { padding: 13px; }
 :root { --card: #f1f1f3; --grey-text: #a9a8ae; }
 .b-about { padding: clamp(72px, 9vw, 140px) 0 clamp(64px, 8vw, 120px); background: #fff; }
 .about-wrap { width: min(calc(100% - 48px), var(--container)); margin-inline: auto; }
-.about-head { display: grid; grid-template-columns: 180px 1fr; gap: 24px; margin-bottom: clamp(36px, 4.5vw, 64px); }
+.about-head { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 16px; margin-bottom: clamp(36px, 4.5vw, 64px); }
 .about-eyebrow { margin: .5em 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .about-eyebrow::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; border-radius: 50%; background: var(--purple); }
-.about-head h2 { max-width: none; margin: 0; font-size: clamp(1.7rem, 2.9vw, 3rem); font-weight: 900; line-height: 1.02; letter-spacing: -.02em; }
+.about-head h2 { grid-column: 2 / -1; max-width: none; margin: 0; font-size: clamp(1.7rem, 2.9vw, 3rem); font-weight: 900; line-height: 1.02; letter-spacing: -.02em; }
 .about-head h2 span { color: var(--grey-text); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
 .ab-card { position: relative; isolation: isolate; min-height: 440px; display: flex; flex-direction: column; margin: 0; padding: 24px; border-radius: var(--radius-md); overflow: hidden; background: var(--card); color: var(--ink); }
@@ -397,3 +397,4 @@ a.as-item:hover strong { color: var(--purple); }
 .container, .about-wrap { width: calc(100% - 2 * var(--side)); max-width: none; }
 @media (max-width: 1100px) { :root { --side: 32px; } }
 @media (max-width: 640px) { :root { --side: 12px; } }
+@media (max-width: 1000px) { .about-head h2 { grid-column: 1 / -1; } }
