@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&amp;family=Unbounded:wght@700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=7">
+  <link rel="stylesheet" href="assets/css/main.css?v=8">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -42,8 +42,10 @@
     <!-- Блок 2. Первый экран -->
     <section class="b-hero" id="hero">
       <div class="hero-stage">
-        <!-- Фото-заглушка (сток со старого сайта). Заменить на кадр площадки: см. docs/hero-photo-prompts.md -->
-        <img class="hero-photo" src="assets/img/cars.jpg" alt="" width="1600" height="1066" fetchpriority="high">
+        <!-- Временный фон: отрезок 0:10–0:25 ролика клиента (исходник 638×360). Заменить на исходник с дрона или фото: см. docs/hero-photo-prompts.md -->
+        <video class="hero-photo" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" aria-hidden="true">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
         <h1>Растаможим авто<br> из Китая в&nbsp;Уссурийске <span class="h1-sub">для дилеров и посредников</span></h1>
         <div class="hero-bottom">
           <div class="button-row">
