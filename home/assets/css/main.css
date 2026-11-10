@@ -500,8 +500,8 @@ a.as-item:hover strong { color: var(--purple); }
 .pl-facts i svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .pl-facts b { display: block; font-weight: 600; }
 .pl-facts span { color: rgba(255,255,255,.6); font-size: .9rem; }
-.pl-map { align-self: flex-start; margin-top: auto; padding-top: 24px; border-bottom: 1px solid rgba(255,255,255,.5); font-weight: 600; }
-.pl-map:hover { border-color: #fff; }
+.pl-map { align-self: stretch; margin-top: auto; }
+.pl-facts { margin-bottom: 24px; }
 .pl-ph { position: relative; isolation: isolate; min-height: 300px; margin: 0; border-radius: var(--radius-md); overflow: hidden; background: #1a1a20; }
 .pl-ph--big { grid-column: 2 / -1; min-height: 360px; }
 .pl-ph img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
