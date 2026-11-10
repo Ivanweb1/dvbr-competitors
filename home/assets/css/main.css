@@ -711,3 +711,10 @@ a.as-item:hover strong { color: var(--purple); }
 .rv-map-logo { display: block; width: auto; height: 22px; }
 .rv-map-txt { color: #6d6b73; font-size: .85rem; }
 .rv-src-logo { display: block; width: auto; height: 16px; }
+
+/* Отзывы: стрелки и счётчик — под лентой карточек */
+.rv-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+.rv-bar .rv-count { order: -1; margin: 0; }
+.rv-bar > button + button { margin-left: -2px; }
+.rv-bar { flex-wrap: nowrap; }
+.rv-bar .inc-arrow:first-of-type { margin-left: auto; }
