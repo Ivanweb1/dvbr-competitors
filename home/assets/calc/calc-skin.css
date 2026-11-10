@@ -114,3 +114,9 @@
 
 /* Служебная панель разработчика «Проверка по вашим скриншотам» (тестовые пресеты) — посетителям не показываем */
 .b-calc #dvbr-customs-calculator .preset-panel { display: none !important; }
+
+/* «Кто ввозит»: все варианты в одну строку (3 в обычном режиме, 4 — в профессиональном) */
+@media (min-width: 641px) {
+  .b-calc #dvbr-customs-calculator .choice-grid.route-choice { display: flex; gap: 9px; }
+  .b-calc #dvbr-customs-calculator .choice-grid.route-choice > .choice-card { flex: 1 1 0; min-width: 0; }
+}
