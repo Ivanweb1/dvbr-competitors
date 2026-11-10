@@ -362,3 +362,5 @@ input[type="file"] { padding: 13px; }
   .stat:nth-child(3) strong { margin-bottom: 0; }
   .stat--photo { min-height: 220px; }
 }
+.stat-badge { position: absolute; top: 16px; left: 16px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.92); color: var(--black); }
+.stat-badge svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
