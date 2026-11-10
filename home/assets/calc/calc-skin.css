@@ -111,3 +111,6 @@
 .b-calc #dvbr-customs-calculator .cs-opt.is-selected { color: #fff; background: #101014; }
 .b-calc #dvbr-customs-calculator .cs-opt.is-selected svg { opacity: 1; }
 .b-calc #dvbr-customs-calculator .cs-opt.is-disabled { opacity: .4; cursor: default; }
+
+/* Служебная панель разработчика «Проверка по вашим скриншотам» (тестовые пресеты) — посетителям не показываем */
+.b-calc #dvbr-customs-calculator .preset-panel { display: none !important; }
