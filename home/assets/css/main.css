@@ -350,3 +350,6 @@ input[type="file"] { padding: 13px; }
 .btn:hover .arr { transform: translateX(3px); }
 .hs-icon { width: 30px; height: 30px; margin-bottom: auto; fill: none; stroke: currentColor; stroke-width: 2; opacity: .7; stroke-linecap: round; stroke-linejoin: round; }
 .btn-icon { width: 1.35em; height: 1.35em; flex: none; margin: -.2em 9px -.2em 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hs-cell--lead { grid-template-rows: 1fr auto; }
+.hs-cell--lead .hs-label { grid-column: 1 / -1; align-self: start; margin: 0; }
+.hs-cell--lead p { font-size: 1.05rem; }
