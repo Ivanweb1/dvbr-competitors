@@ -446,3 +446,38 @@ a.as-item:hover strong { color: var(--purple); }
   .bill-total strong { font-size: 3.2rem; }
   .bill-actions .btn { width: 100%; }
 }
+
+/* Блок 5. Проверка до покупки — фото лаборатории · что ответим · графитовая форма */
+.b-check { padding: clamp(40px, 5vw, 80px) 0 clamp(72px, 9vw, 140px); background: #fff; }
+.check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ck-photo { position: relative; isolation: isolate; min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; margin: 0; padding: 14px; border-radius: var(--radius-md); overflow: hidden; color: #fff; background: #0b0b0f; }
+.ck-photo > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.ck-photo .ab-glass p { margin: 0; font-size: 1.02rem; font-weight: 500; line-height: 1.4; color: #fff; }
+.ck-list { display: flex; flex-direction: column; padding: clamp(22px, 2.4vw, 32px); border-radius: var(--radius-md); background: var(--card); }
+.ck-list-title { margin: 0 0 8px; color: #6d6b73; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ck-list-title::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; background: var(--purple); }
+.ck-list ol { margin: 0; padding: 0; list-style: none; }
+.ck-list li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid #e2e1e6; }
+.ck-list li > span { color: var(--purple); font-family: var(--title); font-size: 1.05rem; font-weight: 700; }
+.ck-list h3 { margin: 0 0 4px; font-size: clamp(1.05rem, 1.25vw, 1.2rem); font-weight: 700; line-height: 1.25; }
+.ck-list li p { margin: 0; color: #5c5a61; font-size: .93rem; line-height: 1.45; }
+.ck-note { margin: auto 0 0; padding-top: 24px; color: var(--ink); font-size: 1rem; font-weight: 500; line-height: 1.45; }
+.ck-form { display: flex; flex-direction: column; padding: clamp(22px, 2.4vw, 32px); border-radius: var(--radius-md); color: #fff; background: #16161b; }
+.ck-form h3 { margin: 0 0 22px; font-family: var(--title); font-size: clamp(1.3rem, 1.7vw, 1.6rem); font-weight: 700; line-height: 1.15; }
+.ck-form label { margin-bottom: 14px; color: rgba(255,255,255,.75); font-weight: 500; }
+.ck-form input { min-height: 50px; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; color: #fff; background: #222229; }
+.ck-form input:focus { outline: none; border-color: var(--purple); }
+.ck-form input[type="file"] { padding: 12px; color: rgba(255,255,255,.7); font-size: .85rem; }
+.ck-form input[type="file"]::file-selector-button { margin-right: 12px; padding: 6px 12px; border: 0; border-radius: 999px; color: #fff; background: #34343d; font: 600 .8rem var(--body); cursor: pointer; }
+.ck-form .btn { width: 100%; margin-top: auto; }
+.ck-fine { margin: 12px 0 0; color: rgba(255,255,255,.55); font-size: .82rem; text-align: center; }
+.ck-form .form-status { color: #a9f0c4; text-align: center; }
+@media (max-width: 1000px) {
+  .check-grid { grid-template-columns: 1fr 1fr; }
+  .ck-photo { grid-column: 1 / -1; min-height: 380px; }
+}
+@media (max-width: 640px) {
+  .check-grid { grid-template-columns: 1fr; }
+  .ck-photo { min-height: 320px; }
+  .ck-form .btn { margin-top: 10px; }
+}
