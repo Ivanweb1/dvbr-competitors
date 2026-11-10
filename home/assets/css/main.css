@@ -423,7 +423,6 @@ a.as-item:hover strong { color: var(--purple); }
 .bill-extra .bill-name { font-size: .95rem; }
 .bill-extra b { flex: none; color: var(--ink); font-size: .9rem; font-weight: 600; }
 .bill-total { position: relative; overflow: hidden; display: flex; flex-direction: column; padding: clamp(24px, 2.8vw, 40px); border-radius: var(--radius-md); color: #fff; background: var(--purple); }
-.bill-total::after { content: ""; position: absolute; right: -80px; bottom: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.08); pointer-events: none; }
 .bill-total-label { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
 .bill-total strong { margin: 14px 0 12px; font-family: var(--title); font-size: clamp(3rem, 5.4vw, 5.6rem); font-weight: 700; line-height: .9; letter-spacing: -.035em; white-space: nowrap; }
 .bill-total p { margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.4; }
