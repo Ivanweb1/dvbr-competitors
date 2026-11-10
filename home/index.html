@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=80">
+  <link rel="stylesheet" href="assets/css/main.css?v=81">
   <link rel="stylesheet" href="assets/calc/dvbr-calculator.css?v=1">
   <link rel="stylesheet" href="assets/calc/calc-skin.css?v=7">
   <script src="assets/js/main.js?v=8" defer></script>
@@ -627,6 +627,32 @@
               <p>Если машина на партнёрских СВХ «Инрост», «Лидер» или «СЭЛ», цена та же — 55 000 ₽, перегон в лабораторию включён.</p>
             </details>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 12. Форма заявки — фиолетовая карточка на сетке: заголовок и контакты слева, белая форма справа -->
+    <section class="b-req" id="request">
+      <div class="about-wrap">
+        <div class="rq-card reveal">
+          <div class="rq-copy">
+            <p class="rq-eyebrow">Начать работу</p>
+            <h2>Растаможим ваши машины <span>за&nbsp;55&nbsp;000&nbsp;₽ без&nbsp;доплат</span></h2>
+            <p class="rq-text">Менеджер свяжется с&nbsp;вами и&nbsp;ответит на&nbsp;вопросы по&nbsp;вашей поставке.</p>
+            <div class="rq-contacts">
+              <a href="tel:+79025257777">+7 (902) 525-77-77</a>
+              <div><a href="https://t.me/+79025257777">Telegram</a><a href="https://wa.me/79025257777">WhatsApp</a></div>
+            </div>
+          </div>
+          <form class="rq-form" action="#" data-demo-form>
+            <label class="rq-field">Имя<input type="text" name="name" autocomplete="name" required></label>
+            <label class="rq-field">Телефон<input type="tel" name="phone" autocomplete="tel" required></label>
+            <label class="rq-field">Компания<input type="text" name="company" autocomplete="organization"></label>
+            <label class="rq-field">Машин в месяц<input type="number" name="cars" min="1"></label>
+            <label class="ck-consent rq-consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных и с <a href="/politika">политикой конфиденциальности</a></span></label>
+            <button class="btn rq-btn" type="submit">Обсудить поставку</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>

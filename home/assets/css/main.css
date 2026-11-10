@@ -798,3 +798,36 @@ a.as-item:hover strong { color: var(--purple); }
   .fq-item p { padding: 0 0 20px 46px; }
   .fq-help .btn { width: 100%; }
 }
+
+/* Блок 12. Форма заявки — фиолетовая карточка */
+.b-req { padding: clamp(40px, 5vw, 80px) 0 clamp(72px, 9vw, 120px); background: #fff; }
+.rq-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: clamp(24px, 3vw, 48px); border-radius: var(--radius-lg); color: #fff; background: var(--purple); }
+.rq-copy { display: flex; flex-direction: column; gap: 16px; padding-right: 8%; }
+.rq-eyebrow { margin: 0; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+.rq-eyebrow::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; background: #fff; }
+.rq-copy h2 { max-width: none; margin: 0; color: #fff; font-size: clamp(1.7rem, 2.6vw, 2.6rem); font-weight: 900; line-height: 1.02; letter-spacing: -.02em; }
+.rq-copy h2 span { color: rgba(255,255,255,.6); }
+.rq-text { margin: 0; color: rgba(255,255,255,.85); line-height: 1.5; }
+.rq-contacts { display: grid; gap: 10px; margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); }
+.rq-contacts > a { font-size: 1.25rem; font-weight: 700; }
+.rq-contacts div { display: flex; gap: 16px; }
+.rq-contacts div a { border-bottom: 1px solid rgba(255,255,255,.5); font-weight: 500; }
+.rq-contacts a:hover { opacity: .8; }
+.rq-form { grid-column: 2 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: start; padding: clamp(20px, 2.4vw, 32px); border-radius: var(--radius-md); background: #fff; color: var(--ink); }
+.rq-field { margin: 0; color: #6d6b73; font-size: .82rem; font-weight: 600; }
+.rq-field input { min-height: 52px; border: 1px solid #dcdbe2; border-radius: 12px; background: #fff; color: var(--ink); font-size: 1rem; }
+.rq-field input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(107,98,213,.12); }
+.rq-consent { grid-column: 1 / -1; margin: 2px 0 0; color: #6d6b73; }
+.rq-consent input { border-color: #c9c8d0; background: #fff; }
+.rq-consent a { color: var(--ink); }
+.rq-btn { grid-column: 1 / -1; width: 100%; }
+.rq-form .form-status { grid-column: 1 / -1; margin: 0; text-align: center; }
+@media (max-width: 1000px) {
+  .rq-card { grid-template-columns: 1fr; }
+  .rq-form { grid-column: auto; }
+  .rq-copy { padding-right: 0; }
+}
+@media (max-width: 640px) {
+  .rq-card { border-radius: var(--radius-md); }
+  .rq-form { grid-template-columns: 1fr; }
+}
