@@ -189,7 +189,7 @@ input[type="file"] { padding: 13px; }
 .header { width: 100%; max-width: none; min-height: 68px; display: grid; grid-template-columns: 205px 1fr auto; gap: 30px; align-items: center; padding: 0 10px 0 22px; border-radius: 18px; background: rgba(18,18,24,.38); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 .logo img { width: 158px; }
 
-.b-hero { padding: var(--gut); background: var(--paper); }
+.b-hero { padding: var(--gut); background: #fff; }
 /* Первый экран по рефу «Connecting businesses»: огромный заголовок по центру сверху, объект в центре, карточка статьи слева внизу, текст + кнопка справа внизу */
 .hero-stage { position: relative; isolation: isolate; min-height: max(600px, calc(100svh - 2 * var(--gut))); display: flex; flex-direction: column; justify-content: flex-start; gap: 40px; padding: 118px var(--pad) var(--pad); border-radius: var(--radius-lg); overflow: hidden; color: #fff; background: #0b0b0f; }
 .hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
@@ -337,44 +337,57 @@ input[type="file"] { padding: 13px; }
   .hero-stage h1 .h1-line { display: inline; }
 }
 
-/* Блок 3. Цифры: светлые карточки на бумаге сразу под первым экраном */
-.b-stats { padding: 0 var(--gut) clamp(56px, 7vw, 110px); background: var(--paper); }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.35fr; gap: var(--gut); }
-.stat { position: relative; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; margin: 0; padding: 26px 26px 24px; border-radius: var(--radius-md); background: #fff; color: var(--ink); }
-.stat strong { font-family: var(--title); font-size: clamp(2.6rem, 4.2vw, 4.4rem); font-weight: 700; line-height: .95; letter-spacing: -.03em; white-space: nowrap; }
-.stat span { max-width: 15em; color: #5c5a61; font-size: .98rem; line-height: 1.35; }
-.stat--link { transition: transform .2s, box-shadow .2s; }
-.stat--link:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,.08); }
-.stat--photo { isolation: isolate; overflow: hidden; justify-content: flex-end; padding: 16px; background: #0b0b0f; }
-.stat--photo img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.stat--photo figcaption { align-self: flex-start; padding: 10px 16px; border-radius: 999px; color: var(--black); background: rgba(255,255,255,.92); font-size: .95rem; font-weight: 600; line-height: 1.2; }
-@media (max-width: 1100px) {
-  .stats-grid { grid-template-columns: 1fr 1fr 1fr; }
-  .stat--photo { grid-column: 1 / -1; min-height: 260px; }
-}
-@media (max-width: 700px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .stat { min-height: 170px; padding: 18px; }
-  .stat:nth-child(3) { grid-column: 1 / -1; min-height: 0; }
-  .stat:nth-child(3) strong { margin-bottom: 0; }
-  .stat--photo { min-height: 220px; }
-}
 .stat-badge { position: absolute; top: 16px; left: 16px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.92); color: var(--black); }
 .stat-badge svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* Блок 4. Для кого: фото-карточки, белый значок, стеклянная плашка — как первый экран */
-.aud-head { display: flex; gap: 24px 60px; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(32px, 4vw, 56px); }
-.aud-head h2 { margin-bottom: 0; }
-.aud-note { max-width: 300px; margin: 0 0 6px; color: #55535b; font-size: 1.02rem; line-height: 1.45; }
-.aud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gut); }
-.aud-card { position: relative; isolation: isolate; min-height: clamp(460px, 40vw, 600px); display: flex; flex-direction: column; justify-content: flex-end; padding: 14px; border-radius: var(--radius-md); overflow: hidden; color: #fff; background: #0b0b0f; }
-.aud-card > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-.aud-card:hover > img { transform: scale(1.04); }
-.aud-panel { padding: 20px 20px 22px; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; background: rgba(14,14,20,.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-.aud-panel h3 { margin: 0 0 10px; font-size: clamp(1.2rem, 1.5vw, 1.45rem); font-weight: 700; line-height: 1.2; }
-.aud-panel p { margin: 0; font-size: .95rem; line-height: 1.45; opacity: .85; }
+/* Блок 3–4. Для кого + цифры — по рефу: белый фон, серые карточки, серое продолжение заголовка */
+:root { --card: #f1f1f3; --grey-text: #a9a8ae; }
+.b-about { padding: clamp(72px, 9vw, 140px) 0 clamp(64px, 8vw, 120px); background: #fff; }
+.about-wrap { width: min(calc(100% - 48px), var(--container)); margin-inline: auto; }
+.about-head { display: grid; grid-template-columns: 180px 1fr; gap: 24px; margin-bottom: clamp(36px, 4.5vw, 64px); }
+.about-eyebrow { margin: .5em 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.about-eyebrow::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; border-radius: 50%; background: var(--purple); }
+.about-head h2 { max-width: none; margin: 0; font-size: clamp(1.7rem, 2.9vw, 3rem); font-weight: 900; line-height: 1.02; letter-spacing: -.02em; }
+.about-head h2 span { color: var(--grey-text); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.ab-card { position: relative; isolation: isolate; min-height: 440px; display: flex; flex-direction: column; margin: 0; padding: 24px; border-radius: var(--radius-md); overflow: hidden; background: var(--card); color: var(--ink); }
+.ab-card h3 { margin: 0 0 10px; font-size: clamp(1.15rem, 1.4vw, 1.35rem); font-weight: 700; line-height: 1.2; }
+.ab-card p { margin: 0; color: #5c5a61; font-size: .95rem; line-height: 1.5; }
+.ab-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #fff; color: var(--black); }
+.ab-icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ab-card--text { justify-content: space-between; }
+.ab-card--text .btn { margin-top: 22px; }
+.ab-card--photo { justify-content: space-between; padding: 14px; color: #fff; background: #0b0b0f; }
+.ab-card--photo > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.ab-card--photo:hover > img { transform: scale(1.04); }
+.ab-icon--white { background: rgba(255,255,255,.92); }
+.ab-glass { padding: 18px 18px 20px; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; background: rgba(14,14,20,.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.ab-glass p { color: rgba(255,255,255,.85); }
+.ab-card--inset { padding: 14px 14px 24px; }
+.ab-inset { height: 52%; min-height: 200px; margin-bottom: 20px; border-radius: 14px; overflow: hidden; }
+.ab-inset img { width: 100%; height: 100%; object-fit: cover; }
+.ab-card--inset .ab-icon { position: absolute; top: 26px; left: 26px; }
+.ab-card--inset h3, .ab-card--inset p { padding-inline: 10px; }
+.ab-card--inset h3 { margin-top: auto; }
+.about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: clamp(48px, 6vw, 88px); }
+.as-item { display: grid; gap: 10px; align-content: start; }
+.as-item strong { font-family: var(--title); font-size: clamp(2.6rem, 4.6vw, 4.6rem); font-weight: 700; line-height: .95; letter-spacing: -.03em; white-space: nowrap; }
+.as-item strong i { color: var(--grey-text); font-style: normal; font-size: .62em; letter-spacing: -.01em; }
+.as-item span { max-width: 15em; color: #6d6b73; font-size: .9rem; line-height: 1.35; }
+a.as-item:hover strong { color: var(--purple); }
 @media (max-width: 1000px) {
-  .aud-head { flex-direction: column; align-items: flex-start; }
-  .aud-grid { grid-template-columns: 1fr; }
-  .aud-card { min-height: 420px; }
+  .about-head { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .ab-card--inset { grid-column: 1 / -1; min-height: 0; }
+  .ab-inset { height: auto; aspect-ratio: 16 / 9; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 640px) {
+  .about-wrap { width: min(calc(100% - 24px), var(--container)); }
+  .about-grid { grid-template-columns: 1fr; }
+  .ab-card { min-height: 0; }
+  .ab-card--text { gap: 40px; }
+  .ab-card--photo { min-height: 420px; }
+  .about-stats { gap: 28px 16px; }
+}
+@media (max-width: 640px) { .about-head h2 { font-size: 1.55rem; } }
