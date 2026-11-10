@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&amp;family=Unbounded:wght@700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=3">
+  <link rel="stylesheet" href="assets/css/main.css?v=6">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -44,248 +44,38 @@
       <div class="hero-stage">
         <!-- Фото-заглушка (сток со старого сайта). Заменить на кадр площадки: см. docs/hero-photo-prompts.md -->
         <img class="hero-photo" src="assets/img/cars.jpg" alt="" width="1600" height="1066" fetchpriority="high">
-        <div class="hero-copy">
-          <p class="eyebrow">Таможенный брокер · Уссурийск</p>
-          <h1>Растаможим авто из Китая в Уссурийске <span>для дилеров&nbsp;и посредников</span></h1>
+        <h1>Растаможим авто<br> из Китая<br> в Уссурийске<br> для дилеров<br> и посредников</h1>
+        <div class="hero-bottom">
           <div class="button-row">
             <a class="btn" href="#calculator">Рассчитать платежи</a>
             <a class="btn btn--glass" href="#request">Обсудить поставку</a>
           </div>
+          <div class="hero-price">
+            <span class="hero-price-label"><i class="dot" aria-hidden="true"></i>Работа брокера</span>
+            <strong>55 000 ₽</strong>
+            <span>Сумма в счёте не меняется</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-bento">
-        <div class="hb hb--lead">
-          <p class="hb-lead">55 000 ₽ за оформление машины — от китайской границы до готового ЭПТС. Одна цена для 1 и для 20 машин: легковые, пикапы, авто до 3,5 т.</p>
+      <div class="hero-row">
+        <div class="hr-intro">
+          <p class="hr-eyebrow"><i class="dot" aria-hidden="true"></i>Таможенный брокер · Уссурийск</p>
+          <p class="hr-lead">55 000 ₽ за оформление машины — от китайской границы до готового ЭПТС. Одна цена для 1 и для 20 машин: легковые, пикапы, авто до 3,5 т.</p>
           <p class="fineprint">Таможенные платежи — пошлина и утильсбор — оплачиваются отдельно и зависят от машины.</p>
         </div>
-        <figure class="hb hb--photo">
-          <!-- Кадры из ролика клиента (638×360). Заменить на фото в полном размере -->
-          <img src="assets/img/svh-drone.jpg" alt="Стоянка СВХ с автомобилями, вид с дрона" width="638" height="262">
-          <img class="hb-inset" src="assets/img/lab-gas.jpg" alt="Газоанализатор в лаборатории" width="372" height="360">
-          <figcaption>Свой СВХ<br>и лаборатория</figcaption>
+        <figure class="hr-card hr-card--photo">
+          <!-- Кадр из ролика клиента (638×360). Заменить на фото в полном размере -->
+          <img src="assets/img/svh-drone.jpg" alt="Стоянка СВХ с автомобилями, вид с дрона" width="638" height="262" loading="lazy">
+          <figcaption>Свой СВХ и&nbsp;лаборатория</figcaption>
         </figure>
-        <div class="hb hb--red">
-          <span class="hb-label">Работа брокера</span>
-          <strong>55 000 ₽</strong>
-          <span>Сумма в счёте не меняется</span>
-        </div>
-        <div class="hb hb--purple">
+        <div class="hr-card hr-card--purple">
+          <img src="assets/img/lab-gas.jpg" alt="" width="372" height="360" loading="lazy">
           <strong>3–5</strong>
           <span>рабочих дней для проходных авто</span>
         </div>
       </div>
     </section>
-
-    <!-- Блок 3. Цифры -->
-    <section class="b-stats section section--black" id="numbers">
-      <div class="container stats-grid">
-        <article class="stat reveal"><strong>500+</strong><span>авто в месяц</span></article>
-        <article class="stat reveal"><strong>100+</strong><span>постоянных партнёров</span></article>
-        <article class="stat reveal"><strong>3–5 дней</strong><span>оформление проходных авто</span></article>
-        <article class="stat stat--accent reveal"><strong>55 000 ₽</strong><span>работа брокера под ключ</span></article>
-      </div>
-    </section>
-
-    <!-- Блок 4. Для кого -->
-    <section class="b-audience section section--light" id="for-whom">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Для бизнеса</p>
-          <h2>Работаем с теми, <span>кто возит машины на продажу</span></h2>
-        </div>
-        <div class="cards-three">
-          <article class="card card--numbered reveal"><span class="card-no">01</span><h3>Посредникам, которые везут под заказ</h3><p>Вы взяли предоплату и назвали покупателю срок и цену. Проверим машину до покупки, назовём примерные платежи и будем присылать статус на каждом этапе — вам не придётся объяснять покупателю задержки.</p></article>
-          <article class="card card--numbered reveal"><span class="card-no">02</span><h3>Дилерам и перекупщикам</h3><p>Маржа считается от итоговой стоимости машины. Наша часть в ней известна заранее: 55 000 ₽ за оформление, одинаково для одной машины и для партии.</p></article>
-          <article class="card card--numbered reveal"><span class="card-no">03</span><h3>Корпоративным клиентам</h3><p>Такси, логистика, перевозки: обновляете парк легковыми, пикапами или авто до 3,5 т — оформляем по договору, документы по ЭДО.</p></article>
-        </div>
-        <p class="section-note reveal">Работаем и с одной машиной, если поставки регулярные.</p>
-      </div>
-    </section>
-
-    <!-- Блок 5. Проверка до покупки -->
-    <section class="b-precheck section section--purple" id="precheck">
-      <div class="container split">
-        <div class="split-copy reveal">
-          <p class="eyebrow">До оплаты в Китае</p>
-          <h2>Проверка до покупки: <span>проходной год, пошлина и утильсбор</span></h2>
-          <p>Пока машина не оплачена в Китае, пришлите модель, VIN и инвойс. Бесплатно ответим:</p>
-          <ul class="check-list">
-            <li><strong>проходная ли машина</strong> — подходит ли возраст 3–5 лет;</li>
-            <li><strong>примерные пошлина и утильсбор</strong> — с учётом мощности и типа двигателя;</li>
-            <li><strong>нет ли в инвойсе ошибок</strong>, из-за которых таможня пересчитает стоимость и доначислит платежи.</li>
-          </ul>
-          <p>Так вы не купите машину, которая выйдет дороже или будет оформляться дольше, чем вы пообещали своему покупателю.</p>
-        </div>
-        <form class="form form--dark reveal" action="#" data-demo-form>
-          <h3>Отправить на проверку</h3>
-          <label>VIN<input type="text" name="vin" autocomplete="off" required></label>
-          <label>Файл инвойса<input type="file" name="invoice" accept=".pdf,.jpg,.jpeg,.png" required></label>
-          <label>Телефон или мессенджер<input type="text" name="contact" autocomplete="tel" required></label>
-          <button class="btn" type="submit">Отправить на проверку</button>
-          <p class="fineprint">Срок ответа уточняется. Проверка бесплатная и ни к чему не обязывает.</p>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- Блок 6. Что входит в 55 000 ₽ -->
-    <section class="b-included section section--light" id="included">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow">Цена без сюрпризов</p><h2>Что входит <span>в 55 000 ₽</span></h2></div>
-        <div class="included-layout">
-          <div class="included-list reveal">
-            <div><span>Консультация и расчёт таможенных платежей</span><b>включено</b></div>
-            <div><span>Документы для прохождения границы</span><b>включено</b></div>
-            <div><span>Хранение на СВХ — 10 дней</span><b>включено</b></div>
-            <div><span>Таможенная декларация</span><b>включено</b></div>
-            <div><span>Перегон с партнёрских СВХ в лабораторию</span><b>включено</b></div>
-            <div><span>Стоянка в лаборатории до отправки машины покупателю, испытания и СБКТС</span><b>включено</b></div>
-            <div><span>Оформление ЭПТС</span><b>включено</b></div>
-            <div><span>Персональный менеджер и статусы в мессенджере</span><b>включено</b></div>
-          </div>
-          <aside class="price-panel reveal">
-            <p>Окончательная сумма в счёте</p><strong>55 000 ₽</strong><span>НДС 5% уже внутри</span>
-            <hr>
-            <p>ЭРА-ГЛОНАСС — по запросу: кнопка, установка и активация</p><strong class="price-extra">+30 000 ₽</strong>
-          </aside>
-        </div>
-        <div class="included-bottom reveal">
-          <p>Таможенные платежи — пошлину и утильсбор — вы оплачиваете отдельно, по квитанциям, которые пришлём после прибытия машины на СВХ. Их сумма зависит от машины: примерную покажет калькулятор, точную назовём при подаче документов.</p>
-          <p>Та же цена, если машина стоит на партнёрских СВХ «Инрост», «Лидер» или «СЭЛ»: перегон в лабораторию включён.</p>
-          <a class="btn" href="#request">Обсудить поставку</a>
-        </div>
-        <div class="document-strip reveal" aria-label="Примеры оформляемых документов">
-          <figure><img src="assets/img/epts.webp" alt="Пример электронного паспорта транспортного средства" width="640" height="420" loading="lazy"><figcaption>ЭПТС</figcaption></figure>
-          <figure><img src="assets/img/sbkts.webp" alt="Пример свидетельства о безопасности конструкции транспортного средства" width="640" height="420" loading="lazy"><figcaption>СБКТС</figcaption></figure>
-          <figure><img src="assets/img/declaration.webp" alt="Пример таможенной декларации" width="640" height="420" loading="lazy"><figcaption>Таможенная декларация</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Блок 7. Своя площадка -->
-    <section class="b-site section section--black" id="site">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow">Новоникольское шоссе, 19</p><h2>Свой СВХ и лаборатория <span>СБКТС и ЭПТС в Уссурийске</span></h2></div>
-        <div class="site-copy reveal">
-          <p>Свой СВХ и испытательная лаборатория работают в Уссурийске. С партнёрских СВХ машины перегоняют в лабораторию — перегон включён в стоимость.</p>
-          <p>Новый большой СВХ с возможностью закрывать транзиты планируется без заявленного срока.</p>
-        </div>
-        <div class="gallery-three">
-          <figure class="ph reveal"><div>Фото: СВХ на Новоникольском шоссе, 19</div><figcaption>СВХ на Новоникольском шоссе, 19</figcaption></figure>
-          <figure class="ph reveal"><div>Фото: испытательная лаборатория</div><figcaption>Испытательная лаборатория на площадке</figcaption></figure>
-          <figure class="ph reveal"><div>Фото: офис брокера</div><figcaption>Офис брокера на той же площадке</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Блок 8. Как проходит оформление -->
-    <section class="b-process section section--light" id="process">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow">Путь машины</p><h2>Как мы растаможим вашу машину: <span>3–5 рабочих дней</span></h2><p>Менеджер переводит машину на следующий этап — вам сразу приходит сообщение в мессенджер.</p></div>
-        <div class="process-layout">
-          <ol class="timeline">
-            <li class="reveal"><span>01</span><div><h3>Машина у китайской границы</h3><p>Перевозчик передаёт нам данные о машине и водителе — готовим документы и запускаем прохождение границы.</p></div></li>
-            <li class="reveal"><span>02</span><div><h3>Граница и СВХ</h3><p>Машина въезжает в Россию и едет своим ходом на СВХ в Уссурийске.</p></div></li>
-            <li class="reveal"><span>03</span><div><h3>Оплата платежей</h3><p>Присылаем квитанции на пошлину и утильсбор — оплачиваете и отправляете нам чеки.</p></div></li>
-            <li class="reveal"><span>04</span><div><h3>Таможенное декларирование</h3></div></li>
-            <li class="reveal"><span>05</span><div><h3>Лаборатория</h3><p>Испытания и СБКТС.</p></div></li>
-            <li class="reveal"><span>06</span><div><h3>ЭПТС</h3><p>Машина оформлена и готова к выдаче.</p></div></li>
-          </ol>
-          <aside class="phone-mockup reveal" aria-label="Примеры сообщений о статусе машины">
-            <div class="phone-top"><span></span><b>Восточный Брокер</b><small>персональный менеджер</small></div>
-            <div class="chat"><p>Машина на СВХ <time>10:12</time></p><p>Декларация выпущена <time>13:46</time></p><p>Прошла лабораторию <time>16:20</time></p><p>Машина готова к выдаче <time>11:05</time></p></div>
-          </aside>
-        </div>
-        <div class="process-note reveal"><p><strong>3–5 рабочих дней</strong> — средний срок для проходных машин (3–5 лет) с момента захода на СВХ. Непроходные оформляются в среднем 10–14 дней.</p><p>Всё удалённо: персональный менеджер и рабочий чат в WhatsApp или Telegram.</p></div>
-      </div>
-    </section>
-
-    <!-- Блок 9. Калькулятор -->
-    <section class="b-calculator section section--purple" id="calculator">
-      <div class="container split">
-        <div class="split-copy reveal">
-          <p class="eyebrow">Интерфейс калькулятора</p>
-          <h2>Калькулятор растаможки <span>авто из Китая</span></h2>
-          <p>Укажите параметры машины — калькулятор посчитает пошлину и утильсбор.</p>
-          <p class="fineprint">Расчёт примерный. Точную сумму пошлины и утильсбора назовём при подаче документов. Работа брокера — 55 000 ₽ сверх платежей.</p>
-          <a class="btn btn--outline" href="#request">Обсудить поставку</a>
-        </div>
-        <!-- поля калькулятора уточнить у клиента -->
-        <form class="calculator reveal" action="#" id="calculator-form">
-          <div class="field-wide"><label for="car-price">Стоимость авто</label><div class="input-group"><input id="car-price" name="price" type="number" min="0" placeholder="0"><select name="currency" aria-label="Валюта"><option>CNY</option><option>RUB</option><option>USD</option></select></div></div>
-          <label>Возраст<select name="age"><option>До 3 лет</option><option>3–5 лет</option><option>Старше 5 лет</option></select></label>
-          <label>Тип двигателя<select name="engine"><option>Бензин</option><option>Дизель</option><option>Гибрид</option><option>Электро</option></select></label>
-          <label>Объём двигателя, см³<input name="volume" type="number" min="0" placeholder="Например, 1998"></label>
-          <label>Мощность, л. с.<input name="power" type="number" min="0" placeholder="Например, 150"></label>
-          <button class="btn field-wide" type="submit">Рассчитать</button>
-          <p class="calc-result field-wide" id="calc-result" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- Блок 10. Проверьте нас сами + отзывы -->
-    <section class="b-trust section section--light" id="trust">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow">Открытые данные</p><h2>Проверьте нас <span>в реестрах</span></h2><p>Не верьте на слово — данные открыты:</p></div>
-        <div class="registry-grid">
-          <!-- TODO: заменить # на ссылку на реестр ФТС -->
-          <a class="registry reveal" href="#"><span>ФТС</span><h3>Реестр таможенных представителей</h3><b>№ 2080 ↗</b></a>
-          <!-- TODO: заменить # на ссылку на реестр владельцев СВХ -->
-          <a class="registry reveal" href="#"><span>ФТС</span><h3>Реестр владельцев СВХ</h3><b>ООО «Транспортно-лабораторный комплекс» ↗</b></a>
-          <!-- TODO: заменить # на ссылку Росаккредитации -->
-          <a class="registry reveal" href="#"><span>Росаккредитация</span><h3>Аттестат испытательной лаборатории</h3><b>Открыть реестр ↗</b></a>
-        </div>
-        <p class="registry-note reveal">Чтобы попасть в реестры ФТС, таможенный представитель и СВХ обязаны застраховать свою ответственность — без полисов включения нет.</p>
-        <div class="subhead reveal"><h3>Отзывы партнёров</h3><div class="slider-controls"><button type="button" data-slider-prev aria-label="Предыдущий отзыв">←</button><button type="button" data-slider-next aria-label="Следующий отзыв">→</button></div></div>
-        <div class="reviews" data-slider>
-          <article class="review reveal"><span>2ГИС</span><p>Текст отзыва добавим после согласования.</p><small>Отзыв из 2ГИС</small></article>
-          <article class="review reveal"><span>2ГИС</span><p>Текст отзыва добавим после согласования.</p><small>Отзыв из 2ГИС</small></article>
-          <article class="review reveal"><span>2ГИС</span><p>Текст отзыва добавим после согласования.</p><small>Отзыв из 2ГИС</small></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Блок 11. Вопрос-ответ -->
-    <section class="b-faq section section--black" id="faq">
-      <div class="container faq-layout">
-        <div class="section-head reveal"><p class="eyebrow">Коротко о главном</p><h2>Частые <span>вопросы</span></h2><a class="text-link" href="/vopros-otvet">Все вопросы →</a></div>
-        <div class="faq-list">
-          <details class="reveal"><summary>Мы далеко от Уссурийска. Как работать?</summary><p>Приезжать не нужно. Документы — по ЭДО и в рабочем чате, статус машины приходит в мессенджер, вопросы решает персональный менеджер.</p></details>
-          <details class="reveal"><summary>Работаете по договору?</summary><p>Да. Документы — по ЭДО, приезжать в Уссурийск не нужно.</p></details>
-          <details class="reveal"><summary>Что с НДС и документами для бухгалтерии?</summary><p>Счета — с НДС 5%, сумма окончательная. Если вы на ОСНО, НДС принимаете к вычету; если на УСН или патенте — это обычный расход, новых налоговых обязанностей не появляется. Документооборот — по ЭДО через Калугу-Астрал.</p></details>
-          <details class="reveal"><summary>У нас уже есть брокер.</summary><p>Сравните не только цену услуги, но и итоговую сумму счёта: входят ли в неё СВХ, лаборатория, перегон и ЭПТС. У нас весь этот комплекс — в 55 000 ₽, без доплат.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Блок 12. Форма заявки -->
-    <section class="b-request section" id="request">
-      <div class="container request-grid">
-        <div class="request-copy reveal"><p class="eyebrow">Начать работу</p><h2>Растаможим ваши машины <span>за 55 000 ₽ без доплат</span></h2><p>Менеджер свяжется с вами и ответит на вопросы по вашей поставке.</p></div>
-        <form class="form reveal" action="#" data-demo-form>
-          <div class="form-grid">
-            <label>Имя<input type="text" name="name" autocomplete="name" required></label>
-            <label>Телефон<input type="tel" name="phone" autocomplete="tel" required></label>
-            <label>Компания<input type="text" name="company" autocomplete="organization"></label>
-            <label>Машин в месяц<input type="number" name="cars" min="1"></label>
-          </div>
-          <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных и с <a href="/politika">политикой конфиденциальности</a></span></label>
-          <button class="btn" type="submit">Обсудить поставку</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
   </main>
-
-  <!-- Блок 13. Подвал -->
-  <section class="b-footer" id="footer">
-    <footer class="footer container">
-      <div class="footer-brand"><img src="assets/img/logo.png" alt="Восточный Брокер" width="240" height="60" loading="lazy"><p>Таможенный брокер для дилеров и посредников.</p></div>
-      <nav class="footer-nav" aria-label="Меню в подвале"><a href="/o-kompanii">О компании</a><a href="/vopros-otvet">Вопрос-ответ</a><a href="/stati">Статьи</a><a href="/novosti">Новости</a><a href="/kontakty">Контакты</a></nav>
-      <address class="contacts"><a href="tel:+79025257777">+7 (902) 525-77-77</a><a href="tel:88007005025">8 (800) 700-50-25</a><span>Уссурийск, Новоникольское шоссе, 19</span><div><a href="https://t.me/+79025257777">Telegram</a><a href="https://wa.me/79025257777">WhatsApp</a><a href="https://vk.com/dvbrusk">ВКонтакте</a></div></address>
-      <div class="footer-meta"><span>Реквизиты — будут добавлены</span><a href="/politika">Политика конфиденциальности</a><span>© 2026 Восточный Брокер</span></div>
-    </footer>
-  </section>
 </body>
 </html>
