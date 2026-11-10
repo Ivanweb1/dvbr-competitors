@@ -353,3 +353,8 @@ input[type="file"] { padding: 13px; }
 .hs-cell--lead { grid-template-rows: 1fr auto; }
 .hs-cell--lead .hs-label { grid-column: 1 / -1; align-self: start; margin: 0; }
 .hs-cell--lead p { font-size: 1.05rem; }
+.hero-stage h1 .br-m { display: none; }
+@media (max-width: 560px) {
+  .hero-stage h1 .br-m { display: inline; }
+  .hero-stage h1 .h1-line { display: inline; }
+}
