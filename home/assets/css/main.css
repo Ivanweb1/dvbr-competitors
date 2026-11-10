@@ -517,35 +517,32 @@ a.as-item:hover strong { color: var(--purple); }
   .pl-ph, .pl-ph--big { min-height: 240px; }
 }
 
-/* Блок 8. Как проходит оформление — по рефу: список 01–06 (неактивные серые) + карточка активного этапа */
+/* Блок 8. Как проходит оформление — 6 этапов на одной линии + серая плашка со сроками */
 .b-proc { padding: clamp(72px, 9vw, 140px) 0; background: #fff; }
-.proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
-.pr-side { display: grid; gap: 28px; padding-right: 8%; }
-.pr-lead { margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.45; }
-.pr-fact { display: grid; gap: 8px; padding-top: 18px; border-top: 1px solid #e6e5ea; }
-.pr-fact strong { font-family: var(--title); font-size: clamp(2.2rem, 3.4vw, 3.4rem); font-weight: 700; line-height: .95; letter-spacing: -.03em; }
-.pr-fact strong i { color: var(--grey-text); font-style: normal; font-size: .5em; letter-spacing: 0; }
-.pr-fact span { color: #6d6b73; font-size: .9rem; line-height: 1.4; }
-.pr-list ol { margin: 0; padding: 0; list-style: none; }
-.pr-step { display: grid; grid-template-columns: 52px 1fr; align-items: baseline; width: 100%; padding: 12px 0; border: 0; background: none; color: #c4c3ca; font: 700 clamp(1.15rem, 1.6vw, 1.55rem)/1.2 var(--title); letter-spacing: -.01em; text-align: left; cursor: pointer; transition: color .2s; }
-.pr-step span { font-size: .62em; font-weight: 600; }
-.pr-step:hover { color: #77767f; }
-.pr-step.is-active { color: var(--ink); }
-.pr-step.is-active span { color: var(--purple); }
-.pr-card { display: flex; flex-direction: column; gap: 18px; }
-.pr-media { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden; background: var(--card); }
-.pr-media img { width: 100%; height: 100%; object-fit: cover; transition: opacity .25s; }
-.pr-media--doc { padding: 18px; }
-.pr-media--doc img { border-radius: 10px; object-fit: cover; object-position: top; box-shadow: 0 10px 28px rgba(16,16,20,.12); background: #fff; }
-.pr-media.is-fading img { opacity: 0; }
-.pr-text { margin: 0; color: #5c5a61; font-size: .98rem; line-height: 1.5; min-height: 3em; }
-.pr-card .btn { align-self: flex-start; }
-@media (max-width: 1000px) {
-  .proc-grid { grid-template-columns: 1fr 1fr; }
-  .pr-side { grid-column: 1 / -1; grid-template-columns: 1fr 1fr 1fr; padding-right: 0; }
+.pr-line { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.pr-line::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: #e6e5ea; }
+.pr-line li { position: relative; display: grid; align-content: start; gap: 8px; padding-right: 8px; }
+.pr-line i { position: relative; width: 16px; height: 16px; margin-bottom: 18px; border: 3px solid #fff; border-radius: 50%; background: var(--purple); box-shadow: 0 0 0 1px #e6e5ea; }
+.pr-line li:last-child i { width: 16px; background: var(--ink); }
+.pr-line span { color: var(--grey-text); font-family: var(--title); font-size: .9rem; font-weight: 700; }
+.pr-line h3 { margin: 0; font-size: clamp(1.05rem, 1.3vw, 1.25rem); font-weight: 700; line-height: 1.2; }
+.pr-line p { margin: 0; color: #5c5a61; font-size: .92rem; line-height: 1.45; }
+.pr-bar { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px 40px; align-items: center; margin-top: clamp(40px, 5vw, 64px); padding: 24px 28px; border-radius: var(--radius-md); background: var(--card); }
+.pr-bar p { margin: 0; color: #5c5a61; font-size: .95rem; line-height: 1.45; }
+.pr-bar b { color: var(--ink); font-weight: 700; }
+@media (max-width: 1100px) {
+  .pr-line { grid-template-columns: repeat(3, 1fr); row-gap: 36px; }
+  .pr-line::before { display: none; }
+  .pr-line li { padding-top: 0; }
+  .pr-bar { grid-template-columns: 1fr; }
+  .pr-bar .btn { justify-self: start; }
 }
 @media (max-width: 640px) {
-  .proc-grid { grid-template-columns: 1fr; }
-  .pr-side { grid-template-columns: 1fr; gap: 20px; }
-  .pr-step { padding: 10px 0; }
+  .pr-line { grid-template-columns: 1fr; row-gap: 0; }
+  .pr-line li { grid-template-columns: 16px 34px 1fr; column-gap: 12px; row-gap: 4px; padding: 14px 0; border-bottom: 1px solid #eeedf1; }
+  .pr-line i { grid-row: 1 / 3; margin: 3px 0 0; }
+  .pr-line span { grid-row: 1 / 3; padding-top: 2px; }
+  .pr-line h3, .pr-line p { grid-column: 3; }
+  .pr-bar { padding: 22px; }
+  .pr-bar .btn { width: 100%; }
 }
