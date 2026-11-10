@@ -704,3 +704,10 @@ a.as-item:hover strong { color: var(--purple); }
 .rv-map-txt span { color: #6d6b73; font-size: .82rem; }
 @media (max-width: 1000px) { .rv-cards { grid-column: auto; } }
 @media (max-width: 640px) { .rv-track { grid-auto-columns: 88%; } .rv-c { min-height: 0; } }
+
+/* Официальные логотипы 2ГИС и Яндекс Карт */
+.rv-map { grid-template-columns: auto 1fr auto; padding: 16px 18px; background: #fff; box-shadow: inset 0 0 0 1px #e6e5ea; }
+.rv-map:hover { background: #fff; box-shadow: inset 0 0 0 1px #c9c8d0; }
+.rv-map-logo { display: block; width: auto; height: 22px; }
+.rv-map-txt { color: #6d6b73; font-size: .85rem; }
+.rv-src-logo { display: block; width: auto; height: 16px; }
