@@ -130,3 +130,22 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   window.addEventListener('resize', sync);
   sync();
 })();
+
+// Как проходит оформление: клик по этапу — меняем картинку и описание справа
+(() => {
+  const steps = [...document.querySelectorAll('.pr-step')];
+  const media = document.querySelector('[data-step-card] .pr-media');
+  const img = document.querySelector('[data-step-img]');
+  const text = document.querySelector('[data-step-text]');
+  if (!steps.length || !img || !text) return;
+  steps.forEach((btn) => btn.addEventListener('click', () => {
+    steps.forEach((b) => b.classList.toggle('is-active', b === btn));
+    media.classList.add('is-fading');
+    setTimeout(() => {
+      img.src = btn.dataset.img;
+      img.alt = btn.dataset.alt;
+      media.className = 'pr-media pr-media--' + btn.dataset.kind;
+      text.textContent = btn.dataset.text;
+    }, 180);
+  }));
+})();
