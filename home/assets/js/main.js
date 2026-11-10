@@ -68,3 +68,39 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }, { threshold: 0.08 });
   revealItems.forEach((item) => observer.observe(item));
 }
+
+// Первый экран: нижняя строка заголовка заходит за крышу машины на вырезанном слое (~30 % высоты строки).
+// Крыша на фото — 38,4 % высоты кадра 2560×1440. Если заголовок выше крыши — опускаем заголовок,
+// если ниже — сдвигаем/увеличиваем оба слоя картинки одинаково.
+(() => {
+  const stage = document.querySelector('.hero-stage');
+  const title = stage?.querySelector('h1');
+  const layers = stage ? [...stage.querySelectorAll('.hero-photo, .hero-front')] : [];
+  if (!stage || !title) return;
+  const ROOF = 0.384;
+  const reset = () => {
+    title.style.marginTop = '';
+    layers.forEach((el) => { el.style.objectPosition = ''; el.style.transform = ''; el.style.transformOrigin = ''; });
+  };
+  const fit = () => {
+    reset();
+    if (!stage.querySelector('.hero-front') || window.innerWidth <= 820) return;
+    const w = stage.clientWidth, h = stage.clientHeight;
+    const ih = 1440 * Math.max(w / 2560, h / 1440);
+    const line = parseFloat(getComputedStyle(title).lineHeight) || title.offsetHeight / 2;
+    const target = title.offsetTop + title.offsetHeight - line * 0.3; // где должна быть крыша
+    let offY = (h - ih) * 0.62;
+    const roof = offY + ROOF * ih;
+    if (roof >= target) { title.style.marginTop = (roof - target) + 'px'; return; }
+    offY = Math.min(0, target - ROOF * ih);
+    const k = Math.max(1, target / (offY + ROOF * ih));
+    layers.forEach((el) => {
+      el.style.objectPosition = `50% ${offY}px`;
+      if (k > 1) { el.style.transformOrigin = '50% 0'; el.style.transform = `scale(${k})`; }
+    });
+  };
+  fit();
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  document.fonts?.ready.then(fit);
+})();
