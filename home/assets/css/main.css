@@ -481,3 +481,7 @@ a.as-item:hover strong { color: var(--purple); }
   .ck-photo { min-height: 320px; }
   .ck-form .btn { margin-top: 10px; }
 }
+.ck-consent { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; margin: 4px 0 18px; color: rgba(255,255,255,.65); font-size: .82rem; font-weight: 400; line-height: 1.4; cursor: pointer; }
+.ck-consent input { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; min-height: 20px; margin: 0; padding: 0; border: 1px solid rgba(255,255,255,.3); border-radius: 6px; background: #222229; cursor: pointer; }
+.ck-consent input:checked { border-color: var(--purple); background: var(--purple) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.ck-consent a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
