@@ -70,14 +70,14 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
 }
 
 // Первый экран: нижняя строка заголовка заходит за крышу машины на вырезанном слое (~30 % высоты строки).
-// Крыша на фото — 38,4 % высоты кадра 2560×1440. Если заголовок выше крыши — опускаем заголовок,
+// Крыша на фото — 34,7 % высоты кадра 2560×1440. Если заголовок выше крыши — опускаем заголовок,
 // если ниже — сдвигаем/увеличиваем оба слоя картинки одинаково.
 (() => {
   const stage = document.querySelector('.hero-stage');
   const title = stage?.querySelector('h1');
   const layers = stage ? [...stage.querySelectorAll('.hero-photo, .hero-front')] : [];
   if (!stage || !title) return;
-  const ROOF = 0.384;
+  const ROOF = 0.347;
   const reset = () => {
     title.style.marginTop = '';
     layers.forEach((el) => { el.style.objectPosition = ''; el.style.transform = ''; el.style.transformOrigin = ''; });
