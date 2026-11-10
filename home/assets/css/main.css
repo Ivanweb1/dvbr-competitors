@@ -407,7 +407,8 @@ a.as-item:hover strong { color: var(--purple); }
 
 /* Блок «Что входит в 55 000 ₽» — счёт: список с галочками + фиолетовый итог */
 .b-inc { padding: clamp(40px, 5vw, 80px) 0 clamp(72px, 9vw, 140px); background: #fff; }
-.bill { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; }
+.bill { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bill-list { grid-column: 2 / -1; }
 .bill-list { padding: clamp(20px, 2.4vw, 36px) clamp(20px, 2.8vw, 40px); border: 1px solid #e6e5ea; border-radius: var(--radius-md); background: #fff; }
 .bill-list ul { margin: 0; padding: 0; list-style: none; }
 .bill-list li, .bill-extra p { display: flex; align-items: baseline; gap: 14px; margin: 0; padding: 15px 0; border-bottom: 1px solid #eeedf1; }
@@ -434,6 +435,7 @@ a.as-item:hover strong { color: var(--purple); }
 .bill-link:hover { border-color: #fff; }
 @media (max-width: 1000px) {
   .bill { grid-template-columns: 1fr; }
+  .bill-list { grid-column: auto; }
 }
 @media (max-width: 640px) {
   .bill-list li { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: start; padding: 13px 0; }
