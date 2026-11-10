@@ -71,7 +71,6 @@ h3 { font-size: clamp(1.15rem, 1.45vw, 1.45rem); line-height: 1.25; }
 .cards-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card { min-height: 380px; padding: 28px; border: 1px solid var(--line-dark); border-radius: var(--radius-md); background: #faf9f6; transition: transform .25s, box-shadow .25s; }
 .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.08); }
-.card-no { display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center; margin-bottom: 80px; border-radius: 50%; color: #fff; background: var(--purple); font-family: var(--title); font-size: .8rem; }
 .card h3 { max-width: 310px; }
 .card p { margin-bottom: 0; color: #5c5a61; }
 
@@ -279,10 +278,8 @@ input[type="file"] { padding: 13px; }
   .nav.is-open { top: 78px; }
   .cards-three, .split, .included-layout, .process-layout, .faq-layout, .request-grid { grid-template-columns: 1fr; }
   .card:last-child, .registry:last-child { grid-column: auto; }
-  .cards-three { overflow-x: auto; grid-auto-flow: column; grid-auto-columns: 86%; grid-template-columns: none; padding-bottom: 12px; }
   .card { min-height: 350px; }
-  .card-no { margin-bottom: 55px; }
-  .split { gap: 45px; }
+    .split { gap: 45px; }
   .included-layout { gap: 35px; }
   .price-panel { max-width: 460px; }
   .process-layout { gap: 55px; }
@@ -364,3 +361,18 @@ input[type="file"] { padding: 13px; }
 }
 .stat-badge { position: absolute; top: 16px; left: 16px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.92); color: var(--black); }
 .stat-badge svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Блок 4. Для кого: карточки с линейными иконками в стиле первого экрана */
+.b-audience .card { min-height: 340px; display: flex; flex-direction: column; border: 0; background: #fff; }
+.card-icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 0; border-radius: 50%; background: var(--paper); color: var(--black); }
+.card-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.b-audience .card h3 { max-width: 320px; margin: 64px 0 14px; font-weight: 700; }
+.b-audience .card p { font-size: .98rem; line-height: 1.5; }
+@media (max-width: 1120px) {
+  .b-audience .cards-three { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .b-audience .cards-three { grid-template-columns: 1fr; }
+  .b-audience .card { min-height: 0; padding: 22px; }
+  .b-audience .card h3 { margin-top: 36px; }
+}
