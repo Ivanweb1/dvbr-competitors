@@ -762,3 +762,39 @@ a.as-item:hover strong { color: var(--purple); }
 .rs-link { margin: 0; padding: 0; border: 0; font-size: 0; }
 .rs-link svg { width: 18px; height: 18px; }
 @media (max-width: 1100px) { .rs-rate { white-space: normal; } }
+
+/* Блок 11. Частые вопросы — тёмный, аккордеон с номерами */
+.b-faq2 { padding: clamp(72px, 9vw, 140px) 0; color: #fff; background: #0e0e12; }
+.b-faq2 .about-eyebrow { color: rgba(255,255,255,.85); }
+.b-faq2 .about-head h2 { color: #fff; }
+.b-faq2 .about-head h2 span { color: #6f6e78; }
+.fq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.fq-help { display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 2.4vw, 32px); border-radius: var(--radius-md); background: #1a1a20; }
+.fq-help h3 { margin: 0; font-family: var(--title); font-size: clamp(1.4rem, 2vw, 1.9rem); font-weight: 900; line-height: 1.05; letter-spacing: -.02em; text-transform: uppercase; }
+.fq-help p { margin: 0 0 8px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.fq-help .btn { align-self: flex-start; }
+.fq-phone { margin-top: 10px; font-size: 1.15rem; font-weight: 700; }
+.fq-all { align-self: flex-start; border-bottom: 1px solid rgba(255,255,255,.4); color: rgba(255,255,255,.8); font-size: .92rem; }
+.fq-all:hover, .fq-phone:hover { color: #fff; border-color: #fff; }
+.fq-list { grid-column: 2 / -1; border-top: 1px solid rgba(255,255,255,.12); }
+.fq-item { border-bottom: 1px solid rgba(255,255,255,.12); }
+.fq-item summary { display: grid; grid-template-columns: 48px 1fr 28px; align-items: center; gap: 12px; padding: 24px 0; cursor: pointer; list-style: none; }
+.fq-item summary::-webkit-details-marker { display: none; }
+.fq-no { color: #6f6e78; font-family: var(--title); font-size: .9rem; font-weight: 700; }
+.fq-q { font-size: clamp(1.05rem, 1.4vw, 1.3rem); font-weight: 600; line-height: 1.3; transition: color .2s; }
+.fq-item summary:hover .fq-q { color: #c9c5f1; }
+.fq-plus { position: relative; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.08); transition: transform .25s, background-color .25s; }
+.fq-plus::before, .fq-plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: #fff; }
+.fq-plus::after { transform: rotate(90deg); }
+.fq-item[open] .fq-plus { transform: rotate(45deg); background: var(--purple); }
+.fq-item[open] .fq-no { color: #b3adf2; }
+.fq-item p { max-width: 760px; margin: 0; padding: 0 40px 26px 60px; color: rgba(255,255,255,.7); font-size: 1rem; line-height: 1.55; }
+@media (max-width: 1000px) {
+  .fq-grid { grid-template-columns: 1fr; }
+  .fq-list { grid-column: auto; order: -1; }
+}
+@media (max-width: 640px) {
+  .fq-item summary { grid-template-columns: 34px 1fr 28px; padding: 18px 0; }
+  .fq-item p { padding: 0 0 20px 46px; }
+  .fq-help .btn { width: 100%; }
+}
