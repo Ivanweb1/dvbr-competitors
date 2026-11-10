@@ -517,32 +517,31 @@ a.as-item:hover strong { color: var(--purple); }
   .pl-ph, .pl-ph--big { min-height: 240px; }
 }
 
-/* Блок 8. Как проходит оформление — 6 этапов на одной линии + серая плашка со сроками */
+/* Блок 8. Как проходит оформление — номера в кружках на линии + плашка на сетке 3 колонки */
 .b-proc { padding: clamp(72px, 9vw, 140px) 0; background: #fff; }
 .pr-line { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
-.pr-line::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: #e6e5ea; }
-.pr-line li { position: relative; display: grid; align-content: start; gap: 8px; padding-right: 8px; }
-.pr-line i { position: relative; width: 16px; height: 16px; margin-bottom: 18px; border: 3px solid #fff; border-radius: 50%; background: var(--purple); box-shadow: 0 0 0 1px #e6e5ea; }
-.pr-line li:last-child i { width: 16px; background: var(--ink); }
-.pr-line span { color: var(--grey-text); font-family: var(--title); font-size: .9rem; font-weight: 700; }
-.pr-line h3 { margin: 0; font-size: clamp(1.05rem, 1.3vw, 1.25rem); font-weight: 700; line-height: 1.2; }
-.pr-line p { margin: 0; color: #5c5a61; font-size: .92rem; line-height: 1.45; }
-.pr-bar { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px 40px; align-items: center; margin-top: clamp(40px, 5vw, 64px); padding: 24px 28px; border-radius: var(--radius-md); background: var(--card); }
-.pr-bar p { margin: 0; color: #5c5a61; font-size: .95rem; line-height: 1.45; }
-.pr-bar b { color: var(--ink); font-weight: 700; }
+.pr-line::before { content: ""; position: absolute; left: 22px; right: calc((100% - 80px) / 6 - 22px); top: 22px; height: 1px; background: #dcdbe2; }
+.pr-line li { position: relative; display: grid; align-content: start; gap: 8px; padding-right: 12px; }
+.pr-num { position: relative; display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border: 1px solid #dcdbe2; border-radius: 50%; background: #fff; color: var(--ink); font-family: var(--title); font-size: .85rem; font-weight: 700; }
+.pr-line li:last-child .pr-num { border-color: var(--purple); color: #fff; background: var(--purple); }
+.pr-line h3 { margin: 0; font-size: clamp(1rem, 1.15vw, 1.12rem); font-weight: 700; line-height: 1.25; }
+.pr-line p { margin: 0; color: #6d6b73; font-size: .9rem; line-height: 1.45; }
+.pr-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: center; margin-top: clamp(40px, 5vw, 64px); padding: 22px 24px; border-radius: var(--radius-md); background: var(--card); }
+.pr-bar p { margin: 0; padding-right: 24px; color: #5c5a61; font-size: .92rem; line-height: 1.45; }
+.pr-bar p + p { padding-left: 24px; border-left: 1px solid #dcdbe2; }
+.pr-bar b { display: block; margin-bottom: 4px; color: var(--ink); font-size: 1rem; font-weight: 700; }
+.pr-bar .btn { justify-self: end; }
 @media (max-width: 1100px) {
-  .pr-line { grid-template-columns: repeat(3, 1fr); row-gap: 36px; }
+  .pr-line { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
   .pr-line::before { display: none; }
-  .pr-line li { padding-top: 0; }
-  .pr-bar { grid-template-columns: 1fr; }
-  .pr-bar .btn { justify-self: start; }
+  .pr-bar { grid-template-columns: 1fr 1fr; }
+  .pr-bar .btn { grid-column: 1 / -1; justify-self: start; }
 }
 @media (max-width: 640px) {
   .pr-line { grid-template-columns: 1fr; row-gap: 0; }
-  .pr-line li { grid-template-columns: 16px 34px 1fr; column-gap: 12px; row-gap: 4px; padding: 14px 0; border-bottom: 1px solid #eeedf1; }
-  .pr-line i { grid-row: 1 / 3; margin: 3px 0 0; }
-  .pr-line span { grid-row: 1 / 3; padding-top: 2px; }
-  .pr-line h3, .pr-line p { grid-column: 3; }
-  .pr-bar { padding: 22px; }
+  .pr-line li { grid-template-columns: 44px 1fr; column-gap: 14px; row-gap: 2px; padding: 12px 0; }
+  .pr-num { grid-row: 1 / 3; margin: 0; }
+  .pr-bar { grid-template-columns: 1fr; padding: 20px; }
+  .pr-bar p, .pr-bar p + p { padding: 0; border: 0; }
   .pr-bar .btn { width: 100%; }
 }
