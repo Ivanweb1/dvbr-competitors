@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css?v=70">
+  <link rel="stylesheet" href="assets/calc/dvbr-calculator.css?v=1">
+  <link rel="stylesheet" href="assets/calc/calc-skin.css?v=3">
   <script src="assets/js/main.js?v=6" defer></script>
 </head>
 <body>
@@ -238,40 +240,266 @@
       </div>
     </section>
 
-    <!-- Блок 9. Калькулятор — результат слева (тёмная карточка), форма справа. Формулы — после согласования с клиентом -->
+    <!-- Блок 9. Калькулятор — рабочий калькулятор клиента v6.3 (assets/calc/), оформлен под сайт через calc-skin.css -->
     <section class="b-calc" id="calculator">
       <div class="about-wrap">
         <div class="about-head reveal">
           <p class="about-eyebrow">Калькулятор</p>
-          <h2>Калькулятор растаможки <span>авто из&nbsp;Китая</span></h2>
+          <h2>Калькулятор растаможки <span>авто из&nbsp;Китая: пошлина, утильсбор, НДС по&nbsp;курсу ЦБ</span></h2>
         </div>
-        <div class="calc-grid">
-          <div class="calc-result-card reveal">
-            <p class="calc-label">Примерные платежи</p>
-            <dl class="calc-rows">
-              <div><dt>Пошлина</dt><dd data-calc="duty">—</dd></div>
-              <div><dt>Утильсбор</dt><dd data-calc="util">—</dd></div>
-              <div><dt>Работа брокера</dt><dd>55&nbsp;000&nbsp;₽</dd></div>
-            </dl>
-            <div class="calc-total"><span>Итого</span><strong data-calc="total">—</strong></div>
-            <p class="calc-result" id="calc-result" role="status" aria-live="polite"></p>
-            <p class="calc-fine">Расчёт примерный. Точную сумму пошлины и утильсбора назовём при подаче документов.</p>
-            <a class="btn btn--white" href="#request">Обсудить поставку</a>
-          </div>
-          <form class="calc-form reveal" action="#" id="calculator-form">
-            <div class="cf-field cf-wide">
-              <span class="cf-name">Стоимость авто</span>
-              <div class="cf-price"><input id="car-price" name="price" type="number" min="0" placeholder="0" aria-label="Стоимость авто"><div class="seg seg--small"><label class="seg-opt"><input type="radio" name="currency" value="CNY" checked><span>CNY</span></label><label class="seg-opt"><input type="radio" name="currency" value="RUB"><span>RUB</span></label><label class="seg-opt"><input type="radio" name="currency" value="USD"><span>USD</span></label></div></div>
+<div id="dvbr-customs-calculator" data-cbr-proxy="https://dvbr-cbr-proxy.tt5026244.workers.dev/">
+
+  <main class="page">
+    <div class="modebar" role="group" aria-label="Режим калькулятора">
+      <button type="button" class="mode-btn active" data-mode="simple">Обычный режим</button>
+      <button type="button" class="mode-btn" data-mode="pro">Профессиональный режим</button>
+      <span class="mode-hint" id="modeHint">Только основные поля для типового расчёта.</span>
+    </div>
+
+    <div class="workbench">
+      <section class="card form-card">
+        <div class="section-head">
+          <div class="step">1</div>
+          <div><h2>Данные автомобиля</h2><p>Заполните характеристики по документам автомобиля.</p></div>
+        </div>
+
+        <form id="calculatorForm" novalidate>
+          <fieldset class="field-group">
+            <legend>Кто и для чего ввозит</legend>
+            <div class="choice-grid route-choice">
+              <label class="choice-card">
+                <input type="radio" name="route" value="physical_personal" checked />
+                <span><b>Физлицо</b><small>для личного пользования</small></span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="route" value="physical_resale" />
+                <span><b>Физлицо</b><small>для перепродажи</small></span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="route" value="legal_commercial" />
+                <span><b>Юрлицо</b><small>коммерческий ввоз</small></span>
+              </label>
+              <label class="choice-card pro-only-choice hidden">
+                <input type="radio" name="route" value="ip_commercial" />
+                <span><b>ИП</b><small>коммерческий ввоз</small></span>
+              </label>
             </div>
-            <div class="cf-field cf-wide"><span class="cf-name">Возраст</span><div class="seg"><label class="seg-opt"><input type="radio" name="age" value="До 3 лет"><span>До 3 лет</span></label><label class="seg-opt"><input type="radio" name="age" value="3–5 лет" checked><span>3–5 лет</span></label><label class="seg-opt"><input type="radio" name="age" value="Старше 5 лет"><span>Старше 5 лет</span></label></div></div>
-            <div class="cf-field cf-wide"><span class="cf-name">Тип двигателя</span><div class="seg"><label class="seg-opt"><input type="radio" name="engine" value="Бензин" checked><span>Бензин</span></label><label class="seg-opt"><input type="radio" name="engine" value="Дизель"><span>Дизель</span></label><label class="seg-opt"><input type="radio" name="engine" value="Гибрид"><span>Гибрид</span></label><label class="seg-opt"><input type="radio" name="engine" value="Электро"><span>Электро</span></label></div></div>
-            <label class="cf-field"><span class="cf-name">Объём двигателя, см³</span><input name="volume" type="number" min="0" placeholder="Например, 1998"></label>
-            <label class="cf-field"><span class="cf-name">Мощность, л. с.</span><input name="power" type="number" min="0" placeholder="Например, 150"></label>
-            <button class="btn cf-wide" type="submit">Рассчитать</button>
-          </form>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Стоимость и возраст</legend>
+            <div class="grid grid-3">
+              <label class="field span-2">Стоимость автомобиля
+                <div class="input-with-select">
+                  <input id="price" type="number" min="0" step="0.01" value="20000" inputmode="decimal" />
+                  <select id="currency" aria-label="Валюта">
+                    <option>USD</option><option>EUR</option><option selected>CNY</option><option>KRW</option><option>JPY</option><option>AED</option><option>RUB</option>
+                  </select>
+                </div>
+              </label>
+              <label class="field">Дата выпуска
+                <input id="productionMonth" type="month" value="2024-06" />
+              </label>
+            </div>
+
+            <div class="grid grid-2">
+              <label class="field">Дата расчёта / декларации
+                <input id="declarationDate" type="date" value="2026-10-12" min="2026-01-01" max="2026-10-12" />
+              </label>
+              <label class="field">Курс валюты
+                <select id="rateMode">
+                  <option value="auto">Автоматически — Банк России</option>
+                  <option value="manual">Ввести вручную</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="manualRates" class="grid grid-2 hidden subpanel">
+              <label class="field">Курс выбранной валюты, ₽ за 1 ед.
+                <input id="exchangeRate" type="number" step="0.000001" min="0" />
+              </label>
+              <label class="field">EUR/RUB, ₽ за 1 EUR
+                <input id="eurRub" type="number" step="0.000001" min="0" />
+              </label>
+            </div>
+            <div id="rateInfo" class="info-strip">Курс будет загружен с официального сервиса Банка России.</div>
+            <div class="rate-note">Дата расчёта подставляется автоматически при открытии страницы. В выходные и праздничные дни используется последний действующий официальный курс Банка России.</div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Двигатель и мощность</legend>
+            <div class="grid grid-2">
+              <label class="field">Тип силовой установки
+                <select id="engineType">
+                  <option value="petrol">Бензин</option>
+                  <option value="diesel">Дизель</option>
+                  <option value="hybrid">Гибрид</option>
+                  <option value="plugin_hybrid">Plug-in hybrid (PHEV)</option>
+                  <option value="electric">Электромобиль</option>
+                </select>
+              </label>
+              <label class="field" id="engineCcWrap">Объём ДВС, см³
+                <input id="engineCc" type="number" min="0" step="1" value="1998" inputmode="numeric" />
+              </label>
+            </div>
+
+            <div id="seriesHybridWrap" class="checks hidden series-check">
+              <label><input id="seriesPowertrain" type="checkbox" /> <b>Силовая установка последовательного типа</b></label>
+              <small>Включайте только для последовательного гибрида, у которого колёса приводятся электродвигателем, а ДВС работает как генератор.</small>
+            </div>
+
+            <div class="grid grid-2 power-grid">
+              <label class="field" id="icePowerWrap">Мощность ДВС, кВт
+                <input id="icePowerKw" type="number" min="0" step="0.01" value="110" inputmode="decimal" />
+                <small id="icePowerHint">Не л.с. — вводите значение в кВт из документов.</small>
+              </label>
+              <label class="field hidden" id="electricPowerWrap"><span id="electricPowerLabel">Макс. 30-минутная мощность ЭД, кВт</span>
+                <input id="electric30MinKw" type="number" min="0" step="0.01" value="0" inputmode="decimal" />
+                <small id="electricPowerHint">Для нескольких тяговых электродвигателей мощности суммируются.</small>
+              </label>
+            </div>
+
+            <div class="kw-note">
+              <b>Почему кВт?</b> Для обычного/параллельного гибрида мощность для утильсбора определяется как ДВС + максимальная 30-минутная мощность ЭД. Если отмечена галочка «Силовая установка последовательного типа», в расчёте используется мощность ЭД и применяется отдельная ветка, аналогичная EV.
+            </div>
+          </fieldset>
+
+          <div id="professionalFields" class="hidden">
+            <fieldset class="field-group pro-block">
+              <legend>Профессиональные параметры</legend>
+              <div class="grid grid-2">
+                <label class="field">Страна происхождения
+                  <input id="countryOrigin" value="Китай" placeholder="Например, Китай" />
+                </label>
+                <label class="field">VIN <span class="muted">необязательно</span>
+                  <input id="vin" maxlength="17" placeholder="17 символов" />
+                </label>
+              </div>
+
+              <div class="grid grid-2">
+                <label class="field">Статус товара
+                  <select id="goodsStatus">
+                    <option value="non_union">Товар не ЕАЭС — ввоз из третьей страны</option>
+                    <option value="eaeu_goods">Уже имеет статус товара ЕАЭС</option>
+                  </select>
+                </label>
+                <label class="field">Место первоначального оформления
+                  <select id="customsClearancePlace">
+                    <option value="russia">Россия</option>
+                    <option value="other_eaeu">Другое государство ЕАЭС по ДТ</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="field">Расходы/добавления, включаемые в таможенную стоимость, ₽
+                <input id="additionsRub" type="number" min="0" step="0.01" value="0" />
+                <small>Только суммы, которые действительно должны входить в таможенную стоимость.</small>
+              </label>
+
+              <div class="grid grid-2">
+                <label class="field">Документированная мощность для утильсбора, кВт <span class="muted">необязательно</span>
+                  <input id="utilPowerKwOverride" type="number" min="0" step="0.01" placeholder="Если прямо указана в ЭПТС/СБКТС" />
+                </label>
+                <label class="field" id="excisePowerWrap">Мощность для акциза, кВт <span class="muted">для EV/гибридов при СТП/коммерческом ввозе</span>
+                  <input id="excisePowerKw" type="number" min="0" step="0.01" placeholder="По документам" />
+                </label>
+              </div>
+
+              <div class="checks">
+                <label><input id="personalConditionsConfirmed" type="checkbox" checked /> Условия ввоза физлицом для личного пользования подтверждены</label>
+                <label><input id="priorPersonalVehicleWithin12m" type="checkbox" /> За предыдущие 12 месяцев уже был льготный автомобиль</label>
+                <label><input id="earlyDisposalWithin12m" type="checkbox" /> Отчуждение автомобиля ранее 12 месяцев</label>
+              </div>
+            </fieldset>
+
+            <fieldset id="tariffBlock" class="field-group pro-block hidden">
+              <legend>Ставка пошлины по ТН ВЭД</legend>
+              <div class="warning-lite">Для коммерческого ввоза и перепродажи точная ставка зависит от кода ТН ВЭД. Для личного ввоза чистого EV используется отдельная ветка СТП.</div>
+              <div class="grid grid-2">
+                <label class="field">Код ТН ВЭД, 10 знаков<input id="tnved" inputmode="numeric" maxlength="10" /></label>
+                <label class="field">Правило ставки
+                  <select id="dutyRule">
+                    <option value="percent">% от таможенной стоимости</option>
+                    <option value="max_percent_min_eurcc">%, но не менее EUR/см³</option>
+                    <option value="specific_eurcc">EUR/см³</option>
+                  </select>
+                </label>
+                <label class="field">Ставка, %<input id="dutyPercent" type="number" min="0" step="0.0001" /></label>
+                <label class="field">Минимум / ставка, EUR/см³<input id="dutyEurPerCc" type="number" min="0" step="0.0001" /></label>
+                <label class="field">Нормативный акт<input id="dutyLegalAct" placeholder="ЕТТ ЕАЭС, позиция ..." /></label>
+                <label class="field">Источник<input id="dutySource" placeholder="https://..." /></label>
+              </div>
+              <label class="check-line"><input id="tariffVerified" type="checkbox" /> Ставка проверена на дату декларации</label>
+            </fieldset>
+
+            <fieldset id="eaeuCorrectionBlock" class="field-group pro-block hidden">
+              <legend>Корректировка утильсбора при оформлении в другой стране ЕАЭС</legend>
+              <div class="grid grid-3">
+                <label class="field">Пошлина фактически, ₽<input id="actualDuty" type="number" min="0" step="0.01" /></label>
+                <label class="field">Пошлина контрольная, ₽<input id="referenceDuty" type="number" min="0" step="0.01" /></label>
+                <span></span>
+                <label class="field">НДС фактически, ₽<input id="actualVat" type="number" min="0" step="0.01" /></label>
+                <label class="field">НДС контрольный, ₽<input id="referenceVat" type="number" min="0" step="0.01" /></label>
+                <span></span>
+                <label class="field">Акциз фактически, ₽<input id="actualExcise" type="number" min="0" step="0.01" /></label>
+                <label class="field">Акциз контрольный, ₽<input id="referenceExcise" type="number" min="0" step="0.01" /></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="preset-panel">
+            <b>Проверка по вашим скриншотам</b>
+            <div class="preset-buttons">
+              <button type="button" class="preset" id="presetEv">EV · 84 700 CNY · 45 кВт</button>
+              <button type="button" class="preset" id="presetHybrid">Обычный гибрид · 150 000 CNY · 48 + 107 кВт</button>
+              <button type="button" class="preset" id="presetSeriesHybrid">Последовательный гибрид · 100 000 CNY · 45 кВт</button>
+            </div>
+            <small>Кнопка заполнит поля курсами и параметрами со скриншота и сразу выполнит расчёт.</small>
+          </div>
+          <div class="form-actions">
+            <button class="primary" type="submit">Рассчитать платежи</button>
+            <button class="secondary" id="resetBtn" type="button">Сбросить</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card result-card">
+        <div class="section-head">
+          <div class="step">2</div>
+          <div><h2>Результат</h2><p>Каждый платёж можно раскрыть и проверить.</p></div>
         </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">₽</div>
+          <strong>Введите данные автомобиля</strong>
+          <p>Калькулятор не будет подставлять неизвестную ставку «по аналогии».</p>
+        </div>
+        <div id="errorBox" class="error-box hidden"></div>
+        <div id="result" class="hidden"></div>
+        <div class="dvbr-lead">
+          <div>
+            <b>Нужен точный расчёт по документам?</b>
+            <span>Специалист «Восточного Брокера» проверит параметры автомобиля и схему ввоза.</span>
+          </div>
+          <a class="dvbr-lead-btn" href="tel:+79025257777">+7 (902) 525-77-77</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="reference-card">
+      <h3>Что калькулятор учитывает</h3>
+      <div class="reference-grid">
+        <div><b>Личный ввоз</b><span>ДВС/обычный гибрид — единые ставки; EV и последовательный гибрид — отдельная ветка СТП.</span></div>
+        <div><b>EV и гибриды</b><span>Обычный и последовательный гибрид считаются разными ветками; переключение — отдельной галочкой.</span></div>
+        <div><b>Коммерческий ввоз</b><span>ТН ВЭД, пошлина, акциз и НДС.</span></div>
+        <div><b>Прозрачность</b><span>Формула, ставка, источник и дата проверки возле каждого платежа.</span></div>
       </div>
     </section>
+  </main>
+</div>
+      </div>
+    </section>
+    <script src="assets/calc/dvbr-calculator.js?v=1" defer></script>
   </main>
 </body>
 </html>

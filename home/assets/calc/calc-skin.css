@@ -1,0 +1,94 @@
+/* Оформление калькулятора клиента под стиль сайта. Только внешний вид — разметку и логику не трогаем. */
+.b-calc #dvbr-customs-calculator {
+  --bg: transparent;
+  --card: #f1f1f3;
+  --ink: #101014;
+  --muted: #6d6b73;
+  --line: #e2e1e6;
+  --accent: #6b62d5;
+  --accent-dark: #574ec4;
+  --accent-soft: #f0eeff;
+  --brand-coral: #6b62d5;
+  --brand-coral-dark: #574ec4;
+  --brand-coral-soft: #f3f2fb;
+  --shadow: none;
+  font-family: "Inter Tight", sans-serif;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+.b-calc #dvbr-customs-calculator .page { max-width: none; padding: 0; }
+
+/* Переключатель режима — капсулы как на сайте */
+.b-calc #dvbr-customs-calculator .modebar { display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 6px; border: 0; border-radius: 999px; background: #f1f1f3; margin-bottom: 16px; }
+.b-calc #dvbr-customs-calculator .mode-btn { min-height: 42px; padding: 0 18px; border-radius: 999px; font-weight: 600; }
+.b-calc #dvbr-customs-calculator .mode-btn.active { background: #101014; color: #fff; }
+.b-calc #dvbr-customs-calculator .mode-hint { padding: 0 12px; }
+
+/* Карточки: серые без рамок и теней, радиусы как у блоков сайта */
+.b-calc #dvbr-customs-calculator .workbench { gap: 16px; }
+.b-calc #dvbr-customs-calculator .card { border: 0; border-radius: 22px; box-shadow: none; }
+.b-calc #dvbr-customs-calculator .form-card { background: #f1f1f3; padding: clamp(20px, 2.4vw, 32px); }
+.b-calc #dvbr-customs-calculator .result-card { background: #fff; border: 1px solid #e6e5ea; padding: clamp(20px, 2.4vw, 32px); }
+.b-calc #dvbr-customs-calculator .section-head .step { border-radius: 50%; box-shadow: none; background: #101014; font-weight: 700; }
+.b-calc #dvbr-customs-calculator .section-head h2 { font-family: "Inter Tight", sans-serif; font-weight: 700; text-transform: none; letter-spacing: -.01em; font-size: clamp(1.15rem, 1.5vw, 1.4rem); margin: 0; }
+.b-calc #dvbr-customs-calculator .section-head p { margin: 4px 0 0; }
+.b-calc #dvbr-customs-calculator .field-group { border-top-color: #e2e1e6; }
+.b-calc #dvbr-customs-calculator .field-group legend { font-weight: 700; }
+.b-calc #dvbr-customs-calculator .field { font-weight: 600; color: #3b3a42; }
+
+/* Поля */
+.b-calc #dvbr-customs-calculator input, .b-calc #dvbr-customs-calculator select { min-height: 50px; border-color: #dcdbe2; border-radius: 12px; background: #fff; }
+.b-calc #dvbr-customs-calculator input:focus, .b-calc #dvbr-customs-calculator select:focus { border-color: #6b62d5; box-shadow: 0 0 0 4px rgba(107,98,213,.12); }
+.b-calc #dvbr-customs-calculator .subpanel, .b-calc #dvbr-customs-calculator .pro-block { background: #fff; }
+
+/* Выбор «кто ввозит» — как переключатели сайта: выбранное чёрное */
+.b-calc #dvbr-customs-calculator .choice-card span { border-radius: 16px; background: #fff; border-color: #dcdbe2; }
+.b-calc #dvbr-customs-calculator .choice-card input:checked + span { border-color: #101014; background: #101014; box-shadow: none; color: #fff; }
+.b-calc #dvbr-customs-calculator .choice-card input:checked + span b { color: #fff; }
+.b-calc #dvbr-customs-calculator .choice-card input:checked + span small { color: rgba(255,255,255,.7); }
+
+/* Кнопки — капсулы */
+.b-calc #dvbr-customs-calculator .primary, .b-calc #dvbr-customs-calculator .secondary { min-height: 54px; border-radius: 999px; font-weight: 600; }
+.b-calc #dvbr-customs-calculator .primary { background: #6b62d5; box-shadow: none; }
+.b-calc #dvbr-customs-calculator .primary:hover { background: #574ec4; transform: translateY(-2px); }
+.b-calc #dvbr-customs-calculator .secondary { background: #fff; }
+
+/* Итог: чёрная плашка без круга, полоска сверху — только фиолетовая */
+.b-calc #dvbr-customs-calculator .total-card { border-radius: 18px; background: #16161b; }
+.b-calc #dvbr-customs-calculator .total-card::before { background: #6b62d5; }
+.b-calc #dvbr-customs-calculator .total-card::after { display: none; }
+.b-calc #dvbr-customs-calculator .total-card strong { font-family: "Inter Tight", sans-serif; font-weight: 700; letter-spacing: -.03em; }
+
+/* Блок «Нужен точный расчёт» — графит + фиолетовая кнопка-капсула вместо коралловой */
+.b-calc #dvbr-customs-calculator .dvbr-lead { border-radius: 18px; background: #16161b; }
+.b-calc #dvbr-customs-calculator .dvbr-lead::before { display: none; }
+.b-calc #dvbr-customs-calculator .dvbr-lead-btn { border-radius: 999px; background: #6b62d5; }
+.b-calc #dvbr-customs-calculator .dvbr-lead-btn:hover { background: #574ec4; }
+
+/* Пустое состояние, предупреждения, справка */
+.b-calc #dvbr-customs-calculator .empty-icon { border-radius: 50%; }
+.b-calc #dvbr-customs-calculator .reference-card { margin-top: 16px; border: 0; border-radius: 22px; background: #f1f1f3; }
+.b-calc #dvbr-customs-calculator .reference-grid div { background: #fff; border-color: transparent; }
+.b-calc #dvbr-customs-calculator .reference-grid div:nth-child(2n)::before { background: #6b62d5; }
+.b-calc #dvbr-customs-calculator .payments-table tfoot th { background: #f3f2fb; }
+
+@media (max-width: 700px) {
+  .b-calc #dvbr-customs-calculator .modebar { display: flex; border-radius: 18px; }
+  .b-calc #dvbr-customs-calculator .page { padding: 0; }
+}
+
+/* Починка мобильной раскладки: фирменный слой клиента задавал 2 колонки без медиа-условия */
+@media (max-width: 980px) {
+  .b-calc #dvbr-customs-calculator .workbench { grid-template-columns: 1fr; }
+  .b-calc #dvbr-customs-calculator .result-card { position: static; }
+}
+@media (max-width: 640px) {
+  .b-calc #dvbr-customs-calculator .form-card, .b-calc #dvbr-customs-calculator .result-card { padding: 16px; border-radius: 18px; }
+  .b-calc #dvbr-customs-calculator .mode-btn { width: 100%; }
+}
+/* Широкие таблицы результата прокручиваются внутри карточки, а не страницей */
+.b-calc #dvbr-customs-calculator .workbench > * { min-width: 0; }
+.b-calc #dvbr-customs-calculator .result-card { overflow: hidden; }
+.b-calc #dvbr-customs-calculator .payments-table-wrap, .b-calc #dvbr-customs-calculator .scheme-table { max-width: 100%; overflow-x: auto; }
+.b-calc #dvbr-customs-calculator #result > div:first-child { flex-wrap: wrap; }
