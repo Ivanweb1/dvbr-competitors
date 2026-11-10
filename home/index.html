@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=56">
+  <link rel="stylesheet" href="assets/css/main.css?v=58">
   <script src="assets/js/main.js?v=5" defer></script>
 </head>
 <body>
@@ -116,33 +116,40 @@
       </div>
     </section>
 
-    <!-- Блок 6 (поднят выше «Проверки до покупки»). Что входит в 55 000 ₽ — лента карточек по рефу -->
+    <!-- Блок 6 (поднят выше «Проверки до покупки»). Что входит в 55 000 ₽ — в виде счёта -->
     <section class="b-inc" id="included">
       <div class="about-wrap">
-        <div class="inc-head reveal">
+        <div class="about-head reveal">
           <p class="about-eyebrow">Цена без сюрпризов</p>
-          <h2>Что входит <span>в&nbsp;55&nbsp;000&nbsp;₽</span></h2>
-          <div class="inc-arrows">
-            <button type="button" class="inc-arrow" data-inc-prev aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button type="button" class="inc-arrow inc-arrow--accent" data-inc-next aria-label="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          <h2>Что входит <span>в&nbsp;55&nbsp;000&nbsp;₽ — всё, что нужно, чтобы машина вышла с&nbsp;ЭПТС</span></h2>
+        </div>
+        <div class="bill reveal">
+          <div class="bill-list">
+            <ul>
+            <li><span class="bill-no">01</span><span class="bill-name">Консультация и расчёт таможенных платежей</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">02</span><span class="bill-name">Документы для прохождения границы</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">03</span><span class="bill-name">Хранение на СВХ — 10 дней</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">04</span><span class="bill-name">Таможенная декларация</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">05</span><span class="bill-name">Перегон с партнёрских СВХ в лабораторию</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">06</span><span class="bill-name">Стоянка в лаборатории, испытания и СБКТС</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">07</span><span class="bill-name">Оформление ЭПТС</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            <li><span class="bill-no">08</span><span class="bill-name">Персональный менеджер и статусы в мессенджере</span><i class="bill-dots" aria-hidden="true"></i><b class="bill-ok"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-6.5"/></svg>включено</b></li>
+            </ul>
+            <div class="bill-extra">
+              <p><span class="bill-name">Пошлина и утильсбор</span><i class="bill-dots" aria-hidden="true"></i><b>отдельно, по квитанциям</b></p>
+              <p><span class="bill-name">ЭРА-ГЛОНАСС: кнопка, установка, активация</span><i class="bill-dots" aria-hidden="true"></i><b>по запросу, +30&nbsp;000&nbsp;₽</b></p>
+            </div>
           </div>
-        </div>
-        <div class="inc-track" data-inc-track>
-          <article class="inc-card"><h3>Расчёт платежей</h3><p>Консультируем и считаем пошлину и утильсбор ещё до подачи документов</p><span class="inc-no">01</span></article>
-          <article class="inc-card"><h3>Документы для границы</h3><p>Готовим документы, чтобы машина прошла границу без задержек</p><span class="inc-no">02</span></article>
-          <article class="inc-card"><h3>Хранение на СВХ</h3><p>10 дней хранения на нашем СВХ в Уссурийске входят в цену</p><span class="inc-no">03</span></article>
-          <article class="inc-card"><h3>Таможенная декларация</h3><p>Подаём декларацию после оплаты пошлины и утильсбора</p><span class="inc-no">04</span></article>
-          <article class="inc-card"><h3>Перегон в лабораторию</h3><p>С партнёрских СВХ «Инрост», «Лидер» и «СЭЛ» — без доплаты</p><span class="inc-no">05</span></article>
-          <article class="inc-card"><h3>Лаборатория и СБКТС</h3><p>Испытания и стоянка в лаборатории до отправки машины покупателю</p><span class="inc-no">06</span></article>
-          <article class="inc-card"><h3>Оформление ЭПТС</h3><p>Машина оформлена и готова к выдаче</p><span class="inc-no">07</span></article>
-          <article class="inc-card"><h3>Персональный менеджер</h3><p>Статусы машины на каждом этапе в WhatsApp или Telegram</p><span class="inc-no">08</span></article>
-        </div>
-        <div class="inc-progress" aria-hidden="false"><button type="button" class="inc-dot is-active" data-inc-dot="0" aria-label="Пункт 1">01</button><button type="button" class="inc-dot" data-inc-dot="1" aria-label="Пункт 2">02</button><button type="button" class="inc-dot" data-inc-dot="2" aria-label="Пункт 3">03</button><button type="button" class="inc-dot" data-inc-dot="3" aria-label="Пункт 4">04</button><button type="button" class="inc-dot" data-inc-dot="4" aria-label="Пункт 5">05</button><button type="button" class="inc-dot" data-inc-dot="5" aria-label="Пункт 6">06</button><button type="button" class="inc-dot" data-inc-dot="6" aria-label="Пункт 7">07</button><button type="button" class="inc-dot" data-inc-dot="7" aria-label="Пункт 8">08</button></div>
-        <div class="inc-bottom reveal">
-          <div class="inc-sum"><span>Окончательная сумма в счёте</span><strong>55&nbsp;000&nbsp;₽</strong><small>НДС 5% уже внутри</small></div>
-          <p>Пошлину и утильсбор вы оплачиваете отдельно, по квитанциям, которые пришлём после прибытия машины на СВХ. Примерную сумму покажет калькулятор, точную назовём при подаче документов.</p>
-          <p>ЭРА-ГЛОНАСС — по запросу: кнопка, установка и активация, <b>+30&nbsp;000&nbsp;₽</b></p>
-          <a class="btn" href="#request">Обсудить поставку</a>
+          <div class="bill-total">
+            <span class="bill-total-label">Итого за машину</span>
+            <strong>55&nbsp;000&nbsp;₽</strong>
+            <p>НДС 5% уже внутри. Сумма в&nbsp;счёте не&nbsp;меняется.</p>
+            <p class="bill-total-note">Пошлину и утильсбор оплачиваете по квитанциям после прибытия машины на СВХ. Примерную сумму покажет калькулятор, точную назовём при подаче документов.</p>
+            <div class="bill-actions">
+              <a class="btn btn--white" href="#request">Обсудить поставку</a>
+              <a class="bill-link" href="#calculator">Рассчитать пошлину</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
