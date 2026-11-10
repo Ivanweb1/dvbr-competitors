@@ -362,17 +362,19 @@ input[type="file"] { padding: 13px; }
 .stat-badge { position: absolute; top: 16px; left: 16px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.92); color: var(--black); }
 .stat-badge svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* Блок 4. Для кого: карточки с линейными иконками в стиле первого экрана */
-.b-audience .card { min-height: 340px; display: flex; flex-direction: column; border: 0; background: #fff; }
-.card-icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 0; border-radius: 50%; background: var(--paper); color: var(--black); }
-.card-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.b-audience .card h3 { max-width: 320px; margin: 64px 0 14px; font-weight: 700; }
-.b-audience .card p { font-size: .98rem; line-height: 1.5; }
-@media (max-width: 1120px) {
-  .b-audience .cards-three { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 700px) {
-  .b-audience .cards-three { grid-template-columns: 1fr; }
-  .b-audience .card { min-height: 0; padding: 22px; }
-  .b-audience .card h3 { margin-top: 36px; }
+/* Блок 4. Для кого: фото-карточки, белый значок, стеклянная плашка — как первый экран */
+.aud-head { display: flex; gap: 24px 60px; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(32px, 4vw, 56px); }
+.aud-head h2 { margin-bottom: 0; }
+.aud-note { max-width: 300px; margin: 0 0 6px; color: #55535b; font-size: 1.02rem; line-height: 1.45; }
+.aud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gut); }
+.aud-card { position: relative; isolation: isolate; min-height: clamp(460px, 40vw, 600px); display: flex; flex-direction: column; justify-content: flex-end; padding: 14px; border-radius: var(--radius-md); overflow: hidden; color: #fff; background: #0b0b0f; }
+.aud-card > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.aud-card:hover > img { transform: scale(1.04); }
+.aud-panel { padding: 20px 20px 22px; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; background: rgba(14,14,20,.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.aud-panel h3 { margin: 0 0 10px; font-size: clamp(1.2rem, 1.5vw, 1.45rem); font-weight: 700; line-height: 1.2; }
+.aud-panel p { margin: 0; font-size: .95rem; line-height: 1.45; opacity: .85; }
+@media (max-width: 1000px) {
+  .aud-head { flex-direction: column; align-items: flex-start; }
+  .aud-grid { grid-template-columns: 1fr; }
+  .aud-card { min-height: 420px; }
 }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=39">
+  <link rel="stylesheet" href="assets/css/main.css?v=40">
   <script src="assets/js/main.js?v=3" defer></script>
 </head>
 <body>
@@ -92,19 +92,33 @@
       </div>
     </section>
 
-    <!-- Блок 4. Для кого -->
+    <!-- Блок 4. Для кого: фото-карточки в стиле первого экрана. Временные фото — заменить на aud-1/2/3.jpg (промпты docs/audience-photo-prompts.md) -->
     <section class="b-audience section section--light" id="for-whom">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Для бизнеса</p>
-          <h2>Работаем с теми, <span>кто возит машины на продажу</span></h2>
+        <div class="aud-head reveal">
+          <div>
+            <p class="eyebrow">Для бизнеса</p>
+            <h2>Работаем с теми, <span>кто возит машины на продажу</span></h2>
+          </div>
+          <p class="aud-note">Работаем и с одной машиной, если поставки регулярные.</p>
         </div>
-        <div class="cards-three">
-          <article class="card card--numbered reveal"><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="5" width="18" height="23" rx="2.5"/><path d="M12 5V3.5h8V5M11.5 17l3 3 6-6"/></svg></span><h3>Посредникам, которые везут под заказ</h3><p>Вы взяли предоплату и назвали покупателю срок и цену. Проверим машину до покупки, назовём примерные платежи и будем присылать статус на каждом этапе — вам не придётся объяснять покупателю задержки.</p></article>
-          <article class="card card--numbered reveal"><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 16.5V5.5A1.5 1.5 0 0 1 5.5 4h11l11 11-12 12z"/><circle cx="11" cy="11" r="2"/></svg></span><h3>Дилерам и перекупщикам</h3><p>Маржа считается от итоговой стоимости машины. Наша часть в ней известна заранее: 55 000 ₽ за оформление.</p></article>
-          <article class="card card--numbered reveal"><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="16" rx="2.5"/><path d="M12 10V7a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 20 7v3M4 17h24"/></svg></span><h3>Корпоративным клиентам</h3><p>Такси, логистика, перевозки: обновляете парк легковыми, пикапами или авто до 3,5 т — оформляем по договору, документы по ЭДО.</p></article>
+        <div class="aud-grid">
+          <article class="aud-card reveal">
+            <img src="assets/img/hero-m-web.jpg?v=2" alt="" loading="lazy" data-final="assets/img/aud-1.jpg">
+            <span class="stat-badge" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="5" width="18" height="23" rx="2.5"/><path d="M12 5V3.5h8V5M11.5 17l3 3 6-6"/></svg></span>
+            <div class="aud-panel"><h3>Посредникам, которые везут под&nbsp;заказ</h3><p>Вы взяли предоплату и назвали покупателю срок и цену. Проверим машину до покупки, назовём примерные платежи и будем присылать статус на каждом этапе — вам не придётся объяснять покупателю задержки.</p></div>
+          </article>
+          <article class="aud-card reveal">
+            <img src="assets/img/hero-web.jpg?v=2" alt="" loading="lazy" data-final="assets/img/aud-2.jpg">
+            <span class="stat-badge" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 16.5V5.5A1.5 1.5 0 0 1 5.5 4h11l11 11-12 12z"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <div class="aud-panel"><h3>Дилерам и перекупщикам</h3><p>Маржа считается от итоговой стоимости машины. Наша часть в ней известна заранее: 55 000 ₽ за оформление.</p></div>
+          </article>
+          <article class="aud-card reveal">
+            <img src="assets/img/svh-web.jpg" alt="" loading="lazy" data-final="assets/img/aud-3.jpg">
+            <span class="stat-badge" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="16" rx="2.5"/><path d="M12 10V7a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 20 7v3M4 17h24"/></svg></span>
+            <div class="aud-panel"><h3>Корпоративным клиентам</h3><p>Такси, логистика, перевозки: обновляете парк легковыми, пикапами или авто до 3,5 т — оформляем по договору, документы по ЭДО.</p></div>
+          </article>
         </div>
-        <p class="section-note reveal">Работаем и с одной машиной, если поставки регулярные.</p>
       </div>
     </section>
   </main>
