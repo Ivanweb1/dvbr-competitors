@@ -120,3 +120,11 @@
   .b-calc #dvbr-customs-calculator .choice-grid.route-choice { display: flex; gap: 9px; }
   .b-calc #dvbr-customs-calculator .choice-grid.route-choice > .choice-card { flex: 1 1 0; min-width: 0; }
 }
+
+/* Починка: чекбоксы и радио не наследуют высоту полей; подписи-чекбоксы в строку; подпись «Профессиональные параметры» внутри рамки */
+.b-calc #dvbr-customs-calculator input[type="checkbox"], .b-calc #dvbr-customs-calculator input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; margin: 1px 0 0; flex: none; border-radius: 5px; box-shadow: none; }
+.b-calc #dvbr-customs-calculator .checks label, .b-calc #dvbr-customs-calculator .check-line { display: flex; align-items: flex-start; gap: 10px; margin: 0; font-size: .92rem; font-weight: 500; line-height: 1.4; color: #3b3a42; }
+.b-calc #dvbr-customs-calculator .checks { gap: 12px; }
+.b-calc #dvbr-customs-calculator .pro-block { padding: 18px 18px 20px; }
+.b-calc #dvbr-customs-calculator .pro-block > legend { float: left; width: 100%; margin: 0; padding: 0 0 14px; font-size: 1rem; }
+.b-calc #dvbr-customs-calculator .pro-block > legend + * { clear: both; }
