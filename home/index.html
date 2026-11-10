@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=70">
+  <link rel="stylesheet" href="assets/css/main.css?v=72">
   <link rel="stylesheet" href="assets/calc/dvbr-calculator.css?v=1">
   <link rel="stylesheet" href="assets/calc/calc-skin.css?v=7">
-  <script src="assets/js/main.js?v=6" defer></script>
+  <script src="assets/js/main.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
@@ -501,6 +501,53 @@
     </section>
     <script src="assets/calc/dvbr-calculator.js?v=1" defer></script>
     <script src="assets/calc/calc-select.js?v=1" defer></script>
+
+    <!-- Блок 10. Проверьте нас в реестрах + отзывы — сетка 3 колонки. Ссылки реестров и тексты отзывов — заглушки до согласования -->
+    <section class="b-trust2" id="trust">
+      <div class="about-wrap">
+        <div class="about-head reveal">
+          <p class="about-eyebrow">Открытые данные</p>
+          <h2>Проверьте нас в&nbsp;реестрах <span>— не&nbsp;верьте на&nbsp;слово, данные открыты</span></h2>
+        </div>
+        <div class="rg-grid">
+          <!-- TODO: ссылка на реестр ФТС -->
+          <a class="rg-card reveal" href="#"><span class="rg-src">ФТС</span><h3>Реестр таможенных представителей</h3><strong class="rg-num">№&nbsp;2080</strong><span class="rg-link">Открыть реестр<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></span></a>
+          <!-- TODO: ссылка на реестр владельцев СВХ -->
+          <a class="rg-card reveal" href="#"><span class="rg-src">ФТС</span><h3>Реестр владельцев СВХ</h3><strong class="rg-val">ООО «Транспортно-лабораторный комплекс»</strong><span class="rg-link">Открыть реестр<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></span></a>
+          <!-- TODO: ссылка Росаккредитации -->
+          <a class="rg-card reveal" href="#"><span class="rg-src">Росаккредитация</span><h3>Аттестат испытательной лаборатории</h3><strong class="rg-val">Лаборатория аккредитована</strong><span class="rg-link">Открыть реестр<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></span></a>
+        </div>
+        <p class="rg-note reveal">Чтобы попасть в&nbsp;реестры ФТС, таможенный представитель и&nbsp;СВХ обязаны застраховать свою ответственность — без полисов включения нет.</p>
+
+        <div class="rv-grid">
+          <div class="rv-side reveal">
+            <p class="about-eyebrow">Отзывы партнёров</p>
+            <h3>Что говорят те, кто уже возит с&nbsp;нами</h3>
+            <p class="rv-src">Реальные отзывы с&nbsp;2ГИС, названия компаний скрыты</p>
+            <div class="rv-arrows">
+              <button type="button" class="inc-arrow" data-rv-prev aria-label="Предыдущий отзыв"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button type="button" class="inc-arrow inc-arrow--accent" data-rv-next aria-label="Следующий отзыв"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+              <span class="rv-count" data-rv-count>01 / 03</span>
+            </div>
+          </div>
+          <div class="rv-card reveal">
+            <svg class="rv-q" viewBox="0 0 40 32" aria-hidden="true"><path d="M0 32V19.2C0 8.6 5.6 2.2 16.8 0l2 4.4C12.6 6 9.6 9.4 9.2 14.4H17V32H0zm23 0V19.2C23 8.6 28.6 2.2 39.8 0l2 4.4c-6.2 1.6-9.2 5-9.6 10H40V32H23z"/></svg>
+            <figure class="rv-item is-active" data-review>
+              <blockquote>Текст отзыва добавим после согласования.</blockquote>
+              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+            </figure>
+            <figure class="rv-item" data-review>
+              <blockquote>Текст отзыва добавим после согласования.</blockquote>
+              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+            </figure>
+            <figure class="rv-item" data-review>
+              <blockquote>Текст отзыва добавим после согласования.</blockquote>
+              <figcaption><b>Компания-партнёр</b><span>Название скрыто · отзыв из 2ГИС</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>

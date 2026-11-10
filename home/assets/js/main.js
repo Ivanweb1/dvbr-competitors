@@ -149,3 +149,18 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
     }, 180);
   }));
 })();
+
+// Отзывы: стрелки листают карточки по одной
+(() => {
+  const items = [...document.querySelectorAll('[data-review]')];
+  const count = document.querySelector('[data-rv-count]');
+  if (!items.length) return;
+  let i = 0;
+  const show = (n) => {
+    i = (n + items.length) % items.length;
+    items.forEach((el, k) => el.classList.toggle('is-active', k === i));
+    if (count) count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
+  };
+  document.querySelector('[data-rv-prev]')?.addEventListener('click', () => show(i - 1));
+  document.querySelector('[data-rv-next]')?.addEventListener('click', () => show(i + 1));
+})();
