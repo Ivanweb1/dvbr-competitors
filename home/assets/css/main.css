@@ -810,8 +810,10 @@ a.as-item:hover strong { color: var(--purple); }
 .rq-text { margin: 0; color: rgba(255,255,255,.85); line-height: 1.5; }
 .rq-contacts { display: grid; gap: 10px; margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); }
 .rq-contacts > a { font-size: 1.25rem; font-weight: 700; }
-.rq-contacts div { display: flex; gap: 16px; }
-.rq-contacts div a { border-bottom: 1px solid rgba(255,255,255,.5); font-weight: 500; }
+.rq-contacts div { display: flex; flex-wrap: wrap; gap: 8px; }
+.rq-contacts div a { display: inline-flex; align-items: center; gap: 9px; padding: 6px 16px 6px 6px; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; font-size: .9rem; font-weight: 500; transition: background-color .2s, border-color .2s; }
+.rq-contacts div a:hover { opacity: 1; border-color: #fff; background: rgba(255,255,255,.12); }
+.rq-contacts svg { flex: none; border-radius: 50%; }
 .rq-contacts a:hover { opacity: .8; }
 .rq-form { grid-column: 2 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: start; padding: clamp(20px, 2.4vw, 32px); border-radius: var(--radius-md); background: #fff; color: var(--ink); }
 .rq-field { margin: 0; color: #6d6b73; font-size: .82rem; font-weight: 600; }
