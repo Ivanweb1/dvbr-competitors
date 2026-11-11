@@ -574,6 +574,8 @@ a.as-item:hover strong { color: var(--purple); }
 
 /* Блок 9. Калькулятор — тёмный результат слева + серая форма справа, переключатели-кнопки */
 .b-calc { padding: clamp(40px, 5vw, 80px) 0 clamp(72px, 9vw, 140px); background: #fff; }
+.calc-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-radius: var(--radius-md); background: #f1f1f3; }
+.calc-note p { max-width: 760px; margin: 0; color: #4a4a55; line-height: 1.5; }
 .calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .calc-result-card { display: flex; flex-direction: column; padding: clamp(22px, 2.4vw, 32px); border-radius: var(--radius-md); color: #fff; background: #16161b; }
 .calc-label { margin: 0 0 18px; color: rgba(255,255,255,.75); font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
@@ -864,3 +866,8 @@ a.as-item:hover strong { color: var(--purple); }
   .ft-contacts .btn { width: 100%; }
   .ft-bottom { flex-direction: column; }
 }
+
+/* Вариант с видео (video.html): заголовок внизу, рядом с плашками — видео открыто */
+.hero-stage--video { justify-content: flex-end; gap: clamp(20px, 2.4vw, 32px); }
+.hero-stage--video h1 { margin-top: auto; font-size: clamp(1.9rem, 4.6vw, 5.4rem); text-align: left; }
+.hero-stage--video .hero-bottom { margin-top: 0; }
