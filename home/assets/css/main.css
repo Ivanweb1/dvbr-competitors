@@ -632,6 +632,17 @@ a.as-item:hover strong { color: var(--purple); }
 .rg-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
 .rg-card:hover .rg-link { color: var(--purple); }
 .rg-card:hover .rg-link svg { transform: translate(2px, -2px); }
+/* Реестры: иконки, фиолетовые ссылки, главная карточка (№ 2080) — тёмная */
+.rg-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.rg-top .rg-src { padding-top: 4px; }
+.rg-ico { display: grid; flex: none; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: var(--purple); background: #fff; }
+.rg-ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rg-link { color: var(--purple); }
+.rg-card--dark { color: #fff; background: #16161b; }
+.rg-card--dark:hover { background: #1f1f27; box-shadow: 0 18px 40px rgba(16,16,20,.25); }
+.rg-card--dark .rg-src, .rg-card--dark .rg-link, .rg-card--dark:hover .rg-link { color: #b3adf2; }
+.rg-card--dark .rg-ico { color: #fff; background: var(--purple); }
+.rg-card--dark .rg-link { border-top-color: rgba(255,255,255,.14); }
 .rg-note { margin: 18px 0 0; color: #6d6b73; font-size: .9rem; line-height: 1.45; }
 .rg-note::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; background: var(--purple); }
 .rv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(64px, 8vw, 120px); }
