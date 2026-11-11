@@ -196,3 +196,50 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
     setTimeout(() => { bar.hidden = true; }, 300);
   });
 })();
+
+// Телефон: полоска первого экрана — автослайдер. Сначала описание, потом факты, смена каждые 3 с.
+// Кнопки на это время переносим под полоску, чтобы они были видны всегда.
+(() => {
+  const strip = document.querySelector('.hero-strip');
+  if (!strip) return;
+  const lead = strip.querySelector('.hs-cell--lead');
+  const actions = lead?.querySelector('.hero-actions');
+  const slides = [lead, strip.querySelector('.hs-cell--price'), strip.querySelector('.hs-cell--days')].filter(Boolean);
+  const mq = window.matchMedia('(max-width: 560px)');
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dots = document.createElement('div');
+  dots.className = 'hs-dots';
+  dots.setAttribute('aria-hidden', 'true');
+  slides.forEach(() => dots.appendChild(document.createElement('i')));
+  let i = 0;
+  let timer = null;
+  const show = (n) => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((el, k) => el.classList.toggle('is-active', k === i));
+    [...dots.children].forEach((d, k) => d.classList.toggle('is-on', k === i));
+  };
+  const start = () => { stop(); if (!still) timer = setInterval(() => show(i + 1), 3000); };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const apply = () => {
+    if (mq.matches) {
+      strip.classList.add('is-slider');
+      strip.appendChild(dots);
+      if (actions) strip.after(actions);
+      show(0);
+      start();
+    } else {
+      stop();
+      strip.classList.remove('is-slider');
+      dots.remove();
+      slides.forEach((el) => el.classList.remove('is-active'));
+      if (actions) lead.appendChild(actions);
+    }
+  };
+  strip.addEventListener('click', (e) => {
+    if (!strip.classList.contains('is-slider') || e.target.closest('a')) return;
+    show(i + 1);
+    start();
+  });
+  mq.addEventListener('change', apply);
+  apply();
+})();
