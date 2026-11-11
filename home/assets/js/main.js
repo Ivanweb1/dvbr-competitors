@@ -56,6 +56,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // Появление блоков снизу вверх: всё, что ещё не размечено .reveal в блоках после первого экрана и в подвале,
 // получает класс автоматически; соседние элементы появляются лесенкой.
 document.querySelectorAll('main section[id]:not(#hero):not(#header) .about-wrap > *, .ft .about-wrap > *').forEach((el) => {
+  if (el.matches('.ft-bottom')) return; // нижняя строка подвала у самого края страницы — показываем сразу
   if (!el.classList.contains('reveal') && !el.querySelector('.reveal')) el.classList.add('reveal');
 });
 document.querySelectorAll('.ft-grid > *').forEach((el) => el.classList.add('reveal'));
@@ -178,4 +179,20 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
   window.addEventListener('resize', sync);
   sync();
+})();
+
+// Плашка про cookie: показываем, пока посетитель не нажал «Хорошо»
+(() => {
+  const bar = document.getElementById('cookie-bar');
+  if (!bar) return;
+  let accepted = false;
+  try { accepted = localStorage.getItem('dvbr-cookie-ok') === '1'; } catch (e) {}
+  if (accepted) return;
+  bar.hidden = false;
+  requestAnimationFrame(() => bar.classList.add('is-shown'));
+  bar.querySelector('button').addEventListener('click', () => {
+    try { localStorage.setItem('dvbr-cookie-ok', '1'); } catch (e) {}
+    bar.classList.remove('is-shown');
+    setTimeout(() => { bar.hidden = true; }, 300);
+  });
 })();
