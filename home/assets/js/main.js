@@ -53,7 +53,19 @@ document.querySelector('[data-slider-prev]')?.addEventListener('click', () => sl
 document.querySelector('[data-slider-next]')?.addEventListener('click', () => slide(1));
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Появление блоков снизу вверх: всё, что ещё не размечено .reveal в блоках после первого экрана и в подвале,
+// получает класс автоматически; соседние элементы появляются лесенкой.
+document.querySelectorAll('main section[id]:not(#hero):not(#header) .about-wrap > *, .ft .about-wrap > *').forEach((el) => {
+  if (!el.classList.contains('reveal') && !el.querySelector('.reveal')) el.classList.add('reveal');
+});
+document.querySelectorAll('.ft-grid > *').forEach((el) => el.classList.add('reveal'));
+document.querySelectorAll('.ft-grid').forEach((el) => el.classList.remove('reveal'));
 const revealItems = document.querySelectorAll('.reveal');
+revealItems.forEach((item) => {
+  const siblings = [...item.parentElement.children].filter((el) => el.classList.contains('reveal'));
+  const i = siblings.indexOf(item);
+  if (i > 0) item.style.transitionDelay = `${Math.min(i, 4) * 90}ms`;
+});
 
 if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -65,7 +77,7 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
   revealItems.forEach((item) => observer.observe(item));
 }
 
