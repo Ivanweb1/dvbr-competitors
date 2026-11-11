@@ -910,3 +910,20 @@ a.as-item:hover strong { color: var(--purple); }
   .hs-dots i.is-on { width: 18px; border-radius: 3px; background: #fff; }
   .hero-bottom > .hero-actions { gap: 8px; }
 }
+
+/* video.html: переключатель шрифтов (варианты 1–4 с согласования) */
+html[data-font="unbounded"] { --title: "Unbounded", sans-serif; --body: "Onest", sans-serif; --h1k: .74; --h1w: 800; --h1ls: -.01em; }
+html[data-font="inter"] { --h1k: 1; }
+html[data-font="oswald"] { --title: "Oswald", sans-serif; --body: "Manrope", sans-serif; --h1k: 1.12; --h1w: 700; --h1ls: .005em; }
+html[data-font="onest"] { --title: "Onest", sans-serif; --body: "Onest", sans-serif; --h1k: .9; --h1w: 900; --h1ls: -.01em; }
+html[data-font] .hero-stage--video h1 { font-size: calc(clamp(1.92rem, 5.92vw, 6.88rem) * var(--h1k, 1)); font-weight: var(--h1w, 900); letter-spacing: var(--h1ls, -.012em); }
+html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell strong { font-weight: 700; }
+.font-switch { position: fixed; z-index: 60; top: 50%; right: 20px; display: flex; flex-direction: column; gap: 6px; padding: 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(14,14,18,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: translateY(-50%); font-family: "Inter Tight", sans-serif; }
+.font-switch__label { padding: 2px 8px 4px; color: rgba(255,255,255,.55); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.font-switch button { padding: 9px 14px; border: 0; border-radius: 12px; color: #fff; background: transparent; font: 500 .85rem/1.2 "Inter Tight", sans-serif; text-align: left; white-space: nowrap; cursor: pointer; transition: background-color .2s; }
+.font-switch button:hover { background: rgba(255,255,255,.1); }
+.font-switch button[aria-pressed="true"] { background: var(--purple); }
+@media (max-width: 820px) {
+  .font-switch { top: 86px; right: 16px; left: 16px; padding: 6px; flex-direction: row; overflow-x: auto; transform: none; scrollbar-width: none; }
+  .font-switch__label { display: none; }
+}
