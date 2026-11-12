@@ -243,3 +243,76 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   mq.addEventListener('change', apply);
   apply();
 })();
+
+// Страница «Вопрос-ответ»: поиск по вопросам, подсветка текущего раздела в меню, открытие вопроса по ссылке #раздел
+(() => {
+  const groups = [...document.querySelectorAll('[data-fp-group]')];
+  if (!groups.length) return;
+  const links = [...document.querySelectorAll('[data-fp-link]')];
+  const input = document.querySelector('[data-fp-search]');
+  const empty = document.querySelector('[data-fp-empty]');
+  const items = groups.flatMap((g) => [...g.querySelectorAll('.fq-item')]);
+  const plain = new Map(items.map((it) => [it, {
+    q: it.querySelector('.fq-q').innerHTML,
+    a: it.querySelector('.fq-a').innerHTML,
+    text: it.textContent.toLowerCase().replace(/ё/g, 'е'),
+  }]));
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Подсветка совпадений только в тексте, не внутри тегов
+  const mark = (htmlStr, re) => htmlStr.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => tag || txt.replace(re, '<mark>$&</mark>'));
+
+  const filter = () => {
+    const raw = input.value.trim().toLowerCase().replace(/ё/g, 'е');
+    const words = raw.split(/\s+/).filter((w) => w.length > 1);
+    const re = words.length ? new RegExp(words.map((w) => esc(w).replace(/е/g, '[её]')).join('|'), 'gi') : null;
+    let shown = 0;
+    items.forEach((it) => {
+      const p = plain.get(it);
+      const ok = !words.length || words.every((w) => p.text.includes(w));
+      it.hidden = !ok;
+      it.querySelector('.fq-q').innerHTML = ok && re ? mark(p.q, re) : p.q;
+      it.querySelector('.fq-a').innerHTML = ok && re ? mark(p.a, re) : p.a;
+      if (words.length) it.open = ok && words.length > 0 && shown < 3; // первые совпадения раскрываем
+      if (ok) shown += 1;
+    });
+    groups.forEach((g, i) => {
+      const any = [...g.querySelectorAll('.fq-item')].some((it) => !it.hidden);
+      g.hidden = !any;
+      if (links[i]) links[i].parentElement.hidden = !any;
+    });
+    if (!words.length) items.forEach((it) => { it.open = false; });
+    if (empty) empty.hidden = shown > 0;
+  };
+  let t;
+  input?.addEventListener('input', () => { clearTimeout(t); t = setTimeout(filter, 120); });
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); document.getElementById('questions')?.scrollIntoView({ behavior: 'smooth' }); }
+  });
+
+  // Активный раздел в меню — тот, чей заголовок последним прошёл верхнюю треть экрана
+  const sync = () => {
+    const line = window.innerHeight * 0.33;
+    let cur = -1;
+    groups.forEach((g, i) => { if (!g.hidden && g.getBoundingClientRect().top < line) cur = i; });
+    links.forEach((a, i) => a.classList.toggle('is-active', i === cur));
+    const active = links[cur];
+    const nav = active?.closest('.fp-nav');
+    if (nav && nav.scrollWidth > nav.clientWidth) {
+      const left = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
+      if (Math.abs(nav.scrollLeft - left) > 4) nav.scrollTo({ left, behavior: 'smooth' });
+    }
+  };
+  window.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+
+  // В разделе по ссылке сразу открываем первый вопрос
+  const openFromHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const g = id ? document.getElementById(id) : null;
+    const first = g?.matches('[data-fp-group]') ? g.querySelector('.fq-item') : null;
+    if (first) first.open = true;
+  };
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+})();

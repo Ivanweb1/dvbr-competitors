@@ -927,3 +927,107 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
   .font-switch { top: 86px; right: 16px; left: 16px; padding: 6px; flex-direction: row; overflow-x: auto; transform: none; scrollbar-width: none; }
   .font-switch__label { display: none; }
 }
+
+/* ===== Страница «Вопрос-ответ» (vopros-otvet.html, собирается tools/make_faq_page.py) ===== */
+.nav a[aria-current="page"] { opacity: .6; }
+/* Первый экран: та же тёмная карточка, что на главной, но ниже; фото площадки справа уходит в тень */
+.b-phero { padding: var(--gut); background: #fff; }
+.ph-stage { position: relative; isolation: isolate; min-height: min(720px, calc(100svh - 2 * var(--gut))); display: flex; flex-direction: column; gap: 28px; padding: 132px var(--pad) var(--pad); border-radius: var(--radius-lg); overflow: hidden; color: #fff; background: #0e0e12; }
+.ph-photo { position: absolute; z-index: -2; top: 0; right: 0; width: 62%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.ph-stage::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, #0e0e12 38%, rgba(14,14,18,.55) 70%, rgba(14,14,18,.2)); }
+.crumbs { display: flex; flex-wrap: wrap; gap: 10px; font-size: .84rem; color: rgba(255,255,255,.6); }
+.crumbs a { color: #fff; transition: opacity .2s; }
+.crumbs a:hover { opacity: .6; }
+.ph-stage h1 { max-width: 900px; margin: 0; font-size: clamp(2rem, 5.2vw, 5.6rem); line-height: 1; letter-spacing: -.012em; }
+.ph-stage h1 .accent { display: block; color: var(--purple); font-style: normal; }
+.ph-strip { margin-top: auto; display: grid; grid-template-columns: .8fr 2fr 1.1fr; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; overflow: hidden; background: rgba(14,14,20,.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.ph-strip .hs-cell { min-height: 132px; }
+.ph-count { background: var(--purple); }
+.ph-count > span:last-child { opacity: 1; }
+.ph-search { border-left: 0; }
+.ph-field { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 18px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(255,255,255,.08); transition: border-color .2s, background-color .2s; }
+.ph-field:focus-within { border-color: #fff; background: rgba(255,255,255,.14); }
+.ph-field svg { flex: none; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; opacity: .7; }
+.ph-field input { flex: 1; min-width: 0; height: 52px; border: 0; outline: 0; color: #fff; background: none; font-size: 1rem; }
+.ph-field input::placeholder { color: rgba(255,255,255,.5); }
+.ph-field input::-webkit-search-cancel-button { filter: invert(1); }
+.ph-ask { align-items: flex-start; }
+.ph-phone { font-family: var(--title); font-size: clamp(1.1rem, 1.4vw, 1.35rem); font-weight: 700; white-space: nowrap; }
+.ph-ask .btn { margin-top: 6px; }
+
+/* Список вопросов: белый фон, слева липкое меню разделов, справа разделы */
+.b-faqp { padding: clamp(64px, 8vw, 120px) 0 clamp(40px, 5vw, 80px); background: #fff; }
+.fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.fp-aside { position: sticky; top: 24px; display: grid; gap: 22px; }
+.fp-nav { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(0,0,0,.1); }
+.fp-nav a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(0,0,0,.1); font-weight: 500; transition: color .2s, padding .2s; }
+.fp-nav a i { min-width: 26px; padding: 2px 8px; border-radius: 999px; color: #6f6e78; background: var(--card); font-size: .78rem; font-style: normal; font-weight: 600; text-align: center; transition: color .2s, background-color .2s; }
+.fp-nav a:hover { color: var(--purple); }
+.fp-nav a.is-active { padding-left: 14px; color: var(--purple); }
+.fp-nav a.is-active i { color: #fff; background: var(--purple); }
+.fp-nav li[hidden] { display: none; }
+.fp-help { display: flex; flex-direction: column; gap: 12px; padding: clamp(22px, 2.4vw, 30px); border-radius: var(--radius-md); color: #fff; background: #0e0e12; }
+.fp-help h3 { margin: 0; font-family: var(--title); font-size: clamp(1.3rem, 1.8vw, 1.7rem); font-weight: 900; line-height: 1.05; letter-spacing: -.02em; text-transform: uppercase; }
+.fp-help p { margin: 0 0 6px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.fp-help .btn { align-self: flex-start; }
+.fp-help-link { align-self: flex-start; border-bottom: 1px solid rgba(255,255,255,.4); color: rgba(255,255,255,.8); font-size: .92rem; }
+.fp-help-link:hover { color: #fff; border-color: #fff; }
+.fp-groups { grid-column: 2 / -1; display: grid; gap: clamp(48px, 5vw, 80px); }
+.fp-group { scroll-margin-top: 24px; }
+.fp-group[hidden] { display: none; }
+.fp-group h2 { max-width: none; margin: 0 0 20px; font-size: clamp(1.45rem, 2.2vw, 2.3rem); line-height: 1.1; }
+.fp-group h2 span { color: var(--grey-text); }
+/* Светлый аккордеон — та же разметка, что у блока FAQ главной */
+.fq-list--light { grid-column: auto; border-top-color: rgba(0,0,0,.12); }
+.fq-list--light .fq-item { border-bottom-color: rgba(0,0,0,.12); }
+.fq-list--light .fq-item[hidden] { display: none; }
+.fq-list--light .fq-no { color: var(--grey-text); }
+.fq-list--light .fq-item summary:hover .fq-q { color: var(--purple); }
+.fq-list--light .fq-plus { background: var(--card); }
+.fq-list--light .fq-plus::before, .fq-list--light .fq-plus::after { background: var(--ink); }
+.fq-list--light .fq-item[open] .fq-plus { background: var(--purple); }
+.fq-list--light .fq-item[open] .fq-plus::before, .fq-list--light .fq-item[open] .fq-plus::after { background: #fff; }
+.fq-list--light .fq-item[open] .fq-no { color: var(--purple); }
+.fq-a { max-width: 760px; padding: 0 40px 26px 60px; color: #55545c; line-height: 1.55; }
+.fq-a p, .fq-a ol { max-width: none; margin: 0 0 .7em; padding: 0; color: inherit; font-size: 1rem; }
+.fq-a > :last-child { margin-bottom: 0; }
+.fq-a ol { padding-left: 1.3em; }
+.fq-a li { margin-bottom: .25em; }
+.fq-a li::marker { color: var(--purple); font-weight: 600; }
+.fq-a a { color: var(--purple); border-bottom: 1px solid rgba(107,98,213,.35); }
+.fq-a a:hover { border-color: var(--purple); }
+.fq-a mark, .fq-q mark { padding: 0 2px; border-radius: 3px; color: inherit; background: rgba(107,98,213,.18); }
+.fp-empty { margin: 0; padding: 28px; border-radius: var(--radius-md); background: var(--card); font-size: 1.05rem; }
+.fp-empty[hidden] { display: none; }
+.fp-empty a { color: var(--purple); border-bottom: 1px solid; }
+@media (max-width: 1100px) {
+  .ph-strip { grid-template-columns: 1fr 1fr; }
+  .ph-search { grid-column: 1 / -1; grid-row: 1; border-bottom: 1px solid rgba(255,255,255,.16); }
+  .ph-count { border-left: 0; }
+  .ph-photo { width: 100%; opacity: .45; }
+  .ph-stage::before { background: linear-gradient(180deg, rgba(14,14,18,.6), #0e0e12 85%); }
+}
+@media (max-width: 1000px) {
+  .fp-grid { grid-template-columns: 1fr; gap: 32px; }
+  .fp-aside { display: contents; }
+  .fp-aside > .about-eyebrow { display: none; }
+  .fp-nav { order: 1; display: flex; gap: 8px; overflow-x: auto; border: 0; scrollbar-width: none; }
+  .fp-nav::-webkit-scrollbar { display: none; }
+  .fp-nav a { padding: 9px 14px; border: 0; border-radius: 999px; background: var(--card); white-space: nowrap; }
+  .fp-nav a.is-active { padding-left: 14px; color: #fff; background: var(--purple); }
+  .fp-nav a.is-active i { color: var(--purple); background: #fff; }
+  .fp-groups { order: 2; grid-column: auto; }
+  .fp-help { order: 3; }
+}
+@media (max-width: 640px) {
+  .ph-stage { min-height: 0; padding-top: 112px; border-radius: var(--radius-md); }
+  .ph-stage h1 { font-size: clamp(1.7rem, 8.6vw, 2.4rem); }
+  .ph-strip { grid-template-columns: 1fr; }
+  .ph-strip .hs-cell { min-height: 0; padding: 16px; border-left: 0; }
+  .ph-count { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: baseline; gap: 4px 10px; }
+  .ph-count .hs-label { width: 100%; }
+  .ph-ask { border-top: 1px solid rgba(255,255,255,.16); }
+  .ph-ask .btn { width: 100%; }
+  .fq-a { padding: 0 0 20px 46px; }
+  .fp-help .btn { width: 100%; }
+}
