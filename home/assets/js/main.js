@@ -344,3 +344,32 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }, { rootMargin: '0px 0px -70% 0px' });
   byId.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
 })();
+
+// Маска телефона: +7 (XXX) XXX-XX-XX. Вставка «8 902…», «+7902…» и «902…» приводится к одному виду
+(() => {
+  const fmt = (digits) => {
+    const raw = String(digits).trim();
+    let d = (raw.startsWith('+7') ? raw.slice(2) : raw).replace(/\D/g, '');
+    if (d.length > 10 && (d[0] === '8' || d[0] === '7')) d = d.slice(1);
+    d = d.slice(0, 10);
+    let s = '+7';
+    if (d.length) s += ' (' + d.slice(0, 3);
+    if (d.length > 3) s += ') ' + d.slice(3, 6);
+    if (d.length > 6) s += '-' + d.slice(6, 8);
+    if (d.length > 8) s += '-' + d.slice(8, 10);
+    return { s, n: d.length };
+  };
+  document.querySelectorAll('input[type="tel"]').forEach((input) => {
+    input.placeholder = '+7 (___) ___-__-__';
+    input.inputMode = 'tel';
+    const apply = () => {
+      const { s, n } = fmt(input.value);
+      input.value = n ? s : (document.activeElement === input ? '+7 ' : '');
+      input.setCustomValidity(n === 0 || n === 10 ? '' : 'Введите номер полностью: +7 (XXX) XXX-XX-XX');
+    };
+    input.addEventListener('focus', () => { if (!input.value) input.value = '+7 '; });
+    input.addEventListener('blur', () => { if (fmt(input.value).n === 0) input.value = ''; });
+    // Разделители в конце номера не ставим — стирание с конца идёт по одной цифре
+    input.addEventListener('input', apply);
+  });
+})();
