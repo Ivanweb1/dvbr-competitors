@@ -319,16 +319,32 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   openFromHash();
 })();
 
-// Списки статей и новостей: фильтр по темам
+// Список материалов: темы (чипы) и тип «Статьи / Новости» (список справа) работают вместе, счётчики в чипах — с учётом типа
 (() => {
   const chips = [...document.querySelectorAll('[data-mt-filter]')];
   if (!chips.length) return;
   const cards = [...document.querySelectorAll('[data-mt-grid] [data-mt-cat]')];
+  const typeSelect = document.querySelector('[data-mt-type-filter]');
+  let cat = '';
+  const apply = () => {
+    const type = typeSelect ? typeSelect.value : '';
+    const ofType = cards.filter((c) => !type || c.dataset.mtType === type);
+    cards.forEach((c) => { c.hidden = !ofType.includes(c) || (!!cat && c.dataset.mtCat !== cat); });
+    chips.forEach((chip) => {
+      const n = ofType.filter((c) => !chip.dataset.mtFilter || c.dataset.mtCat === chip.dataset.mtFilter).length;
+      const i = chip.querySelector('i'); if (i) i.textContent = n;
+      chip.hidden = !!chip.dataset.mtFilter && n === 0;
+      chip.classList.toggle('is-active', chip.dataset.mtFilter === cat);
+    });
+  };
   chips.forEach((chip) => chip.addEventListener('click', () => {
-    const cat = chip.dataset.mtFilter;
-    chips.forEach((c) => c.classList.toggle('is-active', c === chip));
-    cards.forEach((card) => { card.hidden = !!cat && card.dataset.mtCat !== cat; });
+    cat = chip.dataset.mtFilter;
+    apply();
   }));
+  typeSelect?.addEventListener('change', () => {
+    if (cat && !cards.some((c) => c.dataset.mtCat === cat && (!typeSelect.value || c.dataset.mtType === typeSelect.value))) cat = '';
+    apply();
+  });
 })();
 
 // Материал и политика: подсветка текущего раздела в оглавлении
