@@ -1401,9 +1401,11 @@ body:has(.ph-stage--plain) .header { background: #0e0e12; }
 .ph-stage--plain .ph-strip .ct-social { justify-content: center; }
 .ph-stage--plain .ph-strip .hs-cell.ph-ask { align-items: center; }
 @media (max-width: 640px) {
-  .ph-stage--plain .ph-strip { flex-direction: column; align-items: stretch; gap: 0; }
-  .ph-stage--plain .ph-strip .hs-cell { padding: 14px 0; border-left: 0 !important; border-top: 1px solid rgba(0,0,0,.08) !important; }
-  .ph-stage--plain .ph-strip .hs-cell:first-child { border-top: 0 !important; }
+  /* На телефоне — тоже одной строкой по центру; что не влезает, переносится целым пунктом */
+  .ph-stage--plain .ph-strip { flex-direction: row; justify-content: center; gap: 14px 0; }
+  .ph-stage--plain .ph-strip .hs-cell { padding: 0 18px; border-top: 0 !important; }
+  .ph-stage--plain .ph-strip .ph-count { flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-items: center; gap: 6px; }
+  .ph-stage--plain .ph-strip .ph-count .hs-label { width: auto; }
   .ph-stage--plain .ph-strip .ph-ask .btn { width: auto; }
 }
 
@@ -1452,3 +1454,19 @@ body.menu-open .header { background: #08080b; backdrop-filter: none; -webkit-bac
 .mt-type select:hover, .mt-type select:focus-visible { border-color: var(--purple); outline: 0; }
 @media (max-width: 640px) { .mt-bar { flex-direction: column-reverse; } .mt-type, .mt-type select { width: 100%; } }
 .mt-card--feat .mt-foot { margin-top: 0; }
+
+/* Хлебные крошки — всегда в одну строку, длинное название страницы обрезается многоточием */
+.crumbs { flex-wrap: nowrap; max-width: 100%; min-width: 0; white-space: nowrap; }
+.crumbs > * { flex: none; }
+.crumbs > [aria-current] { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+/* Телефон: строка под заголовком без разделителей (пункты переносятся аккуратно), длинные слова в заголовке — с переносом */
+@media (max-width: 640px) {
+  .ph-stage--plain .ph-strip { gap: 16px 28px; }
+  .ph-stage--plain .ph-strip .hs-cell { padding: 0; border-left: 0 !important; }
+  .ph-stage--plain h1 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+  /* Призыв после статьи: заголовок, под ним описание, ниже кнопки */
+  .art-cta { grid-template-columns: 1fr; gap: 16px; }
+  .art-cta h2 { hyphens: auto; -webkit-hyphens: auto; }
+  .art-cta-btns { grid-column: auto; grid-template-columns: 1fr; }
+}
