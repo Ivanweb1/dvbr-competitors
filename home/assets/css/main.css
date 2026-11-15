@@ -1306,3 +1306,9 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 @media (max-width: 640px) { .ph-stage--plain { padding-top: 112px; } }
 /* Значки мессенджеров в первом экране и на «Контактах»: только значки, без подписей, ровный шаг */
 .ct-social a { font-size: 0; gap: 0; padding: 0; background: none; }
+.ct-note { color: #6d6b73; font-size: .86rem; }
+/* Контакты: левая колонка по высоте карты — тёмная карточка с мессенджерами растягивается, значки внизу */
+.ct-grid { align-items: stretch; }
+.ct-info { grid-template-rows: auto auto auto 1fr; }
+.ct-item--dark { align-content: space-between; }
+@media (max-width: 1000px) { .ct-info { grid-template-rows: none; } }
