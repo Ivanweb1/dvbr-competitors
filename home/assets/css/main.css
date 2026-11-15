@@ -1268,3 +1268,29 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 .cv-row--ok { justify-content: flex-start; align-items: center; gap: 6px; color: var(--purple); font-weight: 600; }
 @media (max-width: 640px) { .co-viz { height: 170px; } }
 .sys-stage::before { background: radial-gradient(ellipse at 50% 38%, rgba(10,10,14,.72), rgba(10,10,14,.45) 70%), linear-gradient(180deg, rgba(10,10,14,.5), rgba(10,10,14,.1) 50%, rgba(10,10,14,.7)); }
+/* Карточки «Удалённо» v2 (15.11): без иконок, одинаковые мини-карточки по центру белой панели */
+.co-viz { justify-content: center; align-items: center; height: 200px; padding: 20px; background: #fff; }
+.co-viz > * { width: 100%; max-width: 250px; }
+.cv-doc, .cv-bill, .cv-box { display: grid; gap: 9px; margin: 0; padding: 14px 16px; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px -12px rgba(16,16,20,.18); transform: none; }
+.cv-bill-h { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.cv-line { height: 6px; }
+.cv-pill { justify-self: start; margin-top: 4px; padding: 5px 10px; font-size: .78rem; }
+.cv-chat { display: flex; align-items: flex-end; gap: 8px; }
+.cv-ava { width: 28px; height: 28px; font-size: .8rem; }
+.cv-bub { flex: 1; padding: 12px 14px; border-radius: 14px 14px 14px 4px; background: var(--card); box-shadow: none; }
+.cv-steps { gap: 7px; padding: 0; }
+.cv-steps li { gap: 9px; }
+.cv-steps li svg, .cv-steps li i { width: 16px !important; height: 16px !important; margin: 0 !important; }
+.cv-steps li i { border-width: 2px; }
+.cv-steps li.ok svg { padding: 3px; }
+.cv-bill { width: 100%; }
+.cv-row { padding-top: 9px; }
+/* Реквизиты: тёмная карточка «Как начать работу» рядом с таблицей */
+.co-req-side { gap: 20px; color: #fff; background: #0e0e12; }
+.co-req-side > .hs-label { opacity: .7; }
+.co-start { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.co-start li { display: flex; gap: 14px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,.14); }
+.co-start li:last-child { border-bottom: 1px solid rgba(255,255,255,.14); }
+.co-start li > span { flex: none; color: var(--purple); font-weight: 700; font-size: .85rem; line-height: 1.6; }
+.co-start b { display: block; font-size: 1.05rem; line-height: 1.3; }
+.co-start small { display: block; margin-top: 3px; color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.4; }
