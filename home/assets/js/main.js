@@ -389,3 +389,70 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
     input.addEventListener('input', apply);
   });
 })();
+
+// Тип материалов «Статьи / Новости»: свой список в стиле сайта поверх нативного <select>
+// (select остаётся источником значения — фильтр слушает его change)
+(() => {
+  const sel = document.querySelector('[data-mt-type-filter]');
+  if (!sel) return;
+  const CHEV = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>';
+  const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg>';
+  const wrap = document.createElement('div');
+  wrap.className = 'mt-dd';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'mt-dd-btn';
+  btn.setAttribute('aria-haspopup', 'listbox');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Тип материалов');
+  const list = document.createElement('ul');
+  list.className = 'mt-dd-list';
+  list.setAttribute('role', 'listbox');
+  const opts = [...sel.options].map((o) => {
+    const li = document.createElement('li');
+    li.className = 'mt-dd-opt';
+    li.setAttribute('role', 'option');
+    li.dataset.value = o.value;
+    li.innerHTML = `<span>${o.textContent}</span>${CHECK}`;
+    list.append(li);
+    return li;
+  });
+  sel.classList.add('mt-dd-native');
+  sel.tabIndex = -1;
+  sel.setAttribute('aria-hidden', 'true');
+  sel.after(wrap);
+  wrap.append(btn, list);
+  let active = 0;
+  const sync = () => {
+    btn.innerHTML = `<span>${sel.options[sel.selectedIndex].textContent}</span>${CHEV}`;
+    opts.forEach((li) => {
+      const on = li.dataset.value === sel.value;
+      li.classList.toggle('is-selected', on);
+      li.setAttribute('aria-selected', on);
+    });
+  };
+  const mark = (i) => { active = (i + opts.length) % opts.length; opts.forEach((li, j) => li.classList.toggle('is-active', j === active)); };
+  const open = () => { wrap.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); mark(sel.selectedIndex); };
+  const close = () => { wrap.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); };
+  const choose = (value) => {
+    if (sel.value !== value) { sel.value = value; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+    sync(); close(); btn.focus();
+  };
+  btn.addEventListener('click', () => (wrap.classList.contains('is-open') ? close() : open()));
+  opts.forEach((li, i) => {
+    li.addEventListener('click', () => choose(li.dataset.value));
+    li.addEventListener('mousemove', () => mark(i));
+  });
+  btn.addEventListener('keydown', (e) => {
+    const isOpen = wrap.classList.contains('is-open');
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!isOpen) open(); else mark(active + (e.key === 'ArrowDown' ? 1 : -1));
+    } else if ((e.key === 'Enter' || e.key === ' ') && isOpen) {
+      e.preventDefault(); choose(opts[active].dataset.value);
+    } else if (e.key === 'Escape') close();
+  });
+  document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) close(); });
+  sel.addEventListener('change', sync);
+  sync();
+})();
