@@ -344,12 +344,3 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }, { rootMargin: '0px 0px -70% 0px' });
   byId.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
 })();
-
-// Контакты: подсветка сегодняшнего дня в графике работы (по владивостокскому времени)
-(() => {
-  const box = document.querySelector('[data-open-hours]');
-  if (!box) return;
-  const wd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Vladivostok', weekday: 'short' }).format(new Date());
-  const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(wd);
-  box.querySelectorAll('.ct-week li')[day]?.classList.add('is-today');
-})();

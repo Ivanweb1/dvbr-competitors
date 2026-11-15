@@ -1332,8 +1332,3 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 .ct-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0; padding: 0; list-style: none; }
 .ct-week li { padding: 6px 0; border-radius: 8px; color: #fff; background: var(--purple); font-size: .78rem; font-weight: 600; text-align: center; }
 .ct-week li.off { color: #8d8b93; background: var(--card); }
-.ct-week li.is-today { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
-.ct-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; color: #8d8b93; background: var(--card); font-size: .7rem; font-style: normal; letter-spacing: .04em; }
-.ct-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.ct-status.is-open { color: #1f9d55; background: rgba(31,157,85,.12); }
-.ct-status[hidden] { display: none; }
