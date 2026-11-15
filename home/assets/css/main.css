@@ -1374,3 +1374,8 @@ body:has(.ph-stage--plain) .header { background: #0e0e12; }
   .art-cta-btns { grid-column: 1 / -1; grid-template-columns: auto auto; justify-content: start; }
 }
 @media (max-width: 640px) { .art-cta-btns { grid-template-columns: 1fr; } }
+
+/* Карточка новости в «Статьях»: метка «Новости» и дата публикации в одну строку */
+.mt-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.mt-meta time { color: var(--grey-text, #6f6e78); font-size: .84rem; font-weight: 500; }
+.mt-card--feat .mt-meta time { color: rgba(255,255,255,.75); }
