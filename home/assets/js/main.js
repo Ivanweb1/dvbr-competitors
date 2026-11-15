@@ -345,18 +345,11 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   byId.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
 })();
 
-// Контакты: «Сейчас открыто / закрыто» по владивостокскому времени (пн–пт 9:00–18:00) и подсветка сегодняшнего дня
+// Контакты: подсветка сегодняшнего дня в графике работы (по владивостокскому времени)
 (() => {
   const box = document.querySelector('[data-open-hours]');
   if (!box) return;
-  const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Vladivostok', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' })
-    .formatToParts(new Date()).reduce((o, p) => (o[p.type] = p.value, o), {});
-  const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(parts.weekday);
-  const mins = +parts.hour * 60 + +parts.minute;
-  const open = day >= 0 && day < 5 && mins >= 540 && mins < 1080;
-  const status = box.querySelector('[data-open-status]');
-  status.textContent = open ? 'Сейчас открыто' : 'Сейчас закрыто';
-  status.classList.toggle('is-open', open);
-  status.hidden = false;
+  const wd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Vladivostok', weekday: 'short' }).format(new Date());
+  const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(wd);
   box.querySelectorAll('.ct-week li')[day]?.classList.add('is-today');
 })();
