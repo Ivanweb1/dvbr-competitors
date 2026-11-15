@@ -1530,3 +1530,19 @@ body.menu-open .header { background: #08080b; backdrop-filter: none; -webkit-bac
 .lg-docs a:hover { color: var(--ink); background: var(--card); }
 .lg-docs a[aria-current="page"] { color: var(--ink); background: var(--card); font-weight: 600; }
 .art-toc + .about-eyebrow { margin-top: 28px; }
+
+/* Шапка закреплена; при прокрутке фон становится сплошным, чтобы читалась над светлыми блоками */
+:root { --head-h: calc(var(--gut) + 14px + 68px + 16px); }
+.b-header { position: fixed; z-index: 40; }
+body.is-scrolled .header { background: rgba(10,10,14,.92); box-shadow: 0 10px 30px rgba(0,0,0,.18); transition: background-color .25s, box-shadow .25s; }
+.header { transition: background-color .25s, box-shadow .25s; }
+[id] { scroll-margin-top: var(--head-h); }
+.prose h2, .fp-group { scroll-margin-top: var(--head-h); }
+.art-aside, .fp-aside { top: var(--head-h); }
+.phone-mockup { top: var(--head-h); }
+@media (max-width: 820px) { :root { --head-h: calc(var(--gut) + 8px + 72px + 12px); } }
+/* Чипы с горизонтальной прокруткой не должны растягивать страницу: внутри .mt-bar ограничиваем ширину */
+.mt-bar { min-width: 0; }
+.mt-bar .mt-chips { min-width: 0; max-width: 100%; }
+@media (max-width: 640px) { .mt-bar { align-items: stretch; } .mt-bar .mt-chips { max-width: none; width: auto; } }
+@media (max-width: 640px) { .mt-bar > .mt-chips { align-self: stretch; width: calc(100% + 2 * var(--side, 0px)); max-width: none; } }

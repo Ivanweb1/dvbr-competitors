@@ -456,3 +456,10 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   sel.addEventListener('change', sync);
   sync();
 })();
+
+// Закреплённая шапка: после начала прокрутки — сплошной фон
+(() => {
+  const set = () => document.body.classList.toggle('is-scrolled', window.scrollY > 24);
+  set();
+  window.addEventListener('scroll', set, { passive: true });
+})();
