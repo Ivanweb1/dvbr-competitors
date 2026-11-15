@@ -1493,3 +1493,33 @@ body.menu-open .header { background: #08080b; backdrop-filter: none; -webkit-bac
 .mt-dd-opt.is-selected { color: #fff; background: var(--purple); }
 .mt-dd-opt.is-selected svg { opacity: 1; }
 @media (max-width: 640px) { .mt-dd, .mt-dd-btn { width: 100%; } .mt-dd-list { left: 0; right: 0; } }
+
+/* Мобильное меню: на весь экран под шапкой, пункты с разделителями, внизу телефоны, мессенджеры и призывы */
+.nav-extra { display: none; }
+@media (max-width: 1120px) {
+  .nav.is-open { position: fixed; z-index: -1; inset: 0; display: flex; flex-direction: column; gap: 0; overflow-y: auto; padding: calc(var(--gut) + 14px + 72px + 20px) calc(var(--gut) + 24px) calc(var(--gut) + 24px); background: #08080b; font-family: var(--title); font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em; text-transform: uppercase; animation: nav-in .22s ease; }
+  .nav.is-open > a { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.1); opacity: 1; }
+  .nav.is-open > a::after { content: ""; flex: none; width: 18px; height: 18px; background: currentColor; opacity: .45; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 11l6-6M6 5h5v5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 11l6-6M6 5h5v5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+  .nav.is-open > a[aria-current="page"] { color: #9d96ee; }
+  .nav.is-open .nav-extra { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 32px; font-family: var(--body, inherit); font-size: 1rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+  .nav-label { color: rgba(255,255,255,.5); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .nav-phone { font-family: var(--title); font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+  .nav-phone--sub { font-size: 1.1rem; color: rgba(255,255,255,.7); }
+  .nav-social { margin: 8px 0 6px; }
+  .nav-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  .nav-cta .btn { min-height: 50px; padding: 12px 14px; font-size: .95rem; }
+  /* Бургер превращается в крестик */
+  .menu-toggle > span:not(.sr-only) { transition: transform .2s, opacity .2s; }
+  .menu-toggle[aria-expanded="true"] > span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] > span:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] > span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+@media (max-width: 420px) { .nav-cta { grid-template-columns: 1fr; } }
+@keyframes nav-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 1120px) {
+  .nav.is-open { padding-top: calc(var(--gut) + 14px + 72px + 12px); font-size: 1.2rem; }
+  .nav.is-open > a { padding: 13px 0; }
+  .nav.is-open .nav-extra { gap: 8px; padding-top: 24px; }
+  .nav-cta { grid-template-columns: 1fr; }
+  .nav-cta .btn { min-height: 52px; font-size: 1rem; }
+}
