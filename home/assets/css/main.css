@@ -1470,3 +1470,8 @@ body.menu-open .header { background: #08080b; backdrop-filter: none; -webkit-bac
   .art-cta h2 { hyphens: auto; -webkit-hyphens: auto; }
   .art-cta-btns { grid-column: auto; grid-template-columns: 1fr; }
 }
+
+/* Контакты: плашки только контуром, все одной высоты */
+.page-contacts .ph-stage--plain .ph-strip { align-items: stretch; }
+.page-contacts .ph-stage--plain .ph-strip .hs-cell { height: auto; border: 1px solid rgba(0,0,0,.12) !important; background: transparent; }
+.page-contacts .ph-stage--plain .ph-strip .ph-phone--sub, .page-contacts .ph-stage--plain .ph-strip .ct-social, .page-contacts .ph-stage--plain .ph-strip .btn--glass { margin-top: 0; }
