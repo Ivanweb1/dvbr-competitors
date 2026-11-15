@@ -41,6 +41,8 @@ document.querySelectorAll('[data-demo-form]').forEach((form) => {
       return;
     }
     if (status) status.textContent = 'Заявка отправлена';
+    // Демо: после отправки формы заявки — страница «Спасибо» (в WordPress — редирект после обработки формы)
+    if (form.matches('.rq-form')) setTimeout(() => { window.location.href = 'spasibo.html'; }, 400);
   });
 });
 
@@ -315,4 +317,30 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   };
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
+})();
+
+// Списки статей и новостей: фильтр по темам
+(() => {
+  const chips = [...document.querySelectorAll('[data-mt-filter]')];
+  if (!chips.length) return;
+  const cards = [...document.querySelectorAll('[data-mt-grid] [data-mt-cat]')];
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    const cat = chip.dataset.mtFilter;
+    chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+    cards.forEach((card) => { card.hidden = !!cat && card.dataset.mtCat !== cat; });
+  }));
+})();
+
+// Материал и политика: подсветка текущего раздела в оглавлении
+(() => {
+  const links = [...document.querySelectorAll('[data-toc-link]')];
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      links.forEach((a) => a.classList.toggle('is-active', a === byId.get(e.target.id)));
+    });
+  }, { rootMargin: '0px 0px -70% 0px' });
+  byId.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
 })();
