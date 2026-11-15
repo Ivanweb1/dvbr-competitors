@@ -1294,3 +1294,15 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 .co-start li > span { flex: none; color: var(--purple); font-weight: 700; font-size: .85rem; line-height: 1.6; }
 .co-start b { display: block; font-size: 1.05rem; line-height: 1.3; }
 .co-start small { display: block; margin-top: 3px; color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.4; }
+/* Первый экран без фото (все внутренние, кроме «О компании»): компактная тёмная карточка, заголовок по центру, лёгкое фиолетовое свечение (15.11) */
+.ph-stage--plain { min-height: 0; padding-top: 136px; background: #0e0e12; }
+.ph-stage--plain::before { background: radial-gradient(ellipse 60% 70% at 50% 0%, rgba(107,98,213,.32), rgba(107,98,213,0) 70%); }
+.ph-stage--plain .ph-strip { margin-top: 28px; background: rgba(255,255,255,.04); }
+.ph-stage--plain h1 { font-size: clamp(1.9rem, 5vw, 5.6rem); }
+.ph-stage--plain.ph-stage--article h1 { font-size: clamp(1.8rem, 3.8vw, 4.2rem); }
+.sys-stage.ph-stage--plain { min-height: calc(100svh - 2 * var(--gut)); }
+.sys-stage.ph-stage--plain::before { background: radial-gradient(ellipse 60% 60% at 50% 30%, rgba(107,98,213,.3), rgba(107,98,213,0) 70%); }
+@media (max-width: 1100px) { .ph-stage--plain::before { background: radial-gradient(ellipse 90% 60% at 50% 0%, rgba(107,98,213,.3), rgba(107,98,213,0) 70%); } }
+@media (max-width: 640px) { .ph-stage--plain { padding-top: 112px; } }
+/* Значки мессенджеров в первом экране и на «Контактах»: только значки, без подписей, ровный шаг */
+.ct-social a { font-size: 0; gap: 0; padding: 0; background: none; }
