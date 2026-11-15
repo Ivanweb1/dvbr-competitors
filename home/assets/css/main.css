@@ -1464,10 +1464,10 @@ body.menu-open .header { background: #08080b; backdrop-filter: none; -webkit-bac
 @media (max-width: 640px) {
   .ph-stage--plain .ph-strip { gap: 16px 28px; }
   .ph-stage--plain .ph-strip .hs-cell { padding: 0; border-left: 0 !important; }
-  .ph-stage--plain h1 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+  .ph-stage--plain h1 { hyphens: manual; -webkit-hyphens: manual; }  /* только ручные переносы (&shy;), автоматические рвали слова в заголовках */
   /* Призыв после статьи: заголовок, под ним описание, ниже кнопки */
   .art-cta { grid-template-columns: 1fr; gap: 16px; }
-  .art-cta h2 { hyphens: auto; -webkit-hyphens: auto; }
+  .art-cta h2 { hyphens: manual; -webkit-hyphens: manual; }
   .art-cta-btns { grid-column: auto; grid-template-columns: 1fr; }
 }
 
