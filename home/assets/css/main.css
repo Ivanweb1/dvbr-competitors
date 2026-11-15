@@ -1312,3 +1312,28 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 .ct-info { grid-template-rows: auto auto auto 1fr; }
 .ct-item--dark { align-content: space-between; }
 @media (max-width: 1000px) { .ct-info { grid-template-rows: none; } }
+/* Контакты v2: фиолетовый адрес, белые карточки с рамкой, иконки, неделя и статус «открыто» */
+.ct-info { gap: 12px; }
+.ct-item { gap: 12px; padding: 22px 24px; }
+.ct-item .hs-label { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0; }
+.ct-big { font-family: var(--title); font-size: clamp(1.3rem, 1.7vw, 1.65rem) !important; font-weight: 800 !important; line-height: 1.15 !important; letter-spacing: -.02em; }
+.ct-item--accent { color: #fff; background: var(--purple); }
+.ct-item--accent .hs-label { opacity: .85; }
+.ct-route { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 9px 14px; border-radius: 999px; color: var(--ink); background: #fff; font-size: .86rem; font-weight: 600; transition: transform .2s; }
+.ct-route:hover { transform: translateY(-2px); }
+.ct-route svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.ct-item--line { border: 1px solid rgba(0,0,0,.1); background: #fff; }
+.ct-how { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.ct-how li { display: flex; align-items: center; gap: 12px; }
+.ct-how i { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 12px; color: var(--purple); background: rgba(107,98,213,.12); }
+.ct-how svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ct-how span { display: grid; color: #6d6b73; font-size: .88rem; line-height: 1.35; }
+.ct-how b { color: var(--ink); font-size: 1rem; }
+.ct-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0; padding: 0; list-style: none; }
+.ct-week li { padding: 6px 0; border-radius: 8px; color: #fff; background: var(--purple); font-size: .78rem; font-weight: 600; text-align: center; }
+.ct-week li.off { color: #8d8b93; background: var(--card); }
+.ct-week li.is-today { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
+.ct-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; color: #8d8b93; background: var(--card); font-size: .7rem; font-style: normal; letter-spacing: .04em; }
+.ct-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ct-status.is-open { color: #1f9d55; background: rgba(31,157,85,.12); }
+.ct-status[hidden] { display: none; }
