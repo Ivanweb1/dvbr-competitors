@@ -1546,3 +1546,13 @@ body.is-scrolled .header { background: rgba(10,10,14,.92); box-shadow: 0 10px 30
 .mt-bar .mt-chips { min-width: 0; max-width: 100%; }
 @media (max-width: 640px) { .mt-bar { align-items: stretch; } .mt-bar .mt-chips { max-width: none; width: auto; } }
 @media (max-width: 640px) { .mt-bar > .mt-chips { align-self: stretch; width: calc(100% + 2 * var(--side, 0px)); max-width: none; } }
+
+/* Материалы со старого сайта (16.11): подзаголовки h3/h4, подписи и широкие таблицы */
+.prose h3 { scroll-margin-top: var(--head-h); margin: 1.8em 0 .6em; color: var(--ink); font-size: clamp(1.15rem, 1.5vw, 1.4rem); font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+.prose h4 { margin: 1.4em 0 .5em; color: var(--ink); font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+.prose h2 + h3 { margin-top: .4em; }
+.art-grid > * { min-width: 0; }
+.prose-table { margin: 1.4em 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.prose-table table { margin: 0; min-width: 520px; }
+.prose-table td:last-child { white-space: normal; }
+.prose .prose-cap { margin: 1.6em 0 -.6em; color: var(--ink); font-weight: 700; }
