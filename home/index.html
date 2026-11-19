@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=133">
+  <link rel="stylesheet" href="assets/css/main.css?v=134">
   <link rel="stylesheet" href="assets/calc/dvbr-calculator.css?v=1">
   <link rel="stylesheet" href="assets/calc/calc-skin.css?v=7">
   <script src="assets/js/main.js?v=25" defer></script>
@@ -192,10 +192,14 @@
           </div>
           <form class="ck-form reveal" action="#" data-demo-form>
             <h3>Отправить на&nbsp;проверку</h3>
-            <label>Марка и модель<input type="text" name="model" autocomplete="off" required></label>
-            <label>Фото шильдика<input type="file" name="plate" accept=".pdf,.jpg,.jpeg,.png,.heic" required></label>
-            <label>Стоимость машины, ¥<input type="text" name="price_cny" inputmode="numeric" autocomplete="off" required></label>
-            <label>Телефон или мессенджер<input type="text" name="contact" autocomplete="tel" required></label>
+            <div class="ck-row">
+              <label>Марка и модель<input type="text" name="model" autocomplete="off" required></label>
+              <label>Стоимость, ¥<input type="text" name="price_cny" inputmode="numeric" autocomplete="off" required></label>
+            </div>
+            <div class="ck-row ck-row--wide">
+              <label>Фото шильдика<input type="file" name="plate" accept=".pdf,.jpg,.jpeg,.png,.heic" required></label>
+              <label>Телефон или мессенджер<input type="text" name="contact" autocomplete="tel" required></label>
+            </div>
             <label class="ck-consent"><input type="checkbox" name="consent" required><span>Я согласен(на) на передачу и обработку <a href="soglasie.html">персональных данных</a> в&nbsp;соответствии с&nbsp;<a href="politika.html">Политикой конфиденциальности</a></span></label>
             <button class="btn" type="submit">Отправить на проверку</button>
             <p class="ck-fine">Проверка бесплатная и ни к чему не обязывает.</p>

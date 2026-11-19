@@ -1576,3 +1576,9 @@ body.modal-open { overflow: hidden; }
 .rq-modal .rq-eyebrow::before { background: var(--purple); }
 .header-actions .btn, .nav > a { white-space: nowrap; }
 @media (max-width: 1279px) { .header-actions .cta-long { display: none; } }
+/* Проверка до покупки: поля по два в строку */
+.ck-form { container-type: inline-size; }
+.ck-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.ck-row label { min-width: 0; }
+.ck-row--wide { grid-template-columns: 1fr; }
+@container (min-width: 460px) { .ck-row--wide { grid-template-columns: 1fr 1fr; } }
