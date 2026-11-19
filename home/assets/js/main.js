@@ -32,6 +32,40 @@ calculator?.addEventListener('submit', (event) => {
   calculatorResult.textContent = 'Расчёт подключим после согласования формул';
 });
 
+// Всплывающая форма заявки: все ссылки на #request открывают окно, а не прокручивают страницу вниз
+const requestModal = (() => {
+  const dlg = document.createElement('dialog');
+  dlg.className = 'rq-modal';
+  dlg.setAttribute('aria-labelledby', 'rq-modal-title');
+  dlg.innerHTML = `
+    <button class="rq-modal-close" type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="rq-eyebrow">Оставить заявку</p>
+    <h2 id="rq-modal-title">Менеджер ответит на&nbsp;любые ваши вопросы</h2>
+    <form class="rq-form rq-form--modal" action="#" data-demo-form>
+      <label class="rq-field">Имя<input type="text" name="name" autocomplete="name" required></label>
+      <label class="rq-field">Телефон<input type="tel" name="phone" autocomplete="tel" required></label>
+      <label class="rq-field">Компания<input type="text" name="company" autocomplete="organization"></label>
+      <label class="rq-field">Машин в месяц<input type="number" name="cars" min="1"></label>
+      <label class="ck-consent rq-consent"><input type="checkbox" name="consent" required><span>Я согласен(на) на передачу и обработку <a href="soglasie.html">персональных данных</a> в&nbsp;соответствии с&nbsp;<a href="politika.html">Политикой конфиденциальности</a></span></label>
+      <button class="btn rq-btn" type="submit">Отправить заявку</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>`;
+  document.body.append(dlg);
+  const close = () => { dlg.close(); };
+  dlg.querySelector('.rq-modal-close').addEventListener('click', close);
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+  dlg.addEventListener('close', () => document.body.classList.remove('modal-open'));
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href$="#request"]');
+    if (!link || typeof dlg.showModal !== 'function') return;
+    e.preventDefault();
+    dlg.showModal();
+    document.body.classList.add('modal-open');
+    dlg.querySelector('input').focus();
+  });
+  return dlg;
+})();
+
 document.querySelectorAll('[data-demo-form]').forEach((form) => {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
