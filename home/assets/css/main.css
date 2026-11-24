@@ -1052,7 +1052,7 @@ html[data-font="unbounded"] .hs-cell strong, html[data-font="oswald"] .hs-cell s
 .hs-cell strong.ph-small { font-size: clamp(1.3rem, 1.8vw, 1.8rem); }
 .ph-phone--sub { font-size: clamp(.95rem, 1.1vw, 1.1rem); opacity: .75; }
 .ct-addr { font-family: var(--title); font-size: clamp(1.05rem, 1.3vw, 1.25rem); font-weight: 700; line-height: 1.2; opacity: 1 !important; }
-.hs-cell .btn--glass { align-self: flex-start; margin-top: 6px; }
+.hs-cell > .btn--glass { align-self: flex-start; margin-top: 6px; }
 .hs-cell.ph-ask { align-items: flex-start; }
 .ct-social { display: flex; flex-wrap: wrap; gap: 8px; }
 .ct-social a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; overflow: hidden; transition: transform .2s; }
